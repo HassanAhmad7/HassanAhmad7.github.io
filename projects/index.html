@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b0f">
+  <meta name="description" content="Project archive for Hassan Ahmad: Unreal Engine virtual production, character animation, interface engineering, lighting tools, and Unity gameplay.">
+  <meta property="og:title" content="Project Archive — Hassan Ahmad">
+  <meta property="og:description" content="Detailed technical project notes from Hassan Ahmad's real-time development portfolio.">
+  <meta property="og:type" content="website">
+  <title>Project Archive — Hassan Ahmad</title>
+  <link rel="icon" href="../assets/portfolio-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="project.css">
+  <script src="../script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <a class="identity" href="../" aria-label="Hassan Ahmad portfolio home">
+      <span class="identity-mark">HA</span>
+      <span class="identity-name">Hassan Ahmad</span>
+    </a>
+    <nav class="nav" aria-label="Project navigation">
+      <a href="#dynamic-media">Media</a>
+      <a href="#avaturn-motion">Animation</a>
+      <a href="#lighting-sequences">Lighting</a>
+    </nav>
+    <a class="availability" href="mailto:hassanahmadofficial1@gmail.com"><span></span> Available for work</a>
+  </header>
+
+  <main id="main">
+    <section class="archive-hero" id="top">
+      <div class="archive-grid" aria-hidden="true"></div>
+      <div class="shell archive-hero-inner">
+        <a class="back-link reveal" href="../">← Portfolio</a>
+        <span class="section-label reveal">Project archive / Hassan Ahmad</span>
+        <h1 class="reveal">Detailed systems.<br><span>Clear outcomes.</span></h1>
+        <p class="reveal">Technical breakdowns of the real-time tools, animation workflows, interfaces, and gameplay projects I helped design and implement.</p>
+      </div>
+    </section>
+
+    <section class="archive-index" aria-label="Project index">
+      <div class="shell archive-index-grid">
+        <a href="#dynamic-media"><span>01</span>Dynamic Media Playback</a>
+        <a href="#avaturn-motion"><span>02</span>Avaturn Motion Matching</a>
+        <a href="#multiplayer-ui"><span>03</span>Multiplayer Game Interface</a>
+        <a href="#lighting-sequences"><span>04</span>Advanced Lighting Sequences</a>
+        <a href="#john-lemon"><span>05</span>Unity John Lemon</a>
+      </div>
+    </section>
+
+    <section class="case-study section" id="dynamic-media">
+      <div class="shell">
+        <div class="case-heading reveal">
+          <div><span class="case-number">01 / 05</span><span class="section-label">Unreal Engine · 2025</span></div>
+          <h2>Dynamic Media Playback<br>in Camera Shots</h2>
+          <p>Real-time media playback on dynamic materials for virtual-production camera shots, built entirely in Blueprints.</p>
+        </div>
+        <div class="case-visual visual-media reveal" aria-hidden="true"><div><span></span><i></i></div></div>
+        <div class="case-content">
+          <div class="case-summary reveal">
+            <span class="section-label">System overview</span>
+            <p>The system automates dynamic video playback on in-world screens, props, and backdrops at runtime. It creates the playback stack when needed and synchronizes the result with live virtual cameras.</p>
+          </div>
+          <div class="case-details reveal">
+            <h3>What the system does</h3>
+            <ul>
+              <li>Creates a Dynamic Material Instance on a sprite or mesh screen.</li>
+              <li>Constructs the Media Player and Media Texture entirely in Blueprints.</li>
+              <li>Binds the video texture to the dynamic material.</li>
+              <li>Loads video from a runtime file path without requiring preloaded assets.</li>
+              <li>Plays media in sync with virtual cameras for cinematic shots.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="case-panels reveal">
+          <article><span>01</span><h3>Virtual production</h3><p>Control the content shown on LED walls or digital signage from the active camera angle or scene logic.</p></article>
+          <article><span>02</span><h3>Reusable setup</h3><p>One modular Blueprint can be duplicated across multiple screens without rebuilding the playback logic.</p></article>
+          <article><span>03</span><h3>Fast content changes</h3><p>Change the video file path before a shot to display new content instantly—without reimporting media or editing materials.</p></article>
+        </div>
+        <div class="use-cases reveal"><span class="section-label">Use cases</span><p>Cinematic cutscenes · In-camera VFX and previs · Virtual concert stages · Storyboard-driven content displays · Real-time visualizers</p></div>
+      </div>
+    </section>
+
+    <section class="case-study section alt" id="avaturn-motion">
+      <div class="shell">
+        <div class="case-heading reveal">
+          <div><span class="case-number">02 / 05</span><span class="section-label">Unreal Engine 5 · 2025</span></div>
+          <h2>Avaturn Integration<br>& Motion Matching</h2>
+          <p>A complete character pipeline covering avatar integration, custom IK, animation retargeting, motion-matched state selection, and geometry-aware traversal.</p>
+        </div>
+        <div class="case-visual visual-rig reveal" aria-hidden="true"><div><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="case-content">
+          <div class="case-summary reveal">
+            <span class="section-label">Character pipeline</span>
+            <p>I integrated a realistic Avaturn character into the project and built the supporting animation systems required to make it production-ready inside Unreal Engine 5.</p>
+          </div>
+          <div class="case-details reveal">
+            <h3>Rigging and retargeting</h3>
+            <ul>
+              <li>Custom Avaturn animation IK Rig and Avaturn-to-UEFN IK Retargeter.</li>
+              <li>IK Goals and Full Body IK solver setup.</li>
+              <li>Manual rotation and root-bone adjustments.</li>
+              <li>An updated version of the Sandbox Character Animation Blueprint adapted for the Avaturn character.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="case-panels reveal">
+          <article><span>01</span><h3>Motion-matched states</h3><p>Shooting, dancing, idle, walk, run, sprint, dash, super jump, and additional locomotion or action states.</p></article>
+          <article><span>02</span><h3>Chooser tables</h3><p>Animation selection and state switching for locomotion, armed movement, and idle variations.</p></article>
+          <article><span>03</span><h3>AI movement</h3><p>Move-to-location behavior bound to a double-click action on the map.</p></article>
+        </div>
+        <div class="feature-callout reveal"><span class="section-label">Improved traversal</span><p>The traversal system does not require tagged blocks or custom traversable actors. It traces the obstacle ahead, calculates its height and distance, and selects the appropriate traversal behavior.</p></div>
+      </div>
+    </section>
+
+    <section class="case-study section" id="multiplayer-ui">
+      <div class="shell">
+        <div class="case-heading reveal">
+          <div><span class="case-number">03 / 05</span><span class="section-label">Unreal Engine 5 · 2025</span></div>
+          <h2>Multiplayer Game<br>Interface</h2>
+          <p>Design and implementation of the interactive interface for Invasion, including UI behavior and the supporting backend logic.</p>
+        </div>
+        <div class="case-visual visual-ui reveal" aria-hidden="true"><div><i></i><i></i><i></i><b>INVASION / UI SYSTEM</b></div></div>
+        <div class="case-content">
+          <div class="case-summary reveal">
+            <span class="section-label">Interface scope</span>
+            <p>The interface brings the multiplayer experience together through clear navigation, configurable controls, player information, and match-facing screens.</p>
+          </div>
+          <div class="case-details reveal">
+            <h3>Implemented areas</h3>
+            <ul>
+              <li>Server browsing and connection pages.</li>
+              <li>Settings and customizable key bindings.</li>
+              <li>Player statistics and options.</li>
+              <li>Training and weapon-loadout screens.</li>
+              <li>In-game player HUD pages.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="feature-callout reveal"><span class="section-label">Engineering contribution</span><p>I implemented the visual design in Unreal Engine 5, built filter behavior and customizable buttons, and connected the interface to the required backend code.</p></div>
+      </div>
+    </section>
+
+    <section class="case-study section alt" id="lighting-sequences">
+      <div class="shell">
+        <div class="case-heading reveal">
+          <div><span class="case-number">04 / 05</span><span class="section-label">Unreal Engine · 2025</span></div>
+          <h2>Advanced Lighting<br>Sequences System</h2>
+          <p>A real-time concert-lighting system for placing fixtures, authoring sequences, controlling performance properties, and previewing complete configurations.</p>
+        </div>
+        <div class="case-visual visual-light reveal" aria-hidden="true"><div><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="case-content">
+          <div class="case-summary reveal">
+            <span class="section-label">Authoring workflow</span>
+            <p>Users can spawn different studio or concert lights, combine them with pre-placed fixtures, select the required lights, and create reusable sequences by adjusting their properties.</p>
+          </div>
+          <div class="case-details reveal">
+            <h3>Sequence actions</h3>
+            <ul>
+              <li>Light On, Beam Light Rotate, and Random Light Moving.</li>
+              <li>Strobe Blink, Laser Spread, and Focus Light behaviors.</li>
+              <li>Beam, point, strobe, and laser light placement.</li>
+              <li>Save, preview, and stop controls for lighting configurations.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="case-panels reveal">
+          <article><span>01</span><h3>Transform controls</h3><p>World/local space placement, initial rotation, vertical and horizontal orientation, and mouse-selected focus locations.</p></article>
+          <article><span>02</span><h3>Beam & focus</h3><p>Distance, intensity, music interaction, rotation loops, and single-point focus control.</p></article>
+          <article><span>03</span><h3>Laser & strobe</h3><p>Laser angle, width, beam count, spread direction and speed, plus strobe timing and intensity.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-study section" id="john-lemon">
+      <div class="shell compact-case">
+        <div class="case-heading reveal">
+          <div><span class="case-number">05 / 05</span><span class="section-label">Unity 3D · 2022</span></div>
+          <h2>Unity<br>John Lemon</h2>
+          <p>A compact Unity gameplay project, preserved here as part of my earlier game-development work.</p>
+        </div>
+        <div class="case-visual visual-unity reveal" aria-hidden="true"><div><i></i><i></i><i></i><span>JL</span></div></div>
+        <div class="feature-callout reveal"><span class="section-label">Archive note</span><p>The original project was presented as a video demonstration without an accompanying technical write-up. This portfolio keeps the available project record accurate: Unity 3D, game development, and gameplay presentation.</p></div>
+      </div>
+    </section>
+
+    <section class="archive-cta section">
+      <div class="shell contact-panel reveal">
+        <span class="section-label">Featured technical case study</span>
+        <h2>See the full<br>DirectSplat pipeline.</h2>
+        <div class="contact-bottom"><p>A one-click Unreal Engine-to-web environment conversion system designed and developed by Hassan Ahmad.</p><a class="contact-email" href="../directsplat/">Open DirectSplat <span>↗</span></a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-top">
+      <div><span class="identity-mark">HA</span><p>Hassan Ahmad<br>Unreal Engine Developer</p></div>
+      <div class="footer-links"><a href="../">Portfolio ↗</a><a href="https://github.com/HassanAhmad7" target="_blank" rel="noreferrer">GitHub ↗</a><a href="mailto:hassanahmadofficial1@gmail.com">Email ↗</a></div>
+    </div>
+    <div class="shell footer-bottom"><span>© <span data-year></span> Hassan Ahmad</span><span>Project archive</span><a href="#top">Back to top ↑</a></div>
+  </footer>
+</body>
+</html>
