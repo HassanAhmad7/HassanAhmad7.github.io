@@ -1,6 +1,6 @@
 # Hassan Ahmad — Portfolio
 
-Static portfolio website for `https://hassanahmad.github.io`.
+Static portfolio website for `https://hassanahmad7.github.io`.
 
 ## Structure
 
