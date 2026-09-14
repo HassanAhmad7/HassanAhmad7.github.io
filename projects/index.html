@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080b0f">
-  <meta name="description" content="Project archive for Hassan Ahmad: Unreal Engine virtual production, AI cinematography, character animation, lighting tools, and Unity gameplay.">
+  <meta name="description" content="Project archive for Hassan Ahmad: Unreal Engine virtual production, AI cinematography, AI Blueprint generation, character animation, and lighting tools.">
   <meta property="og:title" content="Project Archive — Hassan Ahmad">
   <meta property="og:description" content="Detailed technical project notes from Hassan Ahmad's real-time development portfolio.">
   <meta property="og:type" content="website">
@@ -50,7 +50,7 @@
         <a href="#avaturn-motion"><span>02</span>Avaturn Motion Matching</a>
         <a href="#cinematic-ai"><span>03</span>CinematicAI</a>
         <a href="#lighting-sequences"><span>04</span>Advanced Lighting Sequences</a>
-        <a href="#john-lemon"><span>05</span>Unity John Lemon</a>
+        <a href="#ai-blueprint"><span>05</span>AI Blueprint Generator</a>
       </div>
     </section>
 
@@ -183,15 +183,36 @@
       </div>
     </section>
 
-    <section class="case-study section" id="john-lemon">
-      <div class="shell compact-case">
+    <section class="case-study section" id="ai-blueprint">
+      <div class="shell">
         <div class="case-heading reveal">
-          <div><span class="case-number">05 / 05</span><span class="section-label">Unity 3D · 2022</span></div>
-          <h2>Unity<br>John Lemon</h2>
-          <p>A compact Unity gameplay project, preserved here as part of my earlier game-development work.</p>
+          <div><span class="case-number">05 / 05</span><span class="section-label">Unreal Engine 5.7 · 2026</span></div>
+          <h2>AI Blueprint<br>Generator</h2>
+          <p>An Unreal Engine editor plugin that converts natural-language descriptions into real Blueprint assets and executable visual logic.</p>
         </div>
-        <div class="case-visual visual-unity reveal" aria-hidden="true"><div><i></i><i></i><i></i><span>JL</span></div></div>
-        <div class="feature-callout reveal"><span class="section-label">Archive note</span><p>The original project was presented as a video demonstration without an accompanying technical write-up. This portfolio keeps the available project record accurate: Unity 3D, game development, and gameplay presentation.</p></div>
+        <div class="case-visual visual-blueprint reveal" aria-hidden="true"><div><i></i><i></i><i></i><span></span><b></b><em></em></div></div>
+        <div class="case-content">
+          <div class="case-summary reveal">
+            <span class="section-label">From intent to asset</span>
+            <p>A user describes the gameplay system they need. The AI expands that intent into a grounded two-phase plan, while the Unreal bridge creates the Blueprint structure first and its connected logic second.</p>
+          </div>
+          <div class="case-details reveal">
+            <h3>Generated inside Unreal</h3>
+            <ul>
+              <li>Actor, Pawn, or Character Blueprint assets with the requested parent class.</li>
+              <li>Component hierarchies using Unreal's Simple Construction Script.</li>
+              <li>Typed variables, arrays, default values, and reflected component properties.</li>
+              <li>Event Graph nodes with inspected pins, configured values, and validated connections.</li>
+              <li>Functions with inputs, outputs, internal nodes, entry/result wiring, and pure-function support.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="case-panels reveal">
+          <article><span>01</span><h3>Grounded planning</h3><p>Blueprint-specific prompts, Unreal node aliases, and API context constrain generation to supported engine types and graph operations.</p></article>
+          <article><span>02</span><h3>Two-phase execution</h3><p>Structure is created before logic so the second phase can use the actual components, variables, functions, and graph state.</p></article>
+          <article><span>03</span><h3>Recoverable workflow</h3><p>Each command returns structured success or error data, nodes are tracked by GUID, and the most recent generated batch can be undone.</p></article>
+        </div>
+        <div class="feature-callout reveal"><span class="section-label">Technical architecture</span><p>The plugin combines Gemini planning, a Python WebSocket server, reflected C++ editor APIs, JSON command execution, Kismet compilation, graph inspection, pin-level wiring, and Blueprint-native output.</p></div>
       </div>
     </section>
 
