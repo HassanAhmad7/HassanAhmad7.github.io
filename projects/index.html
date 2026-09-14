@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080b0f">
-  <meta name="description" content="Project archive for Hassan Ahmad: Unreal Engine virtual production, character animation, interface engineering, lighting tools, and Unity gameplay.">
+  <meta name="description" content="Project archive for Hassan Ahmad: Unreal Engine virtual production, AI cinematography, character animation, lighting tools, and Unity gameplay.">
   <meta property="og:title" content="Project Archive — Hassan Ahmad">
   <meta property="og:description" content="Detailed technical project notes from Hassan Ahmad's real-time development portfolio.">
   <meta property="og:type" content="website">
@@ -48,7 +48,7 @@
       <div class="shell archive-index-grid">
         <a href="#dynamic-media"><span>01</span>Dynamic Media Playback</a>
         <a href="#avaturn-motion"><span>02</span>Avaturn Motion Matching</a>
-        <a href="#multiplayer-ui"><span>03</span>Multiplayer Game Interface</a>
+        <a href="#cinematic-ai"><span>03</span>CinematicAI</a>
         <a href="#lighting-sequences"><span>04</span>Advanced Lighting Sequences</a>
         <a href="#john-lemon"><span>05</span>Unity John Lemon</a>
       </div>
@@ -119,31 +119,36 @@
       </div>
     </section>
 
-    <section class="case-study section" id="multiplayer-ui">
+    <section class="case-study section" id="cinematic-ai">
       <div class="shell">
         <div class="case-heading reveal">
-          <div><span class="case-number">03 / 05</span><span class="section-label">Unreal Engine 5 · 2025</span></div>
-          <h2>Multiplayer Game<br>Interface</h2>
-          <p>Design and implementation of the interactive interface for Invasion, including UI behavior and the supporting backend logic.</p>
+          <div><span class="case-number">03 / 05</span><span class="section-label">Unreal Engine 5.7 · 2026</span></div>
+          <h2>CinematicAI<br>Agentic Director</h2>
+          <p>An Unreal Engine editor plugin that translates creative intent and live scene context into structured, editable cinematography.</p>
         </div>
-        <div class="case-visual visual-ui reveal" aria-hidden="true"><div><i></i><i></i><i></i><b>INVASION / UI SYSTEM</b></div></div>
+        <div class="case-visual visual-cinematic reveal" aria-hidden="true"><div><i></i><i></i><i></i><span><b></b></span><em></em></div></div>
         <div class="case-content">
           <div class="case-summary reveal">
-            <span class="section-label">Interface scope</span>
-            <p>The interface brings the multiplayer experience together through clear navigation, configurable controls, player information, and match-facing screens.</p>
+            <span class="section-label">System overview</span>
+            <p>CinematicAI connects an agentic director workflow to Unreal Engine. A director supplies a prompt and scene subjects; the system packages spatial context, requests a camera plan, and turns the structured response into real Sequencer assets.</p>
           </div>
           <div class="case-details reveal">
-            <h3>Implemented areas</h3>
+            <h3>Automated pipeline</h3>
             <ul>
-              <li>Server browsing and connection pages.</li>
-              <li>Settings and customizable key bindings.</li>
-              <li>Player statistics and options.</li>
-              <li>Training and weapon-loadout screens.</li>
-              <li>In-game player HUD pages.</li>
+              <li>Collects boundaries, transforms, characters, meshes, and subject bone data from the scene.</li>
+              <li>Sends creative direction and structured scene context to Gemini, including optional audio input.</li>
+              <li>Parses generated shot plans, camera rigs, look-at targets, follow targets, and keyframes.</li>
+              <li>Creates CineCamera actors and writes transforms, focal length, aperture, focus distance, and camera shake into Sequencer.</li>
+              <li>Builds individual shots and assembles them into timed master Level Sequences.</li>
             </ul>
           </div>
         </div>
-        <div class="feature-callout reveal"><span class="section-label">Engineering contribution</span><p>I implemented the visual design in Unreal Engine 5, built filter behavior and customizable buttons, and connected the interface to the required backend code.</p></div>
+        <div class="case-panels reveal">
+          <article><span>01</span><h3>Scene-aware direction</h3><p>Primary and secondary characters or meshes are described with world bounds, transforms, facing information, and selected skeletal reference points.</p></article>
+          <article><span>02</span><h3>Camera intelligence</h3><p>Custom free, follow, and look-at rigs support weighted subjects, smooth composition damping, and 3D environment-query camera positions.</p></article>
+          <article><span>03</span><h3>Editable results</h3><p>The output remains native to Unreal: cameras, bindings, tracks, keyframes, sub-sequences, and a master shot timeline can all be refined by an artist.</p></article>
+        </div>
+        <div class="feature-callout reveal"><span class="section-label">Technical architecture</span><p>The system combines an Unreal Editor interface, C++ Blueprint libraries, a WebSocket command bridge, Python Sequencer automation, JSON scene exchange, and asynchronous Gemini requests in one production workflow.</p></div>
       </div>
     </section>
 
