@@ -270,9 +270,6 @@ h1 span {
 .featured-copy p, .project-info p { color: var(--muted); }
 .tag-list { display: flex; flex-wrap: wrap; gap: 7px; margin: 26px 0 0; padding: 0; list-style: none; }
 .tag-list li { padding: 6px 10px; color: #b2bdc5; border: 1px solid var(--line); border-radius: 100px; font-size: 11px; }
-.text-link { display: inline-flex; align-items: center; gap: 10px; width: max-content; margin-top: 42px; padding-bottom: 4px; border-bottom: 1px solid var(--cyan); font-size: 13px; font-weight: 600; }
-.text-link span { color: var(--cyan); }
-
 .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 24px; }
 .project-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
 .project-wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1.1fr .9fr; }
