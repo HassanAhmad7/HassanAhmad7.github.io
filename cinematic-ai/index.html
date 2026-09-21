@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070a0e">
+  <meta name="description" content="CinematicAI is Hassan Ahmad's Unreal Engine 5.7 agentic director system for generating editable cameras, shots, and Level Sequences from creative intent and live scene context.">
+  <meta property="og:title" content="CinematicAI — Agentic Director">
+  <meta property="og:description" content="From creative direction and scene context to native, editable Unreal Engine cinematography.">
+  <meta property="og:type" content="website">
+  <title>CinematicAI — Agentic Director</title>
+  <link rel="icon" href="../assets/portfolio-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../case-study.css">
+  <script src="../script.js" defer></script>
+</head>
+<body class="cinematic">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="CinematicAI home"><span class="brand-mark">CAI</span><span>CinematicAI</span></a>
+    <nav class="nav" aria-label="Project navigation"><a href="#overview">Overview</a><a href="#system">System</a><a href="#engineering">Engineering</a><a href="#result">Result</a></nav>
+    <a class="header-cta" href="../">Hassan Ahmad · Portfolio <span>↖</span></a>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-grid" aria-hidden="true"></div><div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-visual" aria-hidden="true"><div class="visual-frame"><i></i><i></i><i></i><b></b><span></span></div></div>
+      <div class="hero-content shell">
+        <div class="eyebrow reveal">Unreal Engine 5.7 · AI cinematography</div>
+        <h1 class="reveal">Creative intent.<br><span>Editable cinematography.</span></h1>
+        <p class="hero-lede reveal">CinematicAI is an agentic director inside Unreal Engine. It understands the live scene, interprets a creative brief, and produces real cameras, shot timing, keyframes, and a master Level Sequence that artists can continue editing.</p>
+        <div class="hero-actions reveal"><a class="button button-primary" href="#system">Explore the system <span>↓</span></a><a class="button button-secondary" href="#engineering">Technical architecture</a></div>
+      </div>
+      <div class="hero-meta shell reveal" aria-label="Project summary">
+        <div><span class="meta-label">Role</span><strong>Lead development</strong></div>
+        <div><span class="meta-label">Engine</span><strong>Unreal Engine 5.7</strong></div>
+        <div><span class="meta-label">Output</span><strong>Native Sequencer assets</strong></div>
+        <div><span class="meta-label">Direction</span><strong>Prompt + scene context</strong></div>
+      </div>
+    </section>
+
+    <section class="overview section" id="overview">
+      <div class="shell overview-grid">
+        <span class="section-index reveal">01 / Overview</span>
+        <div><p class="display-copy reveal">A director describes the moment. The system turns that intent into a structured, production-ready shot plan.</p><div class="overview-detail reveal"><p>Manual camera setup requires repeated framing, timing, track creation, and sequence assembly. CinematicAI brings those steps into one scene-aware workflow while keeping the result native to Unreal.</p><p>The generated output is not a flattened video. Artists receive editable CineCamera actors, camera properties, bindings, tracks, keyframes, individual shots, and a master timeline.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="system">
+      <div class="shell">
+        <div class="section-heading reveal"><div><span class="section-index">02 / Core capabilities</span><h2>Scene intelligence meets camera craft.</h2></div><p>The director workflow combines creative input with the actual spatial structure of the Unreal level.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card reveal"><span class="feature-number">01</span><h3>Context collection</h3><p>Packages actor transforms, bounds, characters, meshes, subject orientation, and selected skeletal reference points into structured scene data.</p></article>
+          <article class="feature-card reveal"><span class="feature-number">02</span><h3>Camera planning</h3><p>Generates shot intent, camera rigs, target relationships, timing, lens choices, focus behavior, and optional audio-informed direction.</p></article>
+          <article class="feature-card reveal"><span class="feature-number">03</span><h3>Sequencer build</h3><p>Creates cameras and writes transform, focal length, aperture, focus distance, camera shake, shot tracks, and master sequence timing.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="workflow section">
+      <div class="shell">
+        <div class="section-heading reveal"><div><span class="section-index">03 / Workflow</span><h2>From brief to timeline.</h2></div><p>Every stage moves structured information forward, so the final sequence remains traceable and editable.</p></div>
+        <div class="workflow-list reveal">
+          <article class="workflow-step"><span>01</span><h3>Direct</h3><p>Provide the creative prompt, choose primary and secondary subjects, and optionally include audio.</p></article>
+          <article class="workflow-step"><span>02</span><h3>Understand</h3><p>Read world bounds, facing information, transforms, geometry, and subject reference points.</p></article>
+          <article class="workflow-step"><span>03</span><h3>Plan</h3><p>Generate structured shots, camera behaviors, targets, composition logic, and timing.</p></article>
+          <article class="workflow-step"><span>04</span><h3>Build</h3><p>Create native camera actors, shot sequences, keyframes, bindings, and the master edit.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="engineering">
+      <div class="shell">
+        <div class="section-heading reveal"><div><span class="section-index">04 / Engineering</span><h2>A connected editor automation stack.</h2></div><p>The implementation bridges AI planning and Unreal's production systems without hiding the assets artists need.</p></div>
+        <div class="engineering-grid">
+          <article class="engineering-card reveal"><span class="card-label">Editor experience</span><h3>Direction stays inside Unreal</h3><p>An Unreal Editor interface manages prompts, subjects, context collection, generation, and the resulting sequence workflow.</p></article>
+          <article class="engineering-card reveal"><span class="card-label">Agent bridge</span><h3>Structured command exchange</h3><p>A WebSocket bridge and JSON scene format connect the editor workflow to asynchronous Gemini planning.</p></article>
+          <article class="engineering-card reveal"><span class="card-label">Camera rigs</span><h3>Free, follow, and look-at behavior</h3><p>Custom rigs support weighted subjects, smooth composition damping, and environment-query camera positioning.</p></article>
+          <article class="engineering-card reveal"><span class="card-label">Automation</span><h3>C++ and Python Sequencer control</h3><p>Blueprint libraries and Python automation create cameras, tracks, keys, sub-sequences, and a finished master timeline.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="result" id="result"><div class="shell result-content"><span class="section-index reveal">05 / Result</span><h2 class="reveal">AI-directed shots.<br><span>Artist-owned output.</span></h2><p class="reveal">The system accelerates first-pass cinematography while preserving full creative control. Every generated camera and sequence remains available for review, refinement, and production use inside Unreal Engine.</p></div></section>
+
+    <section class="section"><div class="shell stack-grid"><div><span class="section-index reveal">06 / Technology</span><h2 class="reveal">Built across the Unreal toolchain.</h2></div><div class="stack-list reveal"><span>Unreal Engine 5.7</span><span>C++</span><span>Python</span><span>Blueprint libraries</span><span>Sequencer</span><span>CineCamera</span><span>Gemini</span><span>WebSockets</span><span>JSON</span><span>Environment Query System</span></div></div></section>
+    <section class="next-project"><div class="shell"><a class="next-link" href="../ai-blueprint/"><span><small>Next project</small><strong>AI Blueprint Generator</strong></span><b>↗</b></a></div></section>
+  </main>
+
+  <footer class="footer"><div class="shell footer-grid"><div><a class="brand" href="#top"><span class="brand-mark">HA</span><span>Hassan Ahmad</span></a><p>Unreal Engine developer and systems programmer.</p></div><div class="footer-role"><span>Project</span><strong>CinematicAI</strong><span>Agentic director</span></div><div class="footer-links"><a href="../">Portfolio ↗</a><a href="../projects/">Project archive ↗</a><a href="mailto:hassanahmadofficial1@gmail.com">Email ↗</a></div></div><div class="shell footer-bottom"><span>© <span data-year></span> Hassan Ahmad</span><a href="#top">Back to top ↑</a></div></footer>
+</body>
+</html>

@@ -324,10 +324,6 @@ h1 span {
 .blueprint-graph::before, .blueprint-graph::after, .blueprint-graph em { content: ""; position: absolute; z-index: 1; height: 1px; background: linear-gradient(90deg, var(--cyan), rgba(118, 231, 255, .15)); transform-origin: left; }
 .blueprint-graph::before { top: 31%; left: 33%; width: 35%; transform: rotate(19deg); }.blueprint-graph::after { top: 64%; left: 30%; width: 25%; transform: rotate(-12deg); }.blueprint-graph em { top: 44%; left: 55%; width: 28%; transform: rotate(-28deg); }
 
-.all-work { display: flex; align-items: center; justify-content: space-between; margin-top: 24px; padding: 28px 32px; border: 1px solid var(--line); border-radius: var(--radius); font-family: "Space Grotesk", sans-serif; font-size: 18px; transition: background .25s ease, border-color .25s ease; }
-.all-work:hover { background: rgba(118, 231, 255, .05); border-color: rgba(118, 231, 255, .35); }
-.all-work strong { color: var(--cyan); font-size: 23px; }
-
 .expertise { border-block: 1px solid var(--line); background: var(--bg-soft); }
 .expertise-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 110px; }
 .expertise-intro { position: sticky; top: 110px; align-self: start; }

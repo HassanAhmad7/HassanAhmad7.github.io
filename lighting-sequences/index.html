@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070a0e">
+  <meta name="description" content="Advanced Lighting Sequences is Hassan Ahmad's Unreal Engine concert-lighting toolkit for authoring, controlling, previewing, and saving reusable lighting performances.">
+  <meta property="og:title" content="Advanced Lighting Sequences — Unreal Engine">
+  <meta property="og:description" content="A real-time concert-lighting authoring system for fixtures, beams, strobes, lasers, focus targets, and reusable sequences.">
+  <meta property="og:type" content="website">
+  <title>Advanced Lighting Sequences — Unreal Engine</title>
+  <link rel="icon" href="../assets/portfolio-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../case-study.css">
+  <script src="../script.js" defer></script>
+</head>
+<body class="lighting">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="Advanced Lighting Sequences home"><span class="brand-mark">ALS</span><span>Lighting Sequences</span></a>
+    <nav class="nav" aria-label="Project navigation"><a href="#overview">Overview</a><a href="#system">System</a><a href="#engineering">Controls</a><a href="#result">Result</a></nav>
+    <a class="header-cta" href="../">Hassan Ahmad · Portfolio <span>↖</span></a>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-grid" aria-hidden="true"></div><div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-visual" aria-hidden="true"><div class="visual-frame"><i></i><i></i><i></i><b></b><span></span></div></div>
+      <div class="hero-content shell">
+        <div class="eyebrow reveal">Unreal Engine · Real-time creative tooling</div>
+        <h1 class="reveal">Design the lights.<br><span>Perform the sequence.</span></h1>
+        <p class="hero-lede reveal">Advanced Lighting Sequences is a complete Unreal Engine toolkit for placing fixtures, authoring reusable lighting behaviors, controlling beams, strobes, lasers and focus targets, then previewing and saving the full configuration.</p>
+        <div class="hero-actions reveal"><a class="button button-primary" href="#system">Explore the system <span>↓</span></a><a class="button button-secondary" href="#engineering">Lighting controls</a></div>
+      </div>
+      <div class="hero-meta shell reveal" aria-label="Project summary">
+        <div><span class="meta-label">Role</span><strong>Systems development</strong></div>
+        <div><span class="meta-label">Engine</span><strong>Unreal Engine</strong></div>
+        <div><span class="meta-label">Use</span><strong>Concert + studio lighting</strong></div>
+        <div><span class="meta-label">Workflow</span><strong>Author · preview · save</strong></div>
+      </div>
+    </section>
+
+    <section class="overview section" id="overview">
+      <div class="shell overview-grid">
+        <span class="section-index reveal">01 / Overview</span>
+        <div><p class="display-copy reveal">A lighting workspace where fixtures, motion, timing, and performance controls become reusable sequences.</p><div class="overview-detail reveal"><p>Users can spawn different studio or concert lights, combine them with pre-placed fixtures, select the lights that belong to a performance, and define their behavior through a focused control interface.</p><p>The system supports quick experimentation without losing the final setup. Configurations can be previewed as a whole, stopped for adjustment, and saved for reuse.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="system">
+      <div class="shell">
+        <div class="section-heading reveal"><div><span class="section-index">02 / Authoring system</span><h2>From fixture placement to synchronized behavior.</h2></div><p>The toolkit brings multiple light types and performance actions into one consistent sequence-authoring workflow.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card reveal"><span class="feature-number">01</span><h3>Place fixtures</h3><p>Spawn beam, point, strobe, and laser lights or bring existing fixtures into the authored configuration.</p></article>
+          <article class="feature-card reveal"><span class="feature-number">02</span><h3>Design behavior</h3><p>Create actions such as Light On, Beam Light Rotate, Random Light Moving, Strobe Blink, Laser Spread, and Focus Light.</p></article>
+          <article class="feature-card reveal"><span class="feature-number">03</span><h3>Preview and save</h3><p>Run the complete configuration in real time, stop it for changes, and save reusable lighting sequences.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="workflow section">
+      <div class="shell">
+        <div class="section-heading reveal"><div><span class="section-index">03 / Workflow</span><h2>A direct path from setup to show.</h2></div><p>Each step keeps creative iteration fast while retaining control over the individual lights.</p></div>
+        <div class="workflow-list reveal">
+          <article class="workflow-step"><span>01</span><h3>Spawn</h3><p>Add the fixture types required by the studio scene, concert stage, or real-time experience.</p></article>
+          <article class="workflow-step"><span>02</span><h3>Select</h3><p>Choose one or multiple lights and establish the group that receives the sequence behavior.</p></article>
+          <article class="workflow-step"><span>03</span><h3>Configure</h3><p>Adjust transforms, focus, intensity, movement, timing, spread, and music interaction.</p></article>
+          <article class="workflow-step"><span>04</span><h3>Perform</h3><p>Preview the sequence, stop and refine the setup, then save the finished configuration.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="engineering">
+      <div class="shell">
+        <div class="section-heading reveal"><div><span class="section-index">04 / Controls</span><h2>Detailed control for every performance layer.</h2></div><p>Shared authoring patterns make different fixture behaviors feel like parts of the same lighting system.</p></div>
+        <div class="engineering-grid">
+          <article class="engineering-card reveal"><span class="card-label">Placement</span><h3>World and local transforms</h3><p>Configure placement space, initial rotation, vertical orientation, horizontal orientation, and selected focus locations.</p></article>
+          <article class="engineering-card reveal"><span class="card-label">Beam + focus</span><h3>Direct and animated light</h3><p>Control distance, intensity, music interaction, rotation loops, and single-point focus behavior.</p></article>
+          <article class="engineering-card reveal"><span class="card-label">Laser</span><h3>Shape the spread</h3><p>Adjust laser angle, width, beam count, spread direction, and movement speed for different visual patterns.</p></article>
+          <article class="engineering-card reveal"><span class="card-label">Strobe</span><h3>Time the pulse</h3><p>Author blink timing and intensity while coordinating the effect with the rest of the real-time sequence.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="result" id="result"><div class="shell result-content"><span class="section-index reveal">05 / Result</span><h2 class="reveal">One tool for<br><span>repeatable live looks.</span></h2><p class="reveal">The system turns a collection of independent Unreal lights into an authored performance layer—faster to build, easier to preview, and practical to reuse across concert, studio, and virtual-production scenes.</p></div></section>
+
+    <section class="section"><div class="shell stack-grid"><div><span class="section-index reveal">06 / Capability set</span><h2 class="reveal">A complete real-time lighting toolkit.</h2></div><div class="stack-list reveal"><span>Unreal Engine</span><span>Blueprints</span><span>Sequence authoring</span><span>Beam lights</span><span>Point lights</span><span>Strobes</span><span>Lasers</span><span>Focus targets</span><span>Transform controls</span><span>Music interaction</span><span>Saved configurations</span></div></div></section>
+    <section class="next-project"><div class="shell"><a class="next-link" href="../directsplat/"><span><small>Featured project</small><strong>DirectSplat</strong></span><b>↗</b></a></div></section>
+  </main>
+
+  <footer class="footer"><div class="shell footer-grid"><div><a class="brand" href="#top"><span class="brand-mark">HA</span><span>Hassan Ahmad</span></a><p>Unreal Engine developer and systems programmer.</p></div><div class="footer-role"><span>Project</span><strong>Advanced Lighting Sequences</strong><span>Creative tooling</span></div><div class="footer-links"><a href="../">Portfolio ↗</a><a href="../projects/">Project archive ↗</a><a href="mailto:hassanahmadofficial1@gmail.com">Email ↗</a></div></div><div class="shell footer-bottom"><span>© <span data-year></span> Hassan Ahmad</span><a href="#top">Back to top ↑</a></div></footer>
+</body>
+</html>

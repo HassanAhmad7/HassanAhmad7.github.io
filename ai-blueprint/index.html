@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070a0e">
+  <meta name="description" content="AI Blueprint Generator is Hassan Ahmad's Unreal Engine 5.7 plugin for turning natural-language requests into compiled Blueprint assets and connected visual logic.">
+  <meta property="og:title" content="AI Blueprint Generator — Unreal Engine">
+  <meta property="og:description" content="Natural-language intent transformed into native Blueprint structure, functions, and executable graph logic.">
+  <meta property="og:type" content="website">
+  <title>AI Blueprint Generator — Unreal Engine</title>
+  <link rel="icon" href="../assets/portfolio-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../case-study.css">
+  <script src="../script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="AI Blueprint Generator home"><span class="brand-mark">AI</span><span>Blueprint Generator</span></a>
+    <nav class="nav" aria-label="Project navigation"><a href="#overview">Overview</a><a href="#system">System</a><a href="#engineering">Engineering</a><a href="#result">Result</a></nav>
+    <a class="header-cta" href="../">Hassan Ahmad · Portfolio <span>↖</span></a>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-grid" aria-hidden="true"></div><div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-visual" aria-hidden="true"><div class="visual-frame"><i></i><i></i><i></i><b></b><span></span></div></div>
+      <div class="hero-content shell">
+        <div class="eyebrow reveal">Unreal Engine 5.7 · AI editor tooling</div>
+        <h1 class="reveal">Describe the system.<br><span>Generate the Blueprint.</span></h1>
+        <p class="hero-lede reveal">An Unreal Engine editor plugin that translates natural-language requests into real Blueprint assets—with components, typed variables, functions, Event Graph nodes, pin-level connections, compilation, and a recoverable generation workflow.</p>
+        <div class="hero-actions reveal"><a class="button button-primary" href="#system">Explore the pipeline <span>↓</span></a><a class="button button-secondary" href="#engineering">Technical architecture</a></div>
+      </div>
+      <div class="hero-meta shell reveal" aria-label="Project summary">
+        <div><span class="meta-label">Role</span><strong>Plugin developer</strong></div>
+        <div><span class="meta-label">Engine</span><strong>Unreal Engine 5.7</strong></div>
+        <div><span class="meta-label">Input</span><strong>Natural language</strong></div>
+        <div><span class="meta-label">Output</span><strong>Compiled Blueprints</strong></div>
+      </div>
+    </section>
+
+    <section class="overview section" id="overview">
+      <div class="shell overview-grid">
+        <span class="section-index reveal">01 / Overview</span>
+        <div><p class="display-copy reveal">A generation system grounded in the Blueprint APIs it can actually execute.</p><div class="overview-detail reveal"><p>The user describes the gameplay or actor behavior they need. The system expands that intent into a structured plan built around supported Unreal types, node aliases, component classes, and graph operations.</p><p>Instead of returning sample code, the plugin creates Blueprint-native assets directly in the editor. The result can be opened, inspected, compiled, revised, and continued by a developer.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="system">
+      <div class="shell">
+        <div class="section-heading reveal"><div><span class="section-index">02 / Generated assets</span><h2>Structure and logic, built together.</h2></div><p>The bridge exposes the operations required to move from an empty asset to an executable visual system.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card reveal"><span class="feature-number">01</span><h3>Blueprint structure</h3><p>Creates Actor, Pawn, or Character assets, component hierarchies, typed variables, arrays, default values, and reflected properties.</p></article>
+          <article class="feature-card reveal"><span class="feature-number">02</span><h3>Visual logic</h3><p>Adds Event Graph nodes, inspects pins, configures defaults, resolves node classes, and connects execution or data paths.</p></article>
+          <article class="feature-card reveal"><span class="feature-number">03</span><h3>Functions</h3><p>Creates functions with inputs, outputs, internal nodes, entry/result wiring, graph connections, and pure-function support.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="workflow section">
+      <div class="shell">
+        <div class="section-heading reveal"><div><span class="section-index">03 / Generation workflow</span><h2>Plan first. Execute with context.</h2></div><p>A two-phase approach ensures graph logic is generated against the structure that now exists in the Blueprint.</p></div>
+        <div class="workflow-list reveal">
+          <article class="workflow-step"><span>01</span><h3>Request</h3><p>Interpret the user's goal and identify the asset type, components, data, functions, and behavior required.</p></article>
+          <article class="workflow-step"><span>02</span><h3>Build structure</h3><p>Create the Blueprint, add components and variables, configure defaults, and establish function signatures.</p></article>
+          <article class="workflow-step"><span>03</span><h3>Build logic</h3><p>Inspect the current graph state, add nodes, set pins or properties, and connect valid execution and data paths.</p></article>
+          <article class="workflow-step"><span>04</span><h3>Validate</h3><p>Compile and refresh the asset, return structured results, and preserve generated node GUIDs for undo.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="engineering">
+      <div class="shell">
+        <div class="section-heading reveal"><div><span class="section-index">04 / Engineering</span><h2>An AI layer with explicit engine controls.</h2></div><p>The generation model plans the work; reflected C++ editor APIs remain responsible for changing Unreal assets.</p></div>
+        <div class="engineering-grid">
+          <article class="engineering-card reveal"><span class="card-label">Planning</span><h3>Blueprint-grounded prompting</h3><p>Gemini receives supported API context, Unreal type information, and node aliases so plans align with executable editor operations.</p></article>
+          <article class="engineering-card reveal"><span class="card-label">Transport</span><h3>Python WebSocket server</h3><p>A structured command channel coordinates requests, phase execution, responses, and error reporting between the AI workflow and Unreal.</p></article>
+          <article class="engineering-card reveal"><span class="card-label">Editor bridge</span><h3>Reflected C++ APIs</h3><p>Blueprint libraries expose asset creation, graph discovery, component and variable operations, node configuration, wiring, and compilation.</p></article>
+          <article class="engineering-card reveal"><span class="card-label">Recovery</span><h3>Inspectable and undoable output</h3><p>Commands return structured success or error data, generated nodes retain GUIDs, and the latest generated batch can be removed safely.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="result" id="result"><div class="shell result-content"><span class="section-index reveal">05 / Result</span><h2 class="reveal">From a sentence<br><span>to an editable system.</span></h2><p class="reveal">The plugin shortens repetitive Blueprint setup while preserving the core strengths of Unreal's visual scripting workflow: native assets, visible logic, compiler feedback, and full developer control.</p></div></section>
+
+    <section class="section"><div class="shell stack-grid"><div><span class="section-index reveal">06 / Technology</span><h2 class="reveal">A native Unreal generation stack.</h2></div><div class="stack-list reveal"><span>Unreal Engine 5.7</span><span>C++</span><span>Blueprint Graph</span><span>Kismet compiler</span><span>Simple Construction Script</span><span>Gemini</span><span>Python</span><span>WebSockets</span><span>JSON commands</span><span>Reflection</span><span>Node GUID tracking</span></div></div></section>
+    <section class="next-project"><div class="shell"><a class="next-link" href="../lighting-sequences/"><span><small>Next project</small><strong>Advanced Lighting Sequences</strong></span><b>↗</b></a></div></section>
+  </main>
+
+  <footer class="footer"><div class="shell footer-grid"><div><a class="brand" href="#top"><span class="brand-mark">HA</span><span>Hassan Ahmad</span></a><p>Unreal Engine developer and systems programmer.</p></div><div class="footer-role"><span>Project</span><strong>AI Blueprint Generator</strong><span>Editor tooling</span></div><div class="footer-links"><a href="../">Portfolio ↗</a><a href="../projects/">Project archive ↗</a><a href="mailto:hassanahmadofficial1@gmail.com">Email ↗</a></div></div><div class="shell footer-bottom"><span>© <span data-year></span> Hassan Ahmad</span><a href="#top">Back to top ↑</a></div></footer>
+</body>
+</html>
