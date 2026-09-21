@@ -229,9 +229,10 @@ h1 span {
 @keyframes orbit-spin { to { transform: rotate(360deg); } }
 
 .ticker { overflow: hidden; padding: 17px 0; color: #061018; background: var(--cyan); }
-.ticker-track { display: flex; width: max-content; align-items: center; gap: 24px; animation: ticker 36s linear infinite; font-family: "Space Grotesk", sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .12em; }
+.ticker-track { display: flex; width: max-content; animation: ticker 28s linear infinite; will-change: transform; font-family: "Space Grotesk", sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .12em; }
+.ticker-group { display: flex; flex: none; align-items: center; gap: 24px; padding-right: 24px; }
 .ticker-track i { font-style: normal; }
-@keyframes ticker { to { transform: translateX(-50%); } }
+@keyframes ticker { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
 
 .section { padding: clamp(100px, 11vw, 180px) 0; }
 .section-heading { display: grid; grid-template-columns: 1.5fr .65fr; align-items: end; gap: 80px; margin-bottom: 70px; }
