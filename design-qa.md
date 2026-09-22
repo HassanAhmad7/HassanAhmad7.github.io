@@ -36,6 +36,7 @@ The implementation matches the requested theme across the required fidelity surf
 1. Initial mobile case-study pass found a P2 clipped CinematicAI headline.
 2. Reduced the small-screen display size and allowed safe word wrapping.
 3. Post-fix capture showed the complete headline with no horizontal overflow.
+4. Follow-up hero simplification increased paragraph and CTA contrast at desktop and mobile sizes, and removed the non-functional three-step label row.
 
 No focused detail crop was needed after the full-view and mobile comparisons because the remaining typography, image, border, and button details were clearly readable in the captured views.
 
