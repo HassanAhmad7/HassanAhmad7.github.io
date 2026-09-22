@@ -1,12 +1,12 @@
 # Design QA
 
-- source visual truth: user-provided Chrome appshot of the About section in the current task
-- implementation screenshot: Codex in-app Browser capture of `http://127.0.0.1:4173/?v=about-mobile#about` (tab 7, captured inline)
+- source visual truth: user-provided Chrome appshot of the homepage footer in the current task
+- implementation screenshot: Codex in-app Browser captures of `http://127.0.0.1:4173/?v=footer#contact` (tab 8, captured inline)
 - source pixels: `1920 × 1030`
 - implementation pixels: desktop `1440 × 1024`; mobile `390 × 844`
 - CSS viewport: desktop `1440 × 1024`, mobile `390 × 844`; device scale factor `1`
-- normalization: the same About-section state was compared at desktop size; mobile was checked separately for responsive spacing and overflow
-- state: homepage About section after the requested copy, spacing, and divider changes
+- normalization: the same footer state was inspected at desktop size, then checked separately at the mobile breakpoint
+- state: homepage footer after typography and contrast improvements
 
 ## Findings
 
@@ -14,34 +14,34 @@
 - P1: none
 - P2: none
 
-The selected secondary paragraph is absent. The three principle rows have a wider heading track and increased vertical padding, while the bright blue divider between About and Contact has been removed.
+The footer identity and copyright are now clearly readable while preserving the existing compact hierarchy.
 
 ## Required fidelity surfaces
 
-- Fonts and typography: existing Manrope and IBM Plex Mono system is unchanged; heading hierarchy and principle-label weight remain consistent.
-- Spacing and layout rhythm: principle list now starts 44px after the About copy on desktop, with 22px vertical row padding; mobile uses 34px top spacing and 20px row padding.
-- Colors and visual tokens: existing dark palette and muted neutral rules are preserved; the unwanted blue section rule is removed.
-- Image quality and asset fidelity: the HA About graphic is unchanged and remains sharp at desktop and mobile breakpoints.
-- Copy and content: the highlighted “My work combines…” paragraph is removed; all remaining About copy is unchanged.
+- Fonts and typography: Hassan Ahmad is 13px/700, the role is 12px, and copyright is 11px/500; all retain the existing Manrope and IBM Plex Mono families.
+- Spacing and layout rhythm: the two identity lines use a 2px internal gap and fit the existing footer grid at desktop and mobile widths.
+- Colors and visual tokens: the name uses `#f0f4f9`; role and copyright use `#aeb9c8`, substantially improving contrast against `#080c12`.
+- Image quality and asset fidelity: the existing HA identity mark is unchanged.
+- Copy and content: footer wording, links, and copyright remain unchanged.
 
 ## Focused region evidence
 
-- Desktop About capture at `1440 × 1024` shows the paragraph removed, three evenly spaced rows, and no blue separator before Contact.
-- Mobile capture at `390 × 844` shows all three principles in readable stacked rows and no section-divider stroke.
-- Browser metrics report `390px` viewport width with `375px` document scroll width, so there is no horizontal overflow.
+- Desktop capture at `1440 × 1024` shows the brighter name, role, and copyright aligned with the existing GitHub and Email links.
+- Mobile capture at `390 × 844` shows the identity and links on the first footer row and the copyright beneath without collisions.
+- Browser metrics report no horizontal overflow at either breakpoint.
 
 ## Interaction and technical checks
 
-- About hash route and sticky header remain functional.
-- Contact section follows About without the former blue border.
+- GitHub and Email links remain intact.
 - Console errors and warnings: none.
 
 ## Comparison history
 
-1. Applied the copy removal, wider desktop label column, increased row spacing, and border removal.
-2. Desktop verification found no remaining P0/P1/P2 mismatch.
-3. Mobile verification confirmed readable stacked principle rows, no divider, and no overflow.
+1. The source showed 10px dark-gray footer identity and copyright text with insufficient contrast.
+2. Split the identity into semantic name and role elements, increased their sizes, and raised foreground contrast.
+3. Increased copyright size and contrast.
+4. Desktop and mobile post-fix captures showed readable text with no overflow or crowding.
 
-No additional focused crop was needed because the modified copy, row spacing, and section boundary were clearly readable in the desktop and mobile captures.
+No additional crop was needed because the footer text and alignment were clearly visible in both captures.
 
 final result: passed
