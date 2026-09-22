@@ -1,13 +1,12 @@
 # Design QA
 
-- source visual truth: `C:\Users\FAHAD-~1\AppData\Local\Temp\codex-clipboard-26265acc-3e43-4777-ad73-62177d99797a.png`
-- implementation screenshot: `D:\hassanahmad7.github.io\design-qa-dark-home.png`
-- source pixels: `620 × 445`
-- implementation pixels: `1440 × 1024`
-- CSS viewport: `1440 × 1024`; device scale factor `1`
-- normalization: full-page compositions compared at the same aspect ratio; the supplied source is a downscaled mockup, so typography and spacing were judged proportionally
-- state: homepage, dark theme, top of page
-- browser evidence: Codex in-app browser captures at `1440 × 1024` and `390 × 844`
+- source visual truth: user-provided Chrome appshot of the About section in the current task
+- implementation screenshot: Codex in-app Browser capture of `http://127.0.0.1:4173/?v=about-mobile#about` (tab 7, captured inline)
+- source pixels: `1920 × 1030`
+- implementation pixels: desktop `1440 × 1024`; mobile `390 × 844`
+- CSS viewport: desktop `1440 × 1024`, mobile `390 × 844`; device scale factor `1`
+- normalization: the same About-section state was compared at desktop size; mobile was checked separately for responsive spacing and overflow
+- state: homepage About section after the requested copy, spacing, and divider changes
 
 ## Findings
 
@@ -15,29 +14,34 @@
 - P1: none
 - P2: none
 
-The implementation matches the requested theme across the required fidelity surfaces: bold white display typography with blue emphasis, compact mono labels, near-black/navy canvas, thin technical borders, blue primary actions, restrained project imagery, and a split editorial hero. The hero asset intentionally uses Hassan Ahmad's real DirectSplat Unreal-to-web imagery instead of reproducing the mockup's Unreal logo treatment.
+The selected secondary paragraph is absent. The three principle rows have a wider heading track and increased vertical padding, while the bright blue divider between About and Contact has been removed.
+
+## Required fidelity surfaces
+
+- Fonts and typography: existing Manrope and IBM Plex Mono system is unchanged; heading hierarchy and principle-label weight remain consistent.
+- Spacing and layout rhythm: principle list now starts 44px after the About copy on desktop, with 22px vertical row padding; mobile uses 34px top spacing and 20px row padding.
+- Colors and visual tokens: existing dark palette and muted neutral rules are preserved; the unwanted blue section rule is removed.
+- Image quality and asset fidelity: the HA About graphic is unchanged and remains sharp at desktop and mobile breakpoints.
+- Copy and content: the highlighted “My work combines…” paragraph is removed; all remaining About copy is unchanged.
 
 ## Focused region evidence
 
-- Header: identity, centered navigation, and availability state maintain the source hierarchy.
-- Hero: headline weight, blue emphasis, CTA pairing, dark image treatment, and split proportions match the reference direction.
-- Project pages: DirectSplat and the shared CinematicAI/AI Blueprint/Lighting templates were checked separately; all use the same dark tokens, square controls, fine rules, and electric-blue accent.
-- Mobile: homepage and CinematicAI checked at `390 × 844`; no horizontal overflow. A long CinematicAI headline wrap was corrected before the final pass.
+- Desktop About capture at `1440 × 1024` shows the paragraph removed, three evenly spaced rows, and no blue separator before Contact.
+- Mobile capture at `390 × 844` shows all three principles in readable stacked rows and no section-divider stroke.
+- Browser metrics report `390px` viewport width with `375px` document scroll width, so there is no horizontal overflow.
 
 ## Interaction and technical checks
 
-- Routes checked: `/`, `/directsplat/`, `/cinematic-ai/`, `/ai-blueprint/`, `/lighting-sequences/`, and `/projects/`.
-- Primary navigation and project links remain intact.
-- Console errors and warnings: none on the homepage, DirectSplat, and shared case-study template.
-- All route and asset HTTP checks returned `200`.
+- About hash route and sticky header remain functional.
+- Contact section follows About without the former blue border.
+- Console errors and warnings: none.
 
 ## Comparison history
 
-1. Initial mobile case-study pass found a P2 clipped CinematicAI headline.
-2. Reduced the small-screen display size and allowed safe word wrapping.
-3. Post-fix capture showed the complete headline with no horizontal overflow.
-4. Follow-up hero simplification increased paragraph and CTA contrast at desktop and mobile sizes, and removed the non-functional three-step label row.
+1. Applied the copy removal, wider desktop label column, increased row spacing, and border removal.
+2. Desktop verification found no remaining P0/P1/P2 mismatch.
+3. Mobile verification confirmed readable stacked principle rows, no divider, and no overflow.
 
-No focused detail crop was needed after the full-view and mobile comparisons because the remaining typography, image, border, and button details were clearly readable in the captured views.
+No additional focused crop was needed because the modified copy, row spacing, and section boundary were clearly readable in the desktop and mobile captures.
 
 final result: passed
