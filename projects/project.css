@@ -1,4 +1,6 @@
-.archive-hero { position: relative; min-height: 82vh; padding-top: 180px; overflow: hidden; border-bottom: 1px solid var(--line); background: radial-gradient(circle at 76% 25%, rgba(118, 231, 255, .13), transparent 30rem), var(--bg); }
+:root { --cyan: var(--blue); --acid: #438cff; --bg-soft: var(--bg-2); --radius: 0; }
+.section-label { color: var(--blue-2); font-family: "IBM Plex Mono",monospace; font-size:9px; font-weight:600; letter-spacing:.13em; text-transform:uppercase; }
+.archive-hero { position: relative; min-height: 82vh; padding-top: 180px; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--bg); }
 .archive-grid { position: absolute; inset: 0; opacity: .18; background-image: linear-gradient(rgba(118, 231, 255, .12) 1px, transparent 1px), linear-gradient(90deg, rgba(118, 231, 255, .12) 1px, transparent 1px); background-size: 54px 54px; mask-image: linear-gradient(90deg, transparent, #000 45%, #000); }
 .archive-hero-inner { position: relative; z-index: 1; }
 .back-link { display: inline-flex; margin-bottom: 72px; color: var(--muted); font-size: 14px; }
@@ -78,6 +80,16 @@
 .visual-blueprint > div::before { top: 30%; left: 34%; width: 36%; transform: rotate(18deg); }.visual-blueprint > div::after { top: 66%; left: 30%; width: 28%; transform: rotate(-13deg); }.visual-blueprint em { top: 45%; left: 55%; width: 30%; transform: rotate(-29deg); }
 .compact-case { max-width: 1180px; }
 .archive-cta { padding-top: 40px; }
+.contact-panel { padding:70px; border:1px solid var(--line-strong); background:var(--panel); }
+.contact-panel h2 { margin:18px 0 54px; font-size:clamp(48px,7vw,96px); line-height:.96; letter-spacing:-.06em; }
+.contact-bottom { display:grid; grid-template-columns:.8fr 1.2fr; gap:70px; align-items:end; }
+.contact-bottom p { margin:0; color:var(--muted); }
+.contact-email { display:flex; justify-content:space-between; padding-bottom:12px; color:var(--blue-2); border-bottom:1px solid var(--blue); font-size:clamp(18px,2vw,28px); }
+.footer-top { display:grid; grid-template-columns:1fr auto; padding-bottom:55px; }
+.footer-top>div:first-child { display:flex; align-items:center; gap:12px; }
+.footer-top p { margin:0; color:var(--muted); font-size:12px; }
+.footer-links { display:flex; gap:24px; font-size:12px; }
+.footer-bottom { display:flex; justify-content:space-between; padding:20px 0; color:#697789; border-top:1px solid var(--line); font-size:10px; }
 
 @media (max-width: 900px) {
   .archive-index { position: static; }
