@@ -3,7 +3,7 @@
 - source reference: `C:\Users\Fahad-Moshpit\.codex\generated_images\01a06bc1-82de-7683-8631-a83a32fbc1c6\exec-9175a1d0-7eb2-4d36-9017-401ed1a7296d.png`
 - implementation: `http://127.0.0.1:4173/`
 - viewport: `1440 × 1024`
-- screenshot: Codex in-app browser capture, tab 2, 2026-09-22
+- implementation screenshot: `D:\hassanahmad7.github.io\design-qa-home.png`
 - comparison method: source and implementation reviewed together at the same viewport
 - browser checks: no console warnings or errors; homepage and DirectSplat case-study navigation verified
 - responsive checks: `390 × 844`; no horizontal overflow
