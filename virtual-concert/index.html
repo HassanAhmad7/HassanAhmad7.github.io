@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080c12">
+  <meta name="description" content="Virtual Concert is Hassan Ahmad's Unreal Engine platform for authoring, automating, rendering, and publishing synchronized real-time concert experiences.">
+  <meta property="og:title" content="Virtual Concert | Unreal Engine">
+  <meta property="og:description" content="A complete virtual concert production system for cameras, crowds, lighting, media, effects, rendering, and web delivery.">
+  <meta property="og:image" content="../assets/project-virtual-concert.webp">
+  <meta property="og:type" content="website">
+  <title>Virtual Concert | Unreal Engine</title>
+  <link rel="icon" href="../assets/portfolio-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../case-study.css?v=20261013-virtual-concert1">
+  <script src="../script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="Virtual Concert home"><span class="brand-mark">VC</span><span>Virtual Concert</span></a>
+    <nav class="nav" aria-label="Project navigation"><a href="#overview">Overview</a><a href="#system">System</a><a href="#pipeline">Pipeline</a><a href="#result">Result</a></nav>
+    <a class="header-cta" href="../">Hassan Ahmad · Portfolio <span>↖</span></a>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-grid" aria-hidden="true"></div><div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-visual"><img src="../assets/project-virtual-concert.webp" alt="Virtual concert stage with synchronized crowd, lighting, media screens, and production controls"></div>
+      <div class="hero-content shell">
+        <div class="eyebrow reveal">Unreal Engine 5.7 · Real-time concert platform</div>
+        <h1 class="reveal">Build the show.<br><span>Run the whole experience.</span></h1>
+        <p class="hero-lede reveal">Virtual Concert brings concert direction, automation, playback, rendering, and online delivery into one Unreal Engine production system.</p>
+        <div class="hero-actions reveal"><a class="button button-primary" href="#system">Explore the system <span>↓</span></a><a class="button button-secondary" href="#pipeline">See the pipeline</a></div>
+      </div>
+      <div class="hero-meta shell reveal" aria-label="Project summary">
+        <div><span class="meta-label">Role</span><strong>Systems development</strong></div>
+        <div><span class="meta-label">Engine</span><strong>Unreal Engine 5.7</strong></div>
+        <div><span class="meta-label">Core</span><strong>C++ and Blueprints</strong></div>
+        <div><span class="meta-label">Delivery</span><strong>Render and web</strong></div>
+      </div>
+    </section>
+
+    <section class="overview section" id="overview">
+      <div class="shell overview-grid">
+        <span class="section-index reveal">Overview</span>
+        <div><p class="display-copy reveal">A connected production environment for designing and delivering complete virtual concerts.</p><div class="overview-detail reveal"><p>The system coordinates the creative layers of a show through a shared concert timeline. Cameras, lighting, crowd behavior, screens, shader effects, fireworks, weather, and time of day can be authored as synchronized events.</p><p>It also handles the operational side of production. Concert drafts can be saved, rendered into standard or immersive video formats, prepared with media processing tools, and published through connected online services.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="system">
+      <div class="shell">
+        <div class="section-heading reveal"><div><span class="section-index">Concert system</span><h2>Every show layer works from one timeline.</h2></div><p>Independent managers keep complex features modular while a central concert controller synchronizes recording, playback, automation, and replay.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card reveal"><span class="feature-number">01</span><h3>Direct the performance</h3><p>Author camera shots, reusable camera sequences, custom drone paths, artist cues, crowd patterns, lighting, screens, and show effects.</p></article>
+          <article class="feature-card reveal"><span class="feature-number">02</span><h3>Automate from audio</h3><p>Analyze bass and mid-range energy, then use configurable rules to generate event timing and repeatable performance layers.</p></article>
+          <article class="feature-card reveal"><span class="feature-number">03</span><h3>Control and refine</h3><p>Record keyframes, adjust speed and duration, organize multiple timeline layers, pause, seek, replay, and finalize each authored track.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="workflow section" id="pipeline">
+      <div class="shell">
+        <div class="section-heading reveal"><div><span class="section-index">Production pipeline</span><h2>From concert draft to published experience.</h2></div><p>The workflow carries creative decisions through playback, high-quality rendering, file processing, and connected delivery.</p></div>
+        <div class="workflow-list reveal">
+          <article class="workflow-step"><span>01</span><h3>Author</h3><p>Build the concert with layered events, media, cameras, effects, crowd behavior, and stage lighting.</p></article>
+          <article class="workflow-step"><span>02</span><h3>Preview</h3><p>Run the full show in real time, seek through the performance, and revise individual layers without rebuilding the concert.</p></article>
+          <article class="workflow-step"><span>03</span><h3>Render</h3><p>Generate runtime Level Sequences and render standard, 180, or 360 output through the Movie Render Pipeline.</p></article>
+          <article class="workflow-step"><span>04</span><h3>Publish</h3><p>Process video and audio, upload concert media, and connect the finished experience to online viewing and interaction.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="engineering">
+      <div class="shell">
+        <div class="section-heading reveal"><div><span class="section-index">Engineering</span><h2>Built as a platform, not a single scene.</h2></div><p>The architecture combines runtime systems, production tooling, media infrastructure, and scalable real-time content.</p></div>
+        <div class="engineering-grid">
+          <article class="engineering-card reveal"><span class="card-label">Crowds</span><h3>Scalable audience systems</h3><p>Hierarchical instancing, animation-to-texture support, crowd generation layers, behavior patterns, shouts, and character locomotion support large virtual audiences.</p></article>
+          <article class="engineering-card reveal"><span class="card-label">Cameras</span><h3>Cinematic and drone capture</h3><p>Reusable Level Sequences, category-based shot selection, recorded drone movement, playback offsets, and custom camera control support varied coverage.</p></article>
+          <article class="engineering-card reveal"><span class="card-label">Media and effects</span><h3>Synchronized visual layers</h3><p>Media screens, footage tracks, shader effects, fireworks, lighting, weather, and time-of-day systems respond to the same concert playback state.</p></article>
+          <article class="engineering-card reveal"><span class="card-label">Connected services</span><h3>Online production workflow</h3><p>Authentication, HTTP and WebSocket communication, file upload and download, concert publishing, chat, reactions, and Pixel Streaming extend the experience beyond the editor.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="result" id="result"><div class="shell result-content"><span class="section-index reveal">Result</span><h2 class="reveal">One system for<br><span>the complete virtual show.</span></h2><p class="reveal">Virtual Concert turns a collection of Unreal Engine features into a coherent production platform. Creative teams can build synchronized performances, iterate in real time, produce final media, and deliver the experience online without splitting the workflow across disconnected tools.</p></div></section>
+
+    <section class="section"><div class="shell stack-grid"><div><span class="section-index reveal">Capability set</span><h2 class="reveal">Real-time production across the full concert stack.</h2></div><div class="stack-list reveal"><span>Unreal Engine 5.7</span><span>C++</span><span>Blueprints</span><span>Concert timeline</span><span>Movie Render Pipeline</span><span>Audio analysis</span><span>Camera sequences</span><span>Drone capture</span><span>Crowd systems</span><span>Anim to Texture</span><span>Media screens</span><span>Lighting</span><span>Fireworks</span><span>HTTP APIs</span><span>WebSockets</span><span>Pixel Streaming</span><span>Online publishing</span></div></div></section>
+    <section class="next-project"><div class="shell"><a class="next-link" href="../directsplat/"><span><small>Featured project</small><strong>DirectSplat</strong></span><b>↗</b></a></div></section>
+  </main>
+
+  <footer class="footer"><div class="shell footer-grid"><div><a class="brand" href="#top"><span class="brand-mark">HA</span><span>Hassan Ahmad</span></a><p>Unreal Engine developer and systems programmer.</p></div><div class="footer-role"><span>Project</span><strong>Virtual Concert</strong><span>Real-time production platform</span></div><div class="footer-links"><a href="../">Portfolio ↗</a><a href="mailto:hassanahmadofficial1@gmail.com">Email ↗</a></div></div><div class="shell footer-bottom"><span>© <span data-year></span> Hassan Ahmad</span><a href="#top">Back to top ↑</a></div></footer>
+</body>
+</html>
