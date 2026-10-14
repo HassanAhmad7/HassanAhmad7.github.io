@@ -1,47 +1,26 @@
 # Design QA
 
-- source visual truth: user-provided Chrome appshot of the homepage footer in the current task
-- implementation screenshot: Codex in-app Browser captures of `http://127.0.0.1:4173/?v=footer#contact` (tab 8, captured inline)
-- source pixels: `1920 × 1030`
-- implementation pixels: desktop `1440 × 1024`; mobile `390 × 844`
-- CSS viewport: desktop `1440 × 1024`, mobile `390 × 844`; device scale factor `1`
-- normalization: the same footer state was inspected at desktop size, then checked separately at the mobile breakpoint
-- state: homepage footer after typography and contrast improvements
+## Source visual
 
-## Findings
+- Selected direction: `C:\Users\Fahad-Moshpit\.codex\generated_images\01a06bc1-82de-7683-8631-a83a32fbc1c6\exec-1a502101-8526-43a3-a314-caa52ccd6060.png`
+- Key traits: cinematic split hero, graphite palette, restrained blue accent, wide environment imagery, compact project reel, readable technical typography.
 
-- P0: none
-- P1: none
-- P2: none
+## Implementation capture
 
-The footer identity and copyright are now clearly readable while preserving the existing compact hierarchy.
+- Local implementation: `http://127.0.0.1:4173/?v=cinematic2`
+- Desktop capture: Codex in-app browser deliverable tab at 1230 x 900.
+- Mobile capture: Codex in-app browser at 390 x 844.
 
-## Required fidelity surfaces
+## Comparison
 
-- Fonts and typography: Hassan Ahmad is 13px/700, the role is 12px, and copyright is 11px/500; all retain the existing Manrope and IBM Plex Mono families.
-- Spacing and layout rhythm: the two identity lines use a 2px internal gap and fit the existing footer grid at desktop and mobile widths.
-- Colors and visual tokens: the name uses `#f0f4f9`; role and copyright use `#aeb9c8`, substantially improving contrast against `#080c12`.
-- Image quality and asset fidelity: the existing HA identity mark is unchanged.
-- Copy and content: footer wording, links, and copyright remain unchanged.
+- Composition: passed. The split hero and image-led project reel follow the selected direction.
+- Typography: passed. Large Manrope display type is paired with compact IBM Plex Mono labels.
+- Color and contrast: passed. Off-white copy, cool blue accents, and graphite surfaces remain readable.
+- Imagery: passed. The new panoramic Unreal environment anchors the hero; project images use consistent dark crops.
+- Interaction: passed. Project reel controls scroll correctly and all project links remain present.
+- Responsive behavior: passed. The hero stacks cleanly and project cards become a horizontal mobile reel.
+- Browser health: passed. No missing images, console warnings, or console errors were detected.
 
-## Focused region evidence
+## Final result
 
-- Desktop capture at `1440 × 1024` shows the brighter name, role, and copyright aligned with the existing GitHub and Email links.
-- Mobile capture at `390 × 844` shows the identity and links on the first footer row and the copyright beneath without collisions.
-- Browser metrics report no horizontal overflow at either breakpoint.
-
-## Interaction and technical checks
-
-- GitHub and Email links remain intact.
-- Console errors and warnings: none.
-
-## Comparison history
-
-1. The source showed 10px dark-gray footer identity and copyright text with insufficient contrast.
-2. Split the identity into semantic name and role elements, increased their sizes, and raised foreground contrast.
-3. Increased copyright size and contrast.
-4. Desktop and mobile post-fix captures showed readable text with no overflow or crowding.
-
-No additional crop was needed because the footer text and alignment were clearly visible in both captures.
-
-final result: passed
+Passed after one visual refinement pass. The case-study hero treatment was also aligned with the homepage system.
