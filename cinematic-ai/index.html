@@ -3,93 +3,255 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#070a0e">
-  <meta name="description" content="CinematicAI is Hassan Ahmad's Unreal Engine 5.7 agentic director system for generating editable cameras, shots, and Level Sequences from creative intent and live scene context.">
-  <meta property="og:title" content="CinematicAI | Agentic Director">
-  <meta property="og:description" content="From creative direction and scene context to native, editable Unreal Engine cinematography.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="CinematicAI is an Unreal Engine 5.7 editor plugin by Hassan Ahmad that turns a reference subject and a prompt into editable Level Sequences: cameras, keyframes, look-at tracking, shake, attachments, and a master edit.">
+  <meta property="og:title" content="CinematicAI — Hassan Ahmad">
+  <meta property="og:description" content="Level Sequences generated from a reference subject and a prompt, built natively in Sequencer.">
+  <meta property="og:image" content="../assets/cinematic-ai/sequence-editor.webp">
   <meta property="og:type" content="website">
-  <title>CinematicAI | Agentic Director</title>
+  <title>CinematicAI — Hassan Ahmad</title>
   <link rel="icon" href="../assets/portfolio-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../case-study.css?v=20260922-dark1">
-  <script src="../script.js" defer></script>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=20261106-case">
+  <link rel="stylesheet" href="../case.css?v=20261106-case">
 </head>
-<body class="cinematic">
+<body class="is-ready page">
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header" data-header>
-    <a class="brand" href="#top" aria-label="CinematicAI home"><span class="brand-mark">CAI</span><span>CinematicAI</span></a>
-    <nav class="nav" aria-label="Project navigation"><a href="#overview">Overview</a><a href="#system">System</a><a href="#engineering">Engineering</a><a href="#result">Result</a></nav>
-    <a class="header-cta" href="../">Hassan Ahmad · Portfolio <span>↖</span></a>
-  </header>
 
-  <main id="main">
-    <section class="hero" id="top">
-      <div class="hero-grid" aria-hidden="true"></div><div class="hero-glow" aria-hidden="true"></div>
-      <div class="hero-visual"><img src="../assets/project-cinematic-ai-dark.png" alt="Technical visualization of CinematicAI directing multiple cameras around an Unreal Engine environment"></div>
-      <div class="hero-content shell">
-        <div class="eyebrow reveal">Unreal Engine 5.7 · AI cinematography</div>
-        <h1 class="reveal">Creative intent.<br><span>Editable cinematography.</span></h1>
-        <p class="hero-lede reveal">CinematicAI is an agentic director inside Unreal Engine. It understands the live scene, interprets a creative brief, and produces real cameras, shot timing, keyframes, and a master Level Sequence that artists can continue editing.</p>
-        <div class="hero-actions reveal"><a class="button button-primary" href="#system">Explore the system <span>↓</span></a><a class="button button-secondary" href="#engineering">Technical architecture</a></div>
+  <main id="main" class="cs-main">
+    <header class="cs-head">
+      <a class="back" href="../work/#ai">← Work</a>
+      <div class="cs-hero">
+        <div>
+          <p class="eyebrow">02 / AI Powered · Unreal Engine 5.7 editor plugin</p>
+          <h1>Cinematic<br>AI</h1>
+          <p class="cs-lede">Pick a reference subject in the level, describe the moment, and get back real Level Sequences: CineCamera actors, keyframes, lens tracks, look-at tracking, shake, and a master edit. Everything lands in Sequencer, ready to tweak.</p>
+        </div>
+        <dl class="cs-meta">
+          <div><dt>Role</dt><dd>Design and development, solo</dd></div>
+          <div><dt>Engine</dt><dd>Unreal Engine 5.7, editor module</dd></div>
+          <div><dt>Stack</dt><dd>C++ · Editor Python · Blueprint · Gemini · EQS</dd></div>
+          <div><dt>Output</dt><dd>Native Level Sequences and a master sequence</dd></div>
+        </dl>
       </div>
-      <div class="hero-meta shell reveal" aria-label="Project summary">
-        <div><span class="meta-label">Role</span><strong>Lead development</strong></div>
-        <div><span class="meta-label">Engine</span><strong>Unreal Engine 5.7</strong></div>
-        <div><span class="meta-label">Output</span><strong>Native Sequencer assets</strong></div>
-        <div><span class="meta-label">Direction</span><strong>Prompt + scene context</strong></div>
+    </header>
+
+    <figure class="cs-figure">
+      <img src="../assets/cinematic-ai/sequence-editor.webp" alt="Unreal Engine editor showing a cine camera framing a character in the viewport, with the generated Level Sequence open in Sequencer below">
+      <figcaption><span>Generated shot “Wide_Establishing_Square”</span><span>CineCameraActor · aperture, focal length and focus tracks · transform keys</span></figcaption>
+    </figure>
+
+    <!-- Overview -->
+    <section class="cs-section" id="overview">
+      <div class="cs-section-head">
+        <span class="cs-index">01 / Overview</span>
+        <div>
+          <h2>Sequences built around a reference, not a blank timeline.</h2>
+          <p>The plugin starts from something that already exists in the level: a character, a prop, a building. That subject is the anchor every shot is measured against.</p>
+        </div>
+      </div>
+      <div class="cs-two">
+        <div class="cs-prose">
+          <p>Setting up cinematics by hand means the same loop over and over: place a camera, frame the subject, pick a lens, key the move, make a sequence, repeat, then cut it all together. CinematicAI keeps the craft and removes the repetition.</p>
+          <p>You select a <strong>primary subject</strong>, optionally add more characters and meshes, write a prompt, and press Generate. The plugin reads the real geometry of the scene, has a planner reason about framing and timing, and then builds each shot as a native Level Sequence.</p>
+          <p>Nothing is baked to video. Every camera, key, and track is ordinary Sequencer data, so a director can nudge a lens, retime a move, or delete a shot without leaving the tools they already know.</p>
+        </div>
+        <ul class="cs-spec">
+          <li><b>Input</b><span>A primary subject (character or static mesh), any number of secondary subjects, a prompt, optional audio, and one or more boundary boxes.</span></li>
+          <li><b>Reasoning</b><span>A cinematography planner that derives framing from bone positions, subject size, lens physics, and audio energy.</span></li>
+          <li><b>Build</b><span>Spawned CineCameraActors, transform and lens keyframes, look-at tracking, camera shake, attach-to-subject follow, and trimmed playback ranges.</span></li>
+          <li><b>Assembly</b><span>An optional master sequence with shot sections, source trims, and verified timing.</span></li>
+        </ul>
       </div>
     </section>
 
-    <section class="overview section" id="overview">
-      <div class="shell overview-grid">
-        <span class="section-index reveal">01 / Overview</span>
-        <div><p class="display-copy reveal">A director describes the moment. The system turns that intent into a structured, production-ready shot plan.</p><div class="overview-detail reveal"><p>Manual camera setup requires repeated framing, timing, track creation, and sequence assembly. CinematicAI brings those steps into one scene-aware workflow while keeping the result native to Unreal.</p><p>The generated output is not a flattened video. Artists receive editable CineCamera actors, camera properties, bindings, tracks, keyframes, individual shots, and a master timeline.</p></div></div>
+    <!-- Pipeline -->
+    <section class="cs-section" id="pipeline">
+      <div class="cs-section-head">
+        <span class="cs-index">02 / Pipeline</span>
+        <div>
+          <h2>From a selected actor to a finished edit.</h2>
+          <p>Five stages. The first two happen in the Director panel, the rest run automatically inside the editor.</p>
+        </div>
+      </div>
+      <div class="cs-steps">
+        <article class="cs-step"><span>01</span><h3>Select the reference</h3><p>Add characters and meshes from the level and mark one as primary. For characters, name the bones that matter: head, hands, feet.</p></article>
+        <article class="cs-step"><span>02</span><h3>Describe the moment</h3><p>Write the prompt, pick a mode, drop in an audio track if the edit should follow music, and choose how many sequences you want.</p></article>
+        <article class="cs-step"><span>03</span><h3>Read the scene</h3><p>Bone transforms, facing direction, height, mesh transforms, and boundary boxes are packaged into one JSON scene description.</p></article>
+        <article class="cs-step"><span>04</span><h3>Plan the shots</h3><p>The planner returns labelled shots, each with keyframes carrying position, rotation, focal length, aperture, focus distance, shake, and look-at and follow targets.</p></article>
+        <article class="cs-step"><span>05</span><h3>Build in Sequencer</h3><p>C++ generates editor Python per shot: spawn the camera, create the sequence, key every track, add tracking and shake, attach, trim, then assemble the master.</p></article>
       </div>
     </section>
 
-    <section class="section" id="system">
-      <div class="shell">
-        <div class="section-heading reveal"><div><span class="section-index">02 / Core capabilities</span><h2>Scene intelligence meets camera craft.</h2></div><p>The director workflow combines creative input with the actual spatial structure of the Unreal level.</p></div>
-        <div class="feature-grid">
-          <article class="feature-card reveal"><span class="feature-number">01</span><h3>Context collection</h3><p>Packages actor transforms, bounds, characters, meshes, subject orientation, and selected skeletal reference points into structured scene data.</p></article>
-          <article class="feature-card reveal"><span class="feature-number">02</span><h3>Camera planning</h3><p>Generates shot intent, camera rigs, target relationships, timing, lens choices, focus behavior, and optional audio-informed direction.</p></article>
-          <article class="feature-card reveal"><span class="feature-number">03</span><h3>Sequencer build</h3><p>Creates cameras and writes transform, focal length, aperture, focus distance, camera shake, shot tracks, and master sequence timing.</p></article>
+    <!-- The Director panel -->
+    <section class="cs-section" id="director">
+      <div class="cs-section-head">
+        <span class="cs-index">03 / Director panel</span>
+        <div>
+          <h2>One Editor Utility Widget runs the whole thing.</h2>
+          <p>Built as a Blueprint utility widget on top of a C++ function library, so it stays inside the editor and can be extended without a rebuild.</p>
+        </div>
+      </div>
+      <div class="cs-two is-wide-left">
+        <ul class="cs-spec">
+          <li><b>Primary subject</b><span>Any listed character or mesh can be flagged primary. The scene JSON serialises it separately so the planner always knows what to frame.</span></li>
+          <li><b>Characters</b><span>Each row binds a skeletal mesh and a list of bone names. The widget reads live bone transforms, derives height from head to foot, and computes a flattened facing vector from the most horizontal bone axis.</span></li>
+          <li><b>Static meshes</b><span>Props, furniture, and architecture join as secondary subjects with their world transforms, or take the primary slot for product and environment work.</span></li>
+          <li><b>Trigger box</b><span>One or more boxes define where cameras are allowed to be. Their extents and transforms are sent with the scene and enforced in the plan.</span></li>
+          <li><b>Preview EQS points</b><span>Draws the valid and blocked camera positions found by the Environment Query System in the viewport before anything is generated.</span></li>
+          <li><b>Audio</b><span>An optional track is sent alongside the prompt. The planner maps its beats and energy to shot count, duration, and shake.</span></li>
+          <li><b>Prompt and modes</b><span>Free-text direction plus Character, Interior, Exterior, and Product presets that bias the planner’s framing rules.</span></li>
+          <li><b>Master sequence</b><span>A toggle that asks for a second plan describing how the individual shots cut together, then builds it.</span></li>
+          <li><b>Status log</b><span>Every stage reports back into a searchable log, including which Python module handled each step.</span></li>
+        </ul>
+        <figure class="cs-figure">
+          <img src="../assets/cinematic-ai/director-widget.webp" alt="The CinematicAI Director panel in the Unreal editor: primary subject, tracking, trigger box, EQS preview, static and skeletal mesh lists with bone names, audio selection, prompt, number of sequences, mode buttons, generate button, and status log">
+          <figcaption><span>Director panel</span><span>Editor Utility Widget</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Scene understanding -->
+    <section class="cs-section" id="scene">
+      <div class="cs-section-head">
+        <span class="cs-index">04 / Scene understanding</span>
+        <div>
+          <h2>Cameras are placed against the real level, not a guess.</h2>
+          <p>Two layers keep the plan honest: measured subject data going in, and collision-aware validation coming out.</p>
+        </div>
+      </div>
+      <div class="cs-two">
+        <div class="cs-prose">
+          <p>For each character the plugin records the world transform of every named bone, the subject’s height, and a facing point projected forward from the most horizontal bone axis. For meshes it records the full transform. Boundary boxes are sent as extents plus transform so the planner can clamp positions in box-local space.</p>
+          <p>The planner never sees the navmesh or collision directly. Instead, a <strong>custom EQS generator</strong> builds a projected 3D lattice of candidate points around the subject, with per-axis extents and an override origin bound to query parameters. Trace tests check line of sight to the subject and overlap tests separate free space from geometry, giving Go and NoGo point sets.</p>
+          <p>Proposed keyframe positions are checked against those points, so a camera that would sit inside a wall or lose sight of the subject is corrected before any sequence is written.</p>
+        </div>
+        <pre class="cs-code"><span class="c">// Scene description sent to the planner (abridged)</span>
+{
+  <span class="k">"prompt"</span>: "slow, sorrowful reveal of the lone figure",
+  <span class="k">"Boxses"</span>: [{ "BoundaryExtents1": "X=1200 Y=1200 Z=400",
+              "BoundaryBox1": "Translation: X=0 Y=0 Z=0 ..." }],
+  <span class="k">"PrimaryActor"</span>: {
+    "PrimaryActorName": "Character_01",
+    "PrimaryActorheight(cm)": 180,
+    "PrimaryActorBonesLocation": {
+      "Head": "Translation: X=... Y=... Z=...",
+      "H_Right": "...", "H_Left": "...",
+      "F_Right": "...", "F_Left": "...",
+      "PFacing": "(X=...,Y=...,Z=...)"
+    }
+  },
+  <span class="k">"SecondaryActors"</span>: [ ... ]
+}</pre>
+      </div>
+    </section>
+
+    <!-- Shot planning -->
+    <section class="cs-section" id="planning">
+      <div class="cs-section-head">
+        <span class="cs-index">05 / Shot planning</span>
+        <div>
+          <h2>A cinematographer’s rulebook, written as a numeric procedure.</h2>
+          <p>The planner is a large language model, but it is not asked to be creative in a vacuum. A long system prompt turns framing into arithmetic it must show its work for.</p>
+        </div>
+      </div>
+      <div class="cs-two">
+        <ul class="cs-spec">
+          <li><b>Modes</b><span>Character, Environment (Interior, Exterior, or both), Product, and Hybrid. Each mode changes the shot mix, lens range, aperture floors, and minimum distances.</span></li>
+          <li><b>Framing from bones</b><span>Close-ups target the head bone, upper-body shots average head and wrists, full-body shots pad from the highest bone to below the feet. The subject envelope sets the camera distance per focal length.</span></li>
+          <li><b>Lens physics</b><span>A minimum-distance table per focal length keeps subjects inside frame. Over-the-shoulder shots are constructed geometrically from the two subjects and validated by angle and distance.</span></li>
+          <li><b>Audio-driven timing</b><span>Beat and energy maps decide shot count and duration, with total coverage at least 1.5× the audio length so there are handles to trim.</span></li>
+          <li><b>Proof tags</b><span>Every first keyframe must carry a classification, envelope, focal, and camera-height tag, which makes bad reasoning easy to spot in the log.</span></li>
+          <li><b>Shake vocabulary</b><span>Shake is an enum of six strengths that map one-to-one to camera shake Blueprint assets, so the plan can be applied without interpretation.</span></li>
+        </ul>
+        <pre class="cs-code"><span class="c">// One shot from the returned plan</span>
+<span class="k">"OTS_Character_01_To_Character_02"</span>: {
+  "LookAt": "Character_02",
+  "Follow": "Character_01",
+  "keyframe1": {
+    "positions": { "PosX": 142.0, "PosY": -88.5, "PosZ": 168.0 },
+    "rotations": { "Roll": 0, "Pitch": -4.2, "Yaw": 31.6 },
+    "time": 0.0,
+    "focal_length": 50, "aperature": 2.8, "focal_distance": 265,
+    "camera_shake": "CameraShake_0-2",
+    "description": "[OTS | Envelope 110cm | 50mm | CamZ 168] ..."
+  },
+  "keyframe2": { "...": "push in 40 cm over 3.5 s" }
+}</pre>
+      </div>
+    </section>
+
+    <!-- Sequencer build -->
+    <section class="cs-section" id="build">
+      <div class="cs-section-head">
+        <span class="cs-index">06 / Sequencer build</span>
+        <div>
+          <h2>Native tracks, written the way Sequencer expects them.</h2>
+          <p>C++ owns the typed data and generates safe Python; editor Python owns the parts of the Sequencer API that shift between engine versions.</p>
+        </div>
+      </div>
+      <figure class="cs-figure">
+        <img src="../assets/cinematic-ai/sequencer-tracks.webp" alt="Sequencer showing Camera Cuts, a CineCameraActor binding with CameraComponent aperture, focal length and manual focus distance tracks, and a transform track">
+        <figcaption><span>Camera Cuts · CineCameraActor · CameraComponent property tracks · Transform</span><span>30 fps</span></figcaption>
+      </figure>
+      <div class="cs-cards" style="margin-top: 36px">
+        <article class="cs-card"><small>Per shot</small><h3>Camera, sequence, and bound property tracks</h3><p>A CineCameraActor is spawned per shot, a Level Sequence is created, and the actor and camera component are added as possessables. Aperture, focal length, and manual focus distance get proper property tracks so they bind instead of showing as broken.</p></article>
+        <article class="cs-card"><small>Keyframes</small><h3>Transform and lens keys with correct interpolation</h3><p>Transform keys are written to double channels, lens keys to float channels, at the sequence’s display rate. Quaternion interpolation is enabled on rotation so yaws near ±180° never swing the long way round.</p></article>
+        <article class="cs-card"><small>Tracking</small><h3>Look-at tracking without a framing jump</h3><p>The plan’s LookAt target becomes real CineCamera look-at tracking tracks. The relative offset is computed from the camera’s current aim so enabling tracking keeps the composition the planner chose.</p></article>
+        <article class="cs-card"><small>Follow</small><h3>Bake, then attach</h3><p>To follow a moving subject the script first evaluates the sequence at every existing key and rewrites the transforms relative to the parent, then adds the attach track. The shot keeps its look while its motion becomes parent-relative.</p></article>
+        <article class="cs-card"><small>Shake and range</small><h3>Shake tracks and trimmed playback</h3><p>Shake assets are resolved by name through the Asset Registry and added as camera shake tracks. Each sequence is trimmed to the plan’s timing and the camera cut stretched to match.</p></article>
+        <article class="cs-card"><small>Master</small><h3>A verified master edit</h3><p>Shots are placed on a cinematic shot track with source trims computed in each sub-sequence’s own tick resolution. Every start, end, and offset is read back after writing and corrected until it matches within a millisecond.</p></article>
+      </div>
+    </section>
+
+    <!-- Engineering -->
+    <section class="cs-section" id="engineering">
+      <div class="cs-section-head">
+        <span class="cs-index">07 / Engineering notes</span>
+        <div>
+          <h2>Details that make it hold up in a real project.</h2>
+        </div>
+      </div>
+      <div class="cs-cards">
+        <article class="cs-card"><small>Architecture</small><h3>Hybrid C++ and Python</h3><p>A Blueprint function library parses plans into structs and emits escaped, locale-safe Python commands with hot reload, so the Sequencer scripts can be edited live while the editor is open.</p></article>
+        <article class="cs-card"><small>Camera rigs</small><h3>Composition components in native C++</h3><p>Follow and look-at components with weighted multi-subject targets, screen-space composition from projected bounding boxes, dead zones, critically damped smoothing, dynamic field of view, and auto focus. They tick in the editor viewport and respect Sequencer auto-key on drag.</p></article>
+        <article class="cs-card"><small>Validation</small><h3>EQS as a camera guard</h3><p>A custom projected 3D grid generator plus trace and overlap tests turns AI navigation tooling into a collision and visibility check for every proposed camera position.</p></article>
+        <article class="cs-card"><small>Transport</small><h3>Direct model calls from the editor</h3><p>Plans are requested over HTTPS from C++ with the audio file inlined, and parsed on return. An earlier WebSocket bridge to an external Python service remains for tooling that needs it.</p></article>
+      </div>
+    </section>
+
+    <!-- Stack -->
+    <section class="cs-section" id="stack">
+      <div class="cs-section-head">
+        <span class="cs-index">08 / Stack</span>
+        <div class="cs-chips">
+          <span>Unreal Engine 5.7</span><span>C++</span><span>Editor Python</span><span>Editor Utility Widgets</span><span>Sequencer</span><span>CineCamera</span><span>Environment Query System</span><span>Gemini</span><span>HTTP · JSON</span><span>Asset Registry</span>
         </div>
       </div>
     </section>
 
-    <section class="workflow section">
-      <div class="shell">
-        <div class="section-heading reveal"><div><span class="section-index">03 / Workflow</span><h2>From brief to timeline.</h2></div><p>Every stage moves structured information forward, so the final sequence remains traceable and editable.</p></div>
-        <div class="workflow-list reveal">
-          <article class="workflow-step"><span>01</span><h3>Direct</h3><p>Provide the creative prompt, choose primary and secondary subjects, and optionally include audio.</p></article>
-          <article class="workflow-step"><span>02</span><h3>Understand</h3><p>Read world bounds, facing information, transforms, geometry, and subject reference points.</p></article>
-          <article class="workflow-step"><span>03</span><h3>Plan</h3><p>Generate structured shots, camera behaviors, targets, composition logic, and timing.</p></article>
-          <article class="workflow-step"><span>04</span><h3>Build</h3><p>Create native camera actors, shot sequences, keyframes, bindings, and the master edit.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="engineering">
-      <div class="shell">
-        <div class="section-heading reveal"><div><span class="section-index">04 / Engineering</span><h2>A connected editor automation stack.</h2></div><p>The implementation bridges AI planning and Unreal's production systems without hiding the assets artists need.</p></div>
-        <div class="engineering-grid">
-          <article class="engineering-card reveal"><span class="card-label">Editor experience</span><h3>Direction stays inside Unreal</h3><p>An Unreal Editor interface manages prompts, subjects, context collection, generation, and the resulting sequence workflow.</p></article>
-          <article class="engineering-card reveal"><span class="card-label">Agent bridge</span><h3>Structured command exchange</h3><p>A WebSocket bridge and JSON scene format connect the editor workflow to asynchronous Gemini planning.</p></article>
-          <article class="engineering-card reveal"><span class="card-label">Camera rigs</span><h3>Free, follow, and look-at behavior</h3><p>Custom rigs support weighted subjects, smooth composition damping, and environment-query camera positioning.</p></article>
-          <article class="engineering-card reveal"><span class="card-label">Automation</span><h3>C++ and Python Sequencer control</h3><p>Blueprint libraries and Python automation create cameras, tracks, keys, sub-sequences, and a finished master timeline.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="result" id="result"><div class="shell result-content"><span class="section-index reveal">05 / Result</span><h2 class="reveal">AI-directed shots.<br><span>Artist-owned output.</span></h2><p class="reveal">The system accelerates first-pass cinematography while preserving full creative control. Every generated camera and sequence remains available for review, refinement, and production use inside Unreal Engine.</p></div></section>
-
-    <section class="section"><div class="shell stack-grid"><div><span class="section-index reveal">06 / Technology</span><h2 class="reveal">Built across the Unreal toolchain.</h2></div><div class="stack-list reveal"><span>Unreal Engine 5.7</span><span>C++</span><span>Python</span><span>Blueprint libraries</span><span>Sequencer</span><span>CineCamera</span><span>Gemini</span><span>WebSockets</span><span>JSON</span><span>Environment Query System</span></div></div></section>
-    <section class="next-project"><div class="shell"><a class="next-link" href="../ai-blueprint/"><span><small>Next project</small><strong>AI Blueprint Generator</strong></span><b>↗</b></a></div></section>
+    <div class="cs-next">
+      <a href="../ai-blueprint/"><span><small>Next project</small><strong>AI Blueprint Generator</strong></span><b>↗</b></a>
+    </div>
   </main>
 
-  <footer class="footer"><div class="shell footer-grid"><div><a class="brand" href="#top"><span class="brand-mark">HA</span><span>Hassan Ahmad</span></a><p>Unreal Engine developer and systems programmer.</p></div><div class="footer-role"><span>Project</span><strong>CinematicAI</strong><span>Agentic director</span></div><div class="footer-links"><a href="../">Portfolio ↗</a><a href="mailto:hassanahmadofficial1@gmail.com">Email ↗</a></div></div><div class="shell footer-bottom"><span>© <span data-year></span> Hassan Ahmad</span><a href="#top">Back to top ↑</a></div></footer>
+  <nav class="dock" aria-label="Primary navigation">
+    <a class="dock-brand" href="../"><span class="dock-mark">H</span><span>Hassan Ahmad</span></a>
+    <div class="dock-links">
+      <a href="../">Home</a>
+      <a href="../work/" class="is-active">Work</a>
+      <a href="../about/">About</a>
+      <a href="../about/#contact">Contact</a>
+    </div>
+    <div class="dock-icons">
+      <a href="https://github.com/HassanAhmad7" target="_blank" rel="noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></a>
+      <a href="mailto:hassanahmadofficial1@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20v14H2z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m2 6 10 7 10-7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+      <a href="../assets/hassan-ahmad-resume.pdf" target="_blank" rel="noopener" aria-label="Resume"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M14 2v5h5M9 12h7M9 16h7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+    </div>
+  </nav>
 </body>
 </html>

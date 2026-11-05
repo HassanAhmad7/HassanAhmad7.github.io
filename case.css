@@ -1,0 +1,82 @@
+/* Case study pages. Loaded after styles.css, which supplies tokens, .eyebrow, .pill and the dock. */
+
+.cs-main { padding: 0 var(--pad) calc(var(--dock-h) + 80px); }
+
+/* Header */
+.cs-head { padding: 28px 0 0; }
+.cs-hero { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(280px, .6fr); gap: 40px; align-items: end; padding: 40px 0 36px; }
+.cs-hero h1 { font-size: clamp(56px, 9vw, 132px); line-height: .85; margin-top: 18px; }
+.cs-lede { margin-top: 22px; max-width: 46ch; color: rgba(255,255,255,.78); font-size: clamp(16px, 1.3vw, 19px); line-height: 1.55; }
+.cs-meta { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.cs-meta div { display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+.cs-meta dt { font: 500 10px/1.6 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+.cs-meta dd { margin: 0; color: rgba(255,255,255,.85); }
+
+/* Figures */
+.cs-figure { margin: 0; }
+.cs-figure img { width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--bg-2); }
+.cs-figure figcaption { display: flex; justify-content: space-between; gap: 20px; padding: 12px 2px 0; font: 500 9px/1.6 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+
+/* Sections */
+.cs-section { padding: 88px 0 0; }
+.cs-section-head { display: grid; grid-template-columns: 180px 1fr; gap: 24px; align-items: start; margin-bottom: 36px; }
+.cs-section-head h2 { font-size: clamp(30px, 3.6vw, 52px); }
+.cs-section-head p { margin-top: 14px; max-width: 60ch; color: var(--muted); font-size: 15px; line-height: 1.6; }
+.cs-index { font: 500 10px/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--faint); padding-top: 10px; }
+
+.cs-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; align-items: start; }
+.cs-two.is-wide-left { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); }
+.cs-prose p { color: rgba(255,255,255,.78); font-size: 16px; line-height: 1.65; max-width: 62ch; }
+.cs-prose p + p { margin-top: 14px; }
+.cs-prose strong { color: #fff; font-weight: 600; }
+
+/* Steps */
+.cs-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.cs-step { padding: 20px; border: 1px solid var(--line); border-radius: 10px; min-height: 190px; display: grid; align-content: start; gap: 10px; }
+.cs-step span { font: 500 clamp(28px, 3vw, 40px)/.9 var(--display); color: rgba(255,255,255,.18); }
+.cs-step h3 { font-size: 15px; letter-spacing: .02em; }
+.cs-step p { color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+/* Spec list (label + value rows) */
+.cs-spec { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.cs-spec li { display: grid; grid-template-columns: 170px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.cs-spec b { font: 500 10px/1.7 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.8); }
+.cs-spec span { color: var(--muted); font-size: 14px; line-height: 1.55; }
+
+/* Cards */
+.cs-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.cs-card { padding: 24px; border: 1px solid var(--line); border-radius: 10px; }
+.cs-card small { display: block; font: 500 9px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--faint); margin-bottom: 14px; }
+.cs-card h3 { font-size: 20px; margin-bottom: 10px; }
+.cs-card p { color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+/* Code */
+.cs-code { margin: 0; padding: 18px 20px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg-2); overflow-x: auto; font: 400 12px/1.6 var(--mono); color: rgba(255,255,255,.78); }
+.cs-code .k { color: #fff; }
+.cs-code .c { color: var(--faint); }
+
+/* Chips */
+.cs-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.cs-chips span { padding: 9px 14px; border: 1px solid var(--line); border-radius: 999px; font: 500 10px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.75); }
+
+/* Next */
+.cs-next { margin-top: 96px; border-top: 1px solid var(--line); padding-top: 28px; }
+.cs-next a { display: flex; justify-content: space-between; align-items: end; gap: 20px; }
+.cs-next small { display: block; font: 500 9px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--faint); margin-bottom: 10px; }
+.cs-next strong { font: 700 clamp(28px, 4vw, 56px)/.9 var(--display); text-transform: uppercase; }
+.cs-next b { font: 500 24px/1 var(--mono); color: var(--faint); transition: color .25s, transform .3s var(--ease); }
+.cs-next a:hover b { color: #fff; transform: translate(4px, -4px); }
+
+@media (max-width: 1000px) {
+  .cs-steps { grid-template-columns: repeat(2, 1fr); }
+  .cs-step { min-height: 0; }
+  .cs-hero { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .cs-section { padding-top: 64px; }
+  .cs-section-head { grid-template-columns: 1fr; gap: 10px; }
+  .cs-two, .cs-two.is-wide-left, .cs-cards { grid-template-columns: 1fr; }
+  .cs-steps { grid-template-columns: 1fr; }
+  .cs-spec li { grid-template-columns: 1fr; gap: 4px; }
+  .cs-meta div { grid-template-columns: 80px 1fr; }
+}
