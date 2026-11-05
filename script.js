@@ -1,42 +1,83 @@
-const header = document.querySelector("[data-header]");
-const year = document.querySelector("[data-year]");
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const body = document.body;
+const loader = document.querySelector("[data-loader]");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-if (year) year.textContent = new Date().getFullYear();
-
-const updateHeader = () => header?.classList.toggle("is-scrolled", window.scrollY > 24);
-updateHeader();
-window.addEventListener("scroll", updateHeader, { passive: true });
-
-const reveals = document.querySelectorAll(".reveal");
-if (reduceMotion.matches || !("IntersectionObserver" in window)) {
-  reveals.forEach((element) => element.classList.add("is-visible"));
+/* ---------- Loading screen ---------- */
+const LOADER_MS = reduceMotion ? 200 : 2300;
+const finishLoading = () => {
+  loader?.classList.add("is-done");
+  body.classList.remove("is-loading");
+  body.classList.add("is-ready");
+};
+// Kick off the loader's entrance on the next painted frame.
+requestAnimationFrame(() => requestAnimationFrame(() => loader?.classList.add("is-in")));
+// Start the clock once fonts are ready (or shortly after DOM ready), not after every image.
+const start = () => setTimeout(finishLoading, LOADER_MS);
+if (document.fonts?.ready) {
+  Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 1200))]).then(start);
 } else {
-  const observer = new IntersectionObserver((entries, revealObserver) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add("is-visible");
-      revealObserver.unobserve(entry.target);
-    });
-  }, { threshold: .13, rootMargin: "0px 0px -45px" });
+  start();
+}
+// Safety net.
+setTimeout(finishLoading, LOADER_MS + 3000);
 
-  reveals.forEach((element, index) => {
-    if (index < 5) element.style.transitionDelay = `${Math.min(index * 75, 250)}ms`;
-    observer.observe(element);
-  });
+/* ---------- Rotating role under the name ---------- */
+const rotator = document.querySelector("[data-rotator]");
+if (rotator && !reduceMotion) {
+  const items = [...rotator.children];
+  let i = 0;
+  setInterval(() => {
+    items[i].classList.remove("is-active");
+    i = (i + 1) % items.length;
+    items[i].classList.add("is-active");
+  }, 2600);
 }
 
-const reel = document.querySelector("[data-project-reel]");
-const previousProject = document.querySelector("[data-reel-prev]");
-const nextProject = document.querySelector("[data-reel-next]");
+/* ---------- Hero category cards: cycle images ---------- */
+const SLIDE_MS = 4500;
+document.documentElement.style.setProperty("--slide-ms", `${SLIDE_MS}ms`);
 
-const scrollReel = (direction) => {
-  if (!reel) return;
-  reel.scrollBy({
-    left: direction * Math.min(reel.clientWidth * .72, 720),
-    behavior: reduceMotion.matches ? "auto" : "smooth"
-  });
-};
+document.querySelectorAll("[data-card]").forEach((card, cardIndex) => {
+  const slides = [...card.querySelectorAll("[data-slide]")];
+  const sub = card.querySelector("[data-card-sub]");
+  const dots = card.querySelector("[data-card-dots]");
+  if (slides.length < 2 || !dots) return;
 
-previousProject?.addEventListener("click", () => scrollReel(-1));
-nextProject?.addEventListener("click", () => scrollReel(1));
+  dots.innerHTML = slides.map(() => "<i></i>").join("");
+  const dotEls = [...dots.children];
+  let i = 0;
+
+  const show = (n) => {
+    slides[i].classList.remove("is-active");
+    dotEls[i].classList.remove("is-active");
+    i = n;
+    slides[i].classList.add("is-active");
+    // Restart the progress animation on the dot.
+    dotEls[i].classList.remove("is-active");
+    void dotEls[i].offsetWidth;
+    dotEls[i].classList.add("is-active");
+    if (sub) sub.textContent = slides[i].dataset.slide;
+  };
+
+  // Stagger the start so the three cards don't flip in unison.
+  setTimeout(() => {
+    dotEls[0].classList.add("is-active");
+    if (!reduceMotion) setInterval(() => show((i + 1) % slides.length), SLIDE_MS);
+  }, cardIndex * 1100);
+});
+
+/* ---------- Dock: highlight the current section ---------- */
+const navLinks = [...document.querySelectorAll("[data-nav]")];
+const targets = navLinks
+  .map((link) => document.getElementById(link.dataset.nav))
+  .filter(Boolean);
+
+if ("IntersectionObserver" in window && targets.length) {
+  const setActive = (id) => navLinks.forEach((link) => link.classList.toggle("is-active", link.dataset.nav === id));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  targets.forEach((target) => observer.observe(target));
+}
