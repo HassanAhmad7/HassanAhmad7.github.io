@@ -16,11 +16,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261106-reel">
-  <script src="script.js?v=20261106-reel" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261106-work">
+  <script src="script.js?v=20261106-work" defer></script>
 </head>
 <body class="is-loading">
-  <a class="skip-link" href="#work">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Loading screen -->
   <div class="loader" data-loader aria-hidden="true">
@@ -46,13 +46,13 @@
           <span>AI Workflows</span>
         </p>
         <div class="hero-actions">
-          <a class="pill pill-solid" href="#work">Explore work <span aria-hidden="true">→</span></a>
+          <a class="pill pill-solid" href="work/">Explore work <span aria-hidden="true">→</span></a>
           <a class="pill" href="mailto:hassanahmadofficial1@gmail.com">Get in touch</a>
         </div>
       </div>
 
       <div class="hero-cards">
-        <a class="hero-card" href="#tools" data-card>
+        <a class="hero-card" href="work/#tools" data-card>
           <div class="hero-card-media">
             <img src="assets/directsplat-feature.png" alt="" data-slide="DirectSplat — Unreal to web splats" class="is-active">
             <img src="assets/project-ai-blueprint-dark.png" alt="" data-slide="AI Blueprint Generator" loading="lazy">
@@ -63,7 +63,7 @@
             <div class="hero-card-dots" data-card-dots></div>
           </div>
         </a>
-        <a class="hero-card" href="#ai" data-card>
+        <a class="hero-card" href="work/#ai" data-card>
           <div class="hero-card-media">
             <img src="assets/project-cinematic-ai-dark.png" alt="" data-slide="CinematicAI — camera shots generator" class="is-active">
             <img src="assets/project-ai-blueprint-dark.png" alt="" data-slide="AI Blueprint — graphs from language" loading="lazy">
@@ -74,7 +74,7 @@
             <div class="hero-card-dots" data-card-dots></div>
           </div>
         </a>
-        <a class="hero-card" href="#live" data-card>
+        <a class="hero-card" href="work/#live" data-card>
           <div class="hero-card-media">
             <img src="assets/project-virtual-concert.webp" alt="" data-slide="Virtual Concert — show system" class="is-active">
             <img src="assets/project-lighting-dark.png" alt="" data-slide="Lighting Sequences — beam &amp; laser control" loading="lazy">
@@ -88,114 +88,16 @@
       </div>
     </section>
 
-    <!-- Work -->
-    <section class="work" id="work">
-      <div class="work-group" id="tools">
-        <header class="work-head">
-          <span class="work-index">01</span>
-          <div>
-            <p class="eyebrow">01 / Plugins · Pipelines · Unreal to web</p>
-            <h2>Tools &amp; Plugins</h2>
-          </div>
-          <p class="work-count">2 projects</p>
-        </header>
-        <div class="work-row">
-          <a class="work-card work-card-wide" href="directsplat/">
-            <img src="assets/directsplat-feature.png" alt="An Unreal Engine environment converted into a browser-ready Gaussian splat">
-            <div class="work-card-copy"><h3>DirectSplat</h3><p>Unreal to web · Gaussian splats</p></div>
-          </a>
-          <a class="work-card" href="ai-blueprint/">
-            <img src="assets/project-ai-blueprint-dark.png" alt="Natural-language instructions becoming an Unreal Engine Blueprint graph">
-            <div class="work-card-copy"><h3>AI Blueprint Generator</h3><p>Editor tooling</p></div>
-          </a>
-        </div>
-      </div>
-
-      <div class="work-group" id="ai">
-        <header class="work-head">
-          <span class="work-index">02</span>
-          <div>
-            <p class="eyebrow">02 / Scene-aware cameras · Generated sequences</p>
-            <h2>AI &amp; Cinematics</h2>
-          </div>
-          <p class="work-count">1 project</p>
-        </header>
-        <div class="work-row">
-          <a class="work-card work-card-wide" href="cinematic-ai/">
-            <img src="assets/project-cinematic-ai-dark.png" alt="AI-directed camera planning inside an Unreal Engine scene">
-            <div class="work-card-copy"><h3>CinematicAI</h3><p>Camera shots generator</p></div>
-          </a>
-        </div>
-      </div>
-
-      <div class="work-group" id="live">
-        <header class="work-head">
-          <span class="work-index">03</span>
-          <div>
-            <p class="eyebrow">03 / Lighting · Media · Rendering · Publishing</p>
-            <h2>Live &amp; Virtual Production</h2>
-          </div>
-          <p class="work-count">2 projects</p>
-        </header>
-        <div class="work-row">
-          <a class="work-card work-card-wide" href="virtual-concert/">
-            <img src="assets/project-virtual-concert.webp" alt="A large virtual concert stage with synchronized lighting and media">
-            <div class="work-card-copy"><h3>Virtual Concert</h3><p>Real-time production</p></div>
-          </a>
-          <a class="work-card" href="lighting-sequences/">
-            <img src="assets/project-lighting-dark.png" alt="A technical concert lighting control system">
-            <div class="work-card-copy"><h3>Lighting Sequences</h3><p>Creative tooling</p></div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section class="about" id="about">
-      <div class="about-grid">
-        <div class="about-meta">
-          <p class="eyebrow">Hassan Ahmad</p>
-          <p class="about-role">Unreal Engine Developer &amp; Systems Programmer</p>
-          <dl class="about-facts">
-            <div><dt>Based in</dt><dd>Pakistan</dd></div>
-            <div><dt>Focus</dt><dd>Unreal · C++ · Web</dd></div>
-            <div><dt>Status</dt><dd><span class="dot"></span> Available for work</dd></div>
-          </dl>
-          <a class="pill" href="assets/hassan-ahmad-resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
-        </div>
-        <div class="about-copy">
-          <h2>The work</h2>
-          <p>I build production Unreal Engine plugins and automated pipelines that turn complex workflows into dependable tools teams can actually use.</p>
-          <p>The work moves between engine systems, editor tooling, GPU pipelines, and browser delivery: designed to hold up under real projects, not just a demo.</p>
-          <ul class="stack">
-            <li><span>UE</span> Plugins · Blueprints · Editor tools</li>
-            <li><span>C++</span> Engine systems · Rendering integration</li>
-            <li><span>AI</span> Scene analysis · Generated assets</li>
-            <li><span>Web</span> WebSockets · Pixel Streaming · 3D delivery</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="contact" id="contact">
-      <p class="eyebrow">Connect</p>
-      <h2>Have a difficult Unreal problem?</h2>
-      <div class="contact-actions">
-        <a class="pill pill-solid" href="mailto:hassanahmadofficial1@gmail.com">Email me <span aria-hidden="true">→</span></a>
-        <a class="pill" href="https://github.com/HassanAhmad7" target="_blank" rel="noreferrer">GitHub ↗</a>
-      </div>
-    </section>
   </main>
 
   <!-- Bottom bar -->
   <nav class="dock" aria-label="Primary navigation">
-    <a class="dock-brand" href="#top"><span class="dock-mark">H</span><span>Hassan Ahmad</span></a>
+    <a class="dock-brand" href="./"><span class="dock-mark">H</span><span>Hassan Ahmad</span></a>
     <div class="dock-links">
-      <a href="#top" data-nav="top" class="is-active">Home</a>
-      <a href="#work" data-nav="work">Work</a>
-      <a href="#about" data-nav="about">About</a>
-      <a href="#contact" data-nav="contact">Contact</a>
+      <a href="./" class="is-active">Home</a>
+      <a href="work/">Work</a>
+      <a href="about/">About</a>
+      <a href="about/#contact">Contact</a>
     </div>
     <div class="dock-icons">
       <a href="https://github.com/HassanAhmad7" target="_blank" rel="noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></a>
