@@ -17,7 +17,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css?v=20261106-case">
-  <link rel="stylesheet" href="../case.css?v=20261106-case2">
+  <link rel="stylesheet" href="../case.css?v=20261106-case3">
 </head>
 <body class="is-ready page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -194,17 +194,19 @@
           <p>C++ owns the typed data and generates safe Python; editor Python owns the parts of the Sequencer API that shift between engine versions.</p>
         </div>
       </div>
-      <figure class="cs-figure">
+      <div class="cs-build">
+      <figure class="cs-figure cs-figure-side">
         <img src="../assets/cinematic-ai/sequencer-tracks.webp" alt="Sequencer showing Camera Cuts, a CineCameraActor binding with CameraComponent aperture, focal length and manual focus distance tracks, and a transform track">
         <figcaption><span>Camera Cuts · CineCameraActor · CameraComponent property tracks · Transform</span><span>30 fps</span></figcaption>
       </figure>
-      <div class="cs-cards" style="margin-top: 36px">
+      <div class="cs-cards cs-cards-build">
         <article class="cs-card"><small>Per shot</small><h3>Camera, sequence, and bound property tracks</h3><p>A CineCameraActor is spawned per shot, a Level Sequence is created, and the actor and camera component are added as possessables. Aperture, focal length, and manual focus distance get proper property tracks so they bind instead of showing as broken.</p></article>
         <article class="cs-card"><small>Keyframes</small><h3>Transform and lens keys with correct interpolation</h3><p>Transform keys are written to double channels, lens keys to float channels, at the sequence’s display rate. Quaternion interpolation is enabled on rotation so yaws near ±180° never swing the long way round.</p></article>
         <article class="cs-card"><small>Tracking</small><h3>Look-at tracking without a framing jump</h3><p>The plan’s LookAt target becomes real CineCamera look-at tracking tracks. The relative offset is computed from the camera’s current aim so enabling tracking keeps the composition the planner chose.</p></article>
         <article class="cs-card"><small>Follow</small><h3>Bake, then attach</h3><p>To follow a moving subject the script first evaluates the sequence at every existing key and rewrites the transforms relative to the parent, then adds the attach track. The shot keeps its look while its motion becomes parent-relative.</p></article>
         <article class="cs-card"><small>Shake and range</small><h3>Shake tracks and trimmed playback</h3><p>Shake assets are resolved by name through the Asset Registry and added as camera shake tracks. Each sequence is trimmed to the plan’s timing and the camera cut stretched to match.</p></article>
         <article class="cs-card"><small>Master</small><h3>A verified master edit</h3><p>Shots are placed on a cinematic shot track with source trims computed in each sub-sequence’s own tick resolution. Every start, end, and offset is read back after writing and corrected until it matches within a millisecond.</p></article>
+      </div>
       </div>
     </section>
 

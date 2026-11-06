@@ -54,6 +54,12 @@
 .cs-card h3 { font-size: 20px; margin-bottom: 10px; }
 .cs-card p { color: var(--muted); font-size: 14px; line-height: 1.6; }
 
+/* Build section: side image + cards */
+.cs-build { display: grid; grid-template-columns: 400px minmax(0, 1fr); gap: 56px; align-items: start; }
+.cs-figure-side { position: sticky; top: 24px; }
+.cs-figure-side figcaption { flex-direction: column; gap: 2px; }
+.cs-cards-build { grid-template-columns: 1fr; }
+
 /* Code */
 .cs-code { margin: 0; padding: 18px 20px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg-2); overflow-x: auto; font: 400 12px/1.6 var(--mono); color: rgba(255,255,255,.78); }
 .cs-code .k { color: #fff; }
@@ -67,8 +73,8 @@
   .cs-steps { grid-template-columns: repeat(2, 1fr); }
   .cs-step { min-height: 0; }
   .cs-hero { grid-template-columns: 1fr; }
-  .cs-two.is-wide-left { grid-template-columns: 1fr; }
-  .cs-figure-panel { position: static; justify-self: start; }
+  .cs-two.is-wide-left, .cs-build { grid-template-columns: 1fr; }
+  .cs-figure-panel, .cs-figure-side { position: static; justify-self: start; }
 }
 @media (max-width: 720px) {
   .cs-section { padding-top: 64px; }
