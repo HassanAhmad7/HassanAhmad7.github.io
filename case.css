@@ -18,6 +18,7 @@
 .cs-figure-panel { position: sticky; top: 24px; justify-self: end; width: min(100%, 340px); }
 .cs-figure-panel figcaption { flex-direction: column; gap: 2px; }
 .cs-figure { margin: 0; }
+.cs-figure video { display: block; width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--bg-2); }
 .cs-figure img { width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--bg-2); }
 .cs-figure figcaption { display: flex; justify-content: space-between; gap: 20px; padding: 12px 2px 0; font: 500 9px/1.6 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
 
@@ -36,6 +37,7 @@
 
 /* Steps */
 .cs-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.cs-steps-3 { grid-template-columns: repeat(3, 1fr); }
 .cs-step { padding: 20px; border: 1px solid var(--line); border-radius: 10px; min-height: 190px; display: grid; align-content: start; gap: 10px; }
 .cs-step span { font: 500 clamp(28px, 3vw, 40px)/.9 var(--display); color: rgba(255,255,255,.18); }
 .cs-step h3 { font-size: 15px; letter-spacing: .02em; }

@@ -3,93 +3,216 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#070a0e">
-  <meta name="description" content="Advanced Lighting Sequences is Hassan Ahmad's Unreal Engine concert-lighting toolkit for authoring, controlling, previewing, and saving reusable lighting performances.">
-  <meta property="og:title" content="Advanced Lighting Sequences | Unreal Engine">
-  <meta property="og:description" content="A real-time concert-lighting authoring system for fixtures, beams, strobes, lasers, focus targets, and reusable sequences.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="Lighting Sequences is a data-driven concert lighting system in Unreal Engine 5.7: tag-addressed fixtures, authored sequence tiers, timeline performance, and playback synced to the show's video clock.">
+  <meta property="og:title" content="Lighting Sequences — Hassan Ahmad">
+  <meta property="og:description" content="Beams, lasers, strobes and focus moves, authored as data and performed on a timeline in Unreal Engine.">
+  <meta property="og:image" content="../assets/lighting-sequences/stage-demo-poster.webp">
   <meta property="og:type" content="website">
-  <title>Advanced Lighting Sequences | Unreal Engine</title>
+  <title>Lighting Sequences — Hassan Ahmad</title>
   <link rel="icon" href="../assets/portfolio-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../case-study.css?v=20260922-dark1">
-  <script src="../script.js" defer></script>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=20261106-case7">
+  <link rel="stylesheet" href="../case.css?v=20261106-case7">
 </head>
-<body class="lighting">
+<body class="is-ready page">
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header" data-header>
-    <a class="brand" href="#top" aria-label="Advanced Lighting Sequences home"><span class="brand-mark">ALS</span><span>Lighting Sequences</span></a>
-    <nav class="nav" aria-label="Project navigation"><a href="#overview">Overview</a><a href="#system">System</a><a href="#engineering">Controls</a><a href="#result">Result</a></nav>
-    <a class="header-cta" href="../">Hassan Ahmad · Portfolio <span>↖</span></a>
-  </header>
 
-  <main id="main">
-    <section class="hero" id="top">
-      <div class="hero-grid" aria-hidden="true"></div><div class="hero-glow" aria-hidden="true"></div>
-      <div class="hero-visual"><img src="../assets/project-lighting-dark.png" alt="Technical visualization of an Unreal Engine concert lighting control system"></div>
-      <div class="hero-content shell">
-        <div class="eyebrow reveal">Unreal Engine · Real-time creative tooling</div>
-        <h1 class="reveal">Design the lights.<br><span>Perform the sequence.</span></h1>
-        <p class="hero-lede reveal">Advanced Lighting Sequences is a complete Unreal Engine toolkit for placing fixtures, authoring reusable lighting behaviors, controlling beams, strobes, lasers and focus targets, then previewing and saving the full configuration.</p>
-        <div class="hero-actions reveal"><a class="button button-primary" href="#system">Explore the system <span>↓</span></a><a class="button button-secondary" href="#engineering">Lighting controls</a></div>
+  <main id="main" class="cs-main">
+    <header class="cs-head">
+      <a class="back" href="../work/#live">← Work</a>
+      <div class="cs-hero">
+        <div>
+          <p class="cs-tagline"><span class="cs-tag">03</span><span class="cs-tag">Live &amp; Virtual Production</span><span>Unreal Engine 5.7</span></p>
+          <h1>Lighting<br>Sequences</h1>
+          <p class="cs-lede">A data-driven lighting system for virtual concerts. Fixtures are addressed by tag, looks are authored as reusable sequences, and a show is performed onto a timeline that stays locked to the video clock.</p>
+          <dl class="cs-meta">
+            <div><dt>Role</dt><dd>Systems development</dd></div>
+            <div><dt>Engine</dt><dd>Unreal Engine 5.7</dd></div>
+            <div><dt>Stack</dt><dd>C++ · Blueprint · Niagara · Materials</dd></div>
+            <div><dt>Use</dt><dd>Concert and studio lighting</dd></div>
+          </dl>
+        </div>
+        <figure class="cs-figure cs-hero-figure">
+          <video src="../assets/lighting-sequences/stage-demo.mp4" poster="../assets/lighting-sequences/stage-demo-poster.webp" controls muted loop playsinline autoplay preload="metadata" aria-label="Stage demo showing spot beams, gobo patterns, lasers and strobes running through lighting sequences"></video>
+          <figcaption><span>Stage demo</span><span>Beams · gobos · lasers · strobes</span></figcaption>
+        </figure>
       </div>
-      <div class="hero-meta shell reveal" aria-label="Project summary">
-        <div><span class="meta-label">Role</span><strong>Systems development</strong></div>
-        <div><span class="meta-label">Engine</span><strong>Unreal Engine</strong></div>
-        <div><span class="meta-label">Use</span><strong>Concert + studio lighting</strong></div>
-        <div><span class="meta-label">Workflow</span><strong>Author · preview · save</strong></div>
+    </header>
+
+    <!-- Overview -->
+    <section class="cs-section" id="overview">
+      <div class="cs-section-head">
+        <span class="cs-index">01 / Overview</span>
+        <div>
+          <h2>A lighting desk, rebuilt as engine data.</h2>
+          <p>Lighting a concert by hand means hundreds of fixtures changing together, in time with a track. This system treats those changes as data that can be reused, performed, and replayed.</p>
+        </div>
+      </div>
+      <div class="cs-two">
+        <div class="cs-prose">
+          <p>The lighting system sits inside a larger concert platform, as one of the managers run by a central concert orchestrator. A thin C++ layer handles encoding, tag lookup, recording and replay. The fixture behaviour and the authored shows live in Blueprint, so looks can change without a code rebuild.</p>
+          <p>The core idea is <strong>separation</strong>. A fixture knows how to move, dim and strobe. A sequence knows which fixtures to address and with what values. A timeline knows when to fire each sequence. Each layer can change without touching the others.</p>
+          <p>This is a custom show system rather than Sequencer tracks or DMX control. Lights are driven by authored data and timers, which is what lets a show be recorded live and replayed against video.</p>
+        </div>
+        <ul class="cs-spec">
+          <li><b>Authored shows</b><span>20 tiers across two venue setups, holding 660 sequences, 882 patches and 1,894 property entries.</span></li>
+          <li><b>Addressing</b><span>Fixtures are found by actor tag, resolved through a map built when the concert level loads.</span></li>
+          <li><b>Control</b><span>Beam distance, radius and intensity. Laser angle, length, width and spread. Rotation, focus and strobe.</span></li>
+          <li><b>Playback</b><span>Timer-driven and re-synced to media time on every key, with seek, pause and resume.</span></li>
+        </ul>
       </div>
     </section>
 
-    <section class="overview section" id="overview">
-      <div class="shell overview-grid">
-        <span class="section-index reveal">01 / Overview</span>
-        <div><p class="display-copy reveal">A lighting workspace where fixtures, motion, timing, and performance controls become reusable sequences.</p><div class="overview-detail reveal"><p>Users can spawn different studio or concert lights, combine them with pre-placed fixtures, select the lights that belong to a performance, and define their behavior through a focused control interface.</p><p>The system supports quick experimentation without losing the final setup. Configurations can be previewed as a whole, stopped for adjustment, and saved for reuse.</p></div></div>
+    <!-- Show structure -->
+    <section class="cs-section" id="structure">
+      <div class="cs-section-head">
+        <span class="cs-index">02 / Show structure</span>
+        <div>
+          <h2>Four levels, from a whole show to a single fixture.</h2>
+          <p>Authored data nests the way a lighting programmer thinks: a set of looks, the chases inside each look, and the groups of lights inside each chase.</p>
+        </div>
+      </div>
+      <div class="cs-two">
+        <ul class="cs-spec">
+          <li><b>Tier</b><span>A collection of sequences for a venue or part of a show.</span></li>
+          <li><b>Sequence</b><span>One chase: a list of patches that play together as a single look.</span></li>
+          <li><b>Patch</b><span>A group of property entries with a start delay, which is how lights ripple across a rig.</span></li>
+          <li><b>Property entry</b><span>A feature, the fixture tags it addresses, an accumulative delay, and the values that feature needs.</span></li>
+        </ul>
+        <pre class="cs-code"><span class="c">// One authored entry (abridged)</span>
+<span class="k">feature</span>        = BeamLightRotateLoop
+<span class="k">tag</span>            = LightSocket_*
+<span class="k">BeamDistance</span>   = 15000
+<span class="k">BeamRadius</span>     = 3
+<span class="k">BeamIntensity</span>  = 800
+<span class="k">initial vertical</span> = 180
+<span class="k">loop vertical</span>    = 60</pre>
       </div>
     </section>
 
-    <section class="section" id="system">
-      <div class="shell">
-        <div class="section-heading reveal"><div><span class="section-index">02 / Authoring system</span><h2>From fixture placement to synchronized behavior.</h2></div><p>The toolkit brings multiple light types and performance actions into one consistent sequence-authoring workflow.</p></div>
-        <div class="feature-grid">
-          <article class="feature-card reveal"><span class="feature-number">01</span><h3>Place fixtures</h3><p>Spawn beam, point, strobe, and laser lights or bring existing fixtures into the authored configuration.</p></article>
-          <article class="feature-card reveal"><span class="feature-number">02</span><h3>Design behavior</h3><p>Create actions such as Light On, Beam Light Rotate, Random Light Moving, Strobe Blink, Laser Spread, and Focus Light.</p></article>
-          <article class="feature-card reveal"><span class="feature-number">03</span><h3>Preview and save</h3><p>Run the complete configuration in real time, stop it for changes, and save reusable lighting sequences.</p></article>
+    <!-- Fixtures -->
+    <section class="cs-section" id="fixtures">
+      <div class="cs-section-head">
+        <span class="cs-index">03 / Fixtures and features</span>
+        <div>
+          <h2>One vocabulary, played by every fixture.</h2>
+          <p>Fixtures share a base class and common sequence functions, so a sequence can address a mixed rig without knowing what each light is.</p>
+        </div>
+      </div>
+      <div class="cs-cards">
+        <article class="cs-card"><small>Moving head</small><h3>Beam light</h3><p>The main fixture: a robotic head with a spot light and a volumetric beam mesh, animated with Blueprint Timelines. It can also switch into laser mode, so one fixture plays both roles.</p></article>
+        <article class="cs-card"><small>Laser</small><h3>Laser fans</h3><p>Niagara laser fans with control over angle, length, width, beam count and spread, including a spreading feature for fans that open across the stage.</p></article>
+        <article class="cs-card"><small>Strobe</small><h3>Strobe panels</h3><p>Emissive strobes driven through a dynamic material for a hard, blinking accent.</p></article>
+        <article class="cs-card"><small>Features</small><h3>Eight named behaviours</h3><p>On, off, beam rotate loop, strobe blinking, laser spreading, random moving, focus lights, and rotation with pattern. Focus lights aim groups at a target using look-at rotation, with interpolated speed and a percentage of the rig.</p></article>
+      </div>
+    </section>
+
+    <!-- Authoring -->
+    <section class="cs-section" id="authoring">
+      <div class="cs-section-head">
+        <span class="cs-index">04 / Authoring</span>
+        <div>
+          <h2>Three ways to build a show.</h2>
+          <p>Technical artists, in-app users, and live operators each get a route that suits how they work.</p>
+        </div>
+      </div>
+      <div class="cs-steps cs-steps-3">
+        <article class="cs-step"><span>01</span><h3>In the editor</h3><p>Built-in tiers are authored as structured data. An editor utility widget handles tagging, and a spawn tool places beam lights on the sockets of a stage mesh.</p></article>
+        <article class="cs-step"><span>02</span><h3>At runtime</h3><p>A custom-light panel adds sequences and sub-sequences, spawns new lights with transform gizmos, and saves everything to the concert draft through custom archive serialisation.</p></article>
+        <article class="cs-step"><span>03</span><h3>By performing</h3><p>An operator plays the show. Each press records a key with a timestamp, action, speed and duration. A short press is temporary, and a long press latches until the next change.</p></article>
+      </div>
+    </section>
+
+    <!-- Playback -->
+    <section class="cs-section" id="playback">
+      <div class="cs-section-head">
+        <span class="cs-index">05 / Playback</span>
+        <div>
+          <h2>The same show on two clocks.</h2>
+          <p>A recorded show has to hold up live against video, and again in an offline render. Both paths run the same keyframes.</p>
+        </div>
+      </div>
+      <div class="cs-two">
+        <pre class="cs-code"><span class="c">// A recorded key</span>
+<span class="k">FKeyFrame</span> { Timestamp, Action, Speed, Duration,
+            bIsLongPress, custom bytes }
+
+<span class="c">// Three-layer category packed into one integer</span>
+Action = 1000000 + Main * 10000 + Sub * 100 + Seq
+
+<span class="c">// Each wait is measured from the media clock</span>
+NextTimer = Key.Timestamp - Media.GetPlaybackTime()</pre>
+        <ul class="cs-spec">
+          <li><b>Live</b><span>Each wait is recalculated from the video’s playback time instead of accumulating, so timing errors do not build up. Late keys fire immediately.</span></li>
+          <li><b>Seek</b><span>Jumping to a point rebuilds the latched state and the remaining time of any short press.</span></li>
+          <li><b>Offline render</b><span>The same keys become event track keys in a Level Sequence generated at runtime, including synthetic reverts for short presses.</span></li>
+          <li><b>Compatibility</b><span>The compact action IDs are versioned, and the decoder still reads the older format.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Reactive -->
+    <section class="cs-section" id="reactive">
+      <div class="cs-section-head">
+        <span class="cs-index">06 / Reactive lighting</span>
+        <div>
+          <h2>Lights that listen and watch.</h2>
+          <p>Authored shows are the base layer. Audio and video can drive what happens on top of them.</p>
+        </div>
+      </div>
+      <div class="cs-cards">
+        <article class="cs-card"><small>Music</small><h3>Audio-reactive properties</h3><p>Frequency bands and BPM from an audio analysis engine feed property, intensity, speed and colour responses on the lights.</p></article>
+        <article class="cs-card"><small>Automation</small><h3>Weighted category selection</h3><p>Automation settings define music-range thresholds and how quickly sequences change. Categories are picked from low, mid and high weights, with favourites and exclusions per level.</p></article>
+        <article class="cs-card"><small>Video</small><h3>Colour from the screen</h3><p>The current video frame is drawn to a render target, read back and averaged, with dull colours boosted, so the rig can follow what is on the screens.</p></article>
+        <article class="cs-card"><small>Override</small><h3>Keyframed colour</h3><p>Colour is global rather than stored per sequence entry, so a timeline key can override the whole rig at once without touching authored looks.</p></article>
+      </div>
+    </section>
+
+    <!-- Engineering -->
+    <section class="cs-section" id="engineering">
+      <div class="cs-section-head">
+        <span class="cs-index">07 / Engineering notes</span>
+        <div>
+          <h2>What made it hold together.</h2>
+        </div>
+      </div>
+      <div class="cs-cards">
+        <article class="cs-card"><small>Architecture</small><h3>A shared timeline framework</h3><p>Lighting runs on a generic manager base that handles recording, replay, seek, layers and automation for many concert systems. Native code owns timing, and Blueprint events own the look.</p></article>
+        <article class="cs-card"><small>Scale</small><h3>Timers instead of Tick</h3><p>The current lighting path plays through timers and Blueprint Timelines rather than per-frame Tick, a shift from an earlier tick-based audio light manager.</p></article>
+        <article class="cs-card"><small>Addressing</small><h3>Tags over hard references</h3><p>Sequences target tags rather than actors, so authored data stays separate from the level. Tags are resolved to live fixtures after the level loads.</p></article>
+        <article class="cs-card"><small>Built on</small><h3>Standing on good parts</h3><p>The volumetric beam material and laser modules build on Epic’s DMX fixture content, the stage rig on a modular concert asset set, and audio analysis on a third-party plugin. The sequencing layer is what ties them together.</p></article>
+      </div>
+    </section>
+
+    <!-- Stack -->
+    <section class="cs-section" id="stack">
+      <div class="cs-section-head">
+        <span class="cs-index">08 / Stack</span>
+        <div class="cs-chips">
+          <span>Unreal Engine 5.7</span><span>C++</span><span>Blueprint</span><span>Niagara</span><span>Materials</span><span>Editor Utility Widgets</span><span>UMG</span><span>Audio Analysis</span><span>Level Sequence</span>
         </div>
       </div>
     </section>
-
-    <section class="workflow section">
-      <div class="shell">
-        <div class="section-heading reveal"><div><span class="section-index">03 / Workflow</span><h2>A direct path from setup to show.</h2></div><p>Each step keeps creative iteration fast while retaining control over the individual lights.</p></div>
-        <div class="workflow-list reveal">
-          <article class="workflow-step"><span>01</span><h3>Spawn</h3><p>Add the fixture types required by the studio scene, concert stage, or real-time experience.</p></article>
-          <article class="workflow-step"><span>02</span><h3>Select</h3><p>Choose one or multiple lights and establish the group that receives the sequence behavior.</p></article>
-          <article class="workflow-step"><span>03</span><h3>Configure</h3><p>Adjust transforms, focus, intensity, movement, timing, spread, and music interaction.</p></article>
-          <article class="workflow-step"><span>04</span><h3>Perform</h3><p>Preview the sequence, stop and refine the setup, then save the finished configuration.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="engineering">
-      <div class="shell">
-        <div class="section-heading reveal"><div><span class="section-index">04 / Controls</span><h2>Detailed control for every performance layer.</h2></div><p>Shared authoring patterns make different fixture behaviors feel like parts of the same lighting system.</p></div>
-        <div class="engineering-grid">
-          <article class="engineering-card reveal"><span class="card-label">Placement</span><h3>World and local transforms</h3><p>Configure placement space, initial rotation, vertical orientation, horizontal orientation, and selected focus locations.</p></article>
-          <article class="engineering-card reveal"><span class="card-label">Beam + focus</span><h3>Direct and animated light</h3><p>Control distance, intensity, music interaction, rotation loops, and single-point focus behavior.</p></article>
-          <article class="engineering-card reveal"><span class="card-label">Laser</span><h3>Shape the spread</h3><p>Adjust laser angle, width, beam count, spread direction, and movement speed for different visual patterns.</p></article>
-          <article class="engineering-card reveal"><span class="card-label">Strobe</span><h3>Time the pulse</h3><p>Author blink timing and intensity while coordinating the effect with the rest of the real-time sequence.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="result" id="result"><div class="shell result-content"><span class="section-index reveal">05 / Result</span><h2 class="reveal">One tool for<br><span>repeatable live looks.</span></h2><p class="reveal">The system turns a collection of independent Unreal lights into an authored performance layer that is faster to build, easier to preview, and practical to reuse across concert, studio, and virtual-production scenes.</p></div></section>
-
-    <section class="section"><div class="shell stack-grid"><div><span class="section-index reveal">06 / Capability set</span><h2 class="reveal">A complete real-time lighting toolkit.</h2></div><div class="stack-list reveal"><span>Unreal Engine</span><span>Blueprints</span><span>Sequence authoring</span><span>Beam lights</span><span>Point lights</span><span>Strobes</span><span>Lasers</span><span>Focus targets</span><span>Transform controls</span><span>Music interaction</span><span>Saved configurations</span></div></div></section>
-    <section class="next-project"><div class="shell"><a class="next-link" href="../directsplat/"><span><small>Featured project</small><strong>DirectSplat</strong></span><b>↗</b></a></div></section>
   </main>
 
-  <footer class="footer"><div class="shell footer-grid"><div><a class="brand" href="#top"><span class="brand-mark">HA</span><span>Hassan Ahmad</span></a><p>Unreal Engine developer and systems programmer.</p></div><div class="footer-role"><span>Project</span><strong>Advanced Lighting Sequences</strong><span>Creative tooling</span></div><div class="footer-links"><a href="../">Portfolio ↗</a><a href="mailto:hassanahmadofficial1@gmail.com">Email ↗</a></div></div><div class="shell footer-bottom"><span>© <span data-year></span> Hassan Ahmad</span><a href="#top">Back to top ↑</a></div></footer>
+  <nav class="dock" aria-label="Primary navigation">
+    <a class="dock-brand" href="../"><span class="dock-mark">H</span><span>Hassan Ahmad</span></a>
+    <div class="dock-links">
+      <a href="../">Home</a>
+      <a href="../work/" class="is-active">Work</a>
+      <a href="../about/">About</a>
+      <a href="../about/#contact">Contact</a>
+    </div>
+    <div class="dock-icons">
+      <a href="https://github.com/HassanAhmad7" target="_blank" rel="noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></a>
+      <a href="mailto:hassanahmadofficial1@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20v14H2z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m2 6 10 7 10-7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+      <a href="../assets/hassan-ahmad-resume.pdf" target="_blank" rel="noopener" aria-label="Resume"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M14 2v5h5M9 12h7M9 16h7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+    </div>
+  </nav>
 </body>
 </html>
