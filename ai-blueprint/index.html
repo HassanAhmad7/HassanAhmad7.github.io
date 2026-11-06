@@ -3,93 +3,259 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#070a0e">
-  <meta name="description" content="AI Blueprint Generator is Hassan Ahmad's Unreal Engine 5.7 plugin for turning natural-language requests into compiled Blueprint assets and connected visual logic.">
-  <meta property="og:title" content="AI Blueprint Generator | Unreal Engine">
-  <meta property="og:description" content="Natural-language intent transformed into native Blueprint structure, functions, and executable graph logic.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="AI Blueprint Generator is an Unreal Engine 5.7 editor plugin by Hassan Ahmad that turns a natural-language request into a real, compiled Blueprint: variables, components, functions, event graph nodes and pin-level connections.">
+  <meta property="og:title" content="AI Blueprint Generator — Hassan Ahmad">
+  <meta property="og:description" content="A plain-English request becomes a compiled Blueprint, built node by node inside the editor.">
+  <meta property="og:image" content="../assets/ai-blueprint/graph-overview.webp">
   <meta property="og:type" content="website">
-  <title>AI Blueprint Generator | Unreal Engine</title>
+  <title>AI Blueprint Generator — Hassan Ahmad</title>
   <link rel="icon" href="../assets/portfolio-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../case-study.css?v=20260922-dark1">
-  <script src="../script.js" defer></script>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=20261106-case6">
+  <link rel="stylesheet" href="../case.css?v=20261106-case6">
 </head>
-<body>
+<body class="is-ready page">
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header" data-header>
-    <a class="brand" href="#top" aria-label="AI Blueprint Generator home"><span class="brand-mark">AI</span><span>Blueprint Generator</span></a>
-    <nav class="nav" aria-label="Project navigation"><a href="#overview">Overview</a><a href="#system">System</a><a href="#engineering">Engineering</a><a href="#result">Result</a></nav>
-    <a class="header-cta" href="../">Hassan Ahmad · Portfolio <span>↖</span></a>
-  </header>
 
-  <main id="main">
-    <section class="hero" id="top">
-      <div class="hero-grid" aria-hidden="true"></div><div class="hero-glow" aria-hidden="true"></div>
-      <div class="hero-visual"><img src="../assets/project-ai-blueprint-dark.png" alt="Technical visualization of natural language becoming a compiled Unreal Engine Blueprint graph"></div>
-      <div class="hero-content shell">
-        <div class="eyebrow reveal">Unreal Engine 5.7 · AI editor tooling</div>
-        <h1 class="reveal">Describe the system.<br><span>Generate the Blueprint.</span></h1>
-        <p class="hero-lede reveal">An Unreal Engine editor plugin that translates natural-language requests into real Blueprint assets, including components, typed variables, functions, Event Graph nodes, pin-level connections, compilation, and a recoverable generation workflow.</p>
-        <div class="hero-actions reveal"><a class="button button-primary" href="#system">Explore the pipeline <span>↓</span></a><a class="button button-secondary" href="#engineering">Technical architecture</a></div>
+  <main id="main" class="cs-main">
+    <header class="cs-head">
+      <a class="back" href="../work/#ai">← Work</a>
+      <div class="cs-hero">
+        <div>
+          <p class="cs-tagline"><span class="cs-tag">02</span><span class="cs-tag">AI Powered</span><span>Unreal Engine 5.7 editor plugin</span></p>
+          <h1>AI Blueprint<br>Generator</h1>
+          <p class="cs-lede">Type what the actor should do. The plugin plans the Blueprint, then builds it inside the editor one real operation at a time: variables, components, functions, event graph nodes, pin connections, defaults, and a compile at the end.</p>
+          <dl class="cs-meta">
+            <div><dt>Role</dt><dd>Design and development, solo</dd></div>
+            <div><dt>Engine</dt><dd>Unreal Engine 5.7, editor module</dd></div>
+            <div><dt>Stack</dt><dd>C++ · Slate · WebSockets · Python · Gemini</dd></div>
+            <div><dt>Output</dt><dd>Native, compiled Blueprint assets</dd></div>
+          </dl>
+        </div>
+        <figure class="cs-figure cs-hero-figure">
+          <img src="../assets/ai-blueprint/graph-overview.webp" alt="A generated Unreal Engine Blueprint event graph, zoomed out, with several colour-coded comment groups of connected nodes">
+          <figcaption><span>Generated event graph</span><span>Blueprint editor</span></figcaption>
+        </figure>
       </div>
-      <div class="hero-meta shell reveal" aria-label="Project summary">
-        <div><span class="meta-label">Role</span><strong>Plugin developer</strong></div>
-        <div><span class="meta-label">Engine</span><strong>Unreal Engine 5.7</strong></div>
-        <div><span class="meta-label">Input</span><strong>Natural language</strong></div>
-        <div><span class="meta-label">Output</span><strong>Compiled Blueprints</strong></div>
+    </header>
+
+    <!-- Overview -->
+    <section class="cs-section" id="overview">
+      <div class="cs-section-head">
+        <span class="cs-index">01 / Overview</span>
+        <div>
+          <h2>Not sample code. A Blueprint you can open.</h2>
+          <p>The model never touches the asset directly. It writes a plan of small, typed editor operations, and the editor executes them against the real Blueprint API.</p>
+        </div>
+      </div>
+      <div class="cs-two">
+        <div class="cs-prose">
+          <p>Most AI tools for Unreal hand you a snippet and leave the wiring to you. This one produces the thing itself: a Blueprint in the Content Browser with the right parent class, typed variables with defaults, a component hierarchy, functions with inputs and outputs, and an event graph whose pins are actually connected.</p>
+          <p>The split is deliberate. A <strong>planner</strong> running outside the editor decides what to build. A <strong>bridge</strong> inside the editor exposes a small vocabulary of operations and knows how to carry each one out correctly using the Kismet and Blueprint editor APIs. Every step is a round trip, so the plan can react to what the engine actually created.</p>
+          <p>The result compiles, shows up in Ctrl+Z-free but inspectable form in the Blueprint editor, and can be extended by hand like any other asset.</p>
+        </div>
+        <ul class="cs-spec">
+          <li><b>Input</b><span>A plain-English goal typed into an editor tab. Optional reference image for UI-flavoured requests.</span></li>
+          <li><b>Planning</b><span>Two prompt phases: structure first, then logic, each grounded in what the editor reports back.</span></li>
+          <li><b>Execution</b><span>A reflection-based command executor invokes bridge functions by name with JSON parameters and returns structured results.</span></li>
+          <li><b>Build</b><span>Asset creation, variables, components, functions, nodes, pin wiring, literal defaults, then compile.</span></li>
+        </ul>
       </div>
     </section>
 
-    <section class="overview section" id="overview">
-      <div class="shell overview-grid">
-        <span class="section-index reveal">01 / Overview</span>
-        <div><p class="display-copy reveal">A generation system grounded in the Blueprint APIs it can actually execute.</p><div class="overview-detail reveal"><p>The user describes the gameplay or actor behavior they need. The system expands that intent into a structured plan built around supported Unreal types, node aliases, component classes, and graph operations.</p><p>Instead of returning sample code, the plugin creates Blueprint-native assets directly in the editor. The result can be opened, inspected, compiled, revised, and continued by a developer.</p></div></div>
+    <!-- Pipeline -->
+    <section class="cs-section" id="pipeline">
+      <div class="cs-section-head">
+        <span class="cs-index">02 / Pipeline</span>
+        <div>
+          <h2>From a sentence to a compiled asset.</h2>
+          <p>Each step runs to completion in the editor before the next one is sent, so later steps can reference real node GUIDs and real variable lists.</p>
+        </div>
+      </div>
+      <div class="cs-steps">
+        <article class="cs-step"><span>01</span><h3>Describe</h3><p>“A health system with damage and healing.” The request is routed by a keyword classifier, with a small model as tie-breaker when the intent is unclear.</p></article>
+        <article class="cs-step"><span>02</span><h3>Enhance</h3><p>A stronger model rewrites the request into an explicit spec: parent class, variables, components, functions, constraints. Its system prompt is the executor’s own contract, so it only asks for things the editor can do.</p></article>
+        <article class="cs-step"><span>03</span><h3>Phase 1: structure</h3><p>A plan of CreateBlueprint, AddVariable, AddComponent and AddFunction steps, closed with GetVariables and GetComponents so the editor reports what now exists.</p></article>
+        <article class="cs-step"><span>04</span><h3>Phase 2: logic</h3><p>Given the real structure, the planner emits AddNode, SetNodeProperty, GetNodePins, ConnectPins and SetPinDefaultValue steps for the event graph and each function graph.</p></article>
+        <article class="cs-step"><span>05</span><h3>Execute and compile</h3><p>Each step crosses a WebSocket as one command, is executed on the game thread through reflection, and returns JSON. The plan ends with CompileBlueprint.</p></article>
       </div>
     </section>
 
-    <section class="section" id="system">
-      <div class="shell">
-        <div class="section-heading reveal"><div><span class="section-index">02 / Generated assets</span><h2>Structure and logic, built together.</h2></div><p>The bridge exposes the operations required to move from an empty asset to an executable visual system.</p></div>
-        <div class="feature-grid">
-          <article class="feature-card reveal"><span class="feature-number">01</span><h3>Blueprint structure</h3><p>Creates Actor, Pawn, or Character assets, component hierarchies, typed variables, arrays, default values, and reflected properties.</p></article>
-          <article class="feature-card reveal"><span class="feature-number">02</span><h3>Visual logic</h3><p>Adds Event Graph nodes, inspects pins, configures defaults, resolves node classes, and connects execution or data paths.</p></article>
-          <article class="feature-card reveal"><span class="feature-number">03</span><h3>Functions</h3><p>Creates functions with inputs, outputs, internal nodes, entry/result wiring, graph connections, and pure-function support.</p></article>
+    <!-- Architecture -->
+    <section class="cs-section" id="architecture">
+      <div class="cs-section-head">
+        <span class="cs-index">03 / Architecture</span>
+        <div>
+          <h2>A brain outside the editor, hands inside it.</h2>
+          <p>The editor side is a generic remote-procedure layer. Adding a capability means adding one Blueprint-callable function; nothing in the protocol changes.</p>
+        </div>
+      </div>
+      <div class="cs-two">
+        <ul class="cs-spec">
+          <li><b>Bridge registry</b><span>At startup, the plugin reflects over every BlueprintCallable function on its bridge classes, reads parameter types, defaults and tooltips, tags them by verb and domain, and ships the whole capability schema in the session handshake.</span></li>
+          <li><b>Command executor</b><span>Resolves a target object by name, finds the UFunction, allocates a parameter frame, marshals JSON into FProperty values, calls ProcessEvent, and serialises return and out parameters back to JSON with timing.</span></li>
+          <li><b>Blueprint bridge</b><span>A UObject with static functions for every operation: create, load, variables, defaults, components, functions and their pins, nodes, node properties, pin queries, connections, pin defaults, compile.</span></li>
+          <li><b>Transport</b><span>Unreal’s WebSockets module to a local Python service. Commands go out as batches with IDs; results come back as execution feedback keyed by the same IDs. Reconnect uses a ticker with exponential backoff.</span></li>
+          <li><b>Symbolic handles</b><span>The planner never sees GUIDs up front. It writes placeholders like <code>{GetCharMove.nodeGuid}</code>; the service resolves them from the GUIDs the editor returned for earlier steps.</span></li>
+        </ul>
+        <pre class="cs-code"><span class="c">// One step on the wire, after placeholder resolution</span>
+{
+  <span class="k">"type"</span>: "command_batch",
+  <span class="k">"payload"</span>: {
+    "batch_id": "…",
+    "commands": [{
+      "id": "…",
+      "api_call": {
+        "target": "BlueprintBridge",
+        "method": "ConnectPins",
+        "parameters": {
+          "BlueprintPath":   "/Game/BP_Flyer.BP_Flyer",
+          "SourceNodeGuid":  "7F3A…",
+          "SourcePinName":   "CharacterMovement",
+          "TargetNodeGuid":  "C21D…",
+          "TargetPinName":   "self"
+        }
+      }
+    }]
+  }
+}
+
+<span class="c">// Reply</span>
+{ "type": "execution_feedback", "payload": { "batch_id": "…",
+  "results": [{ "command_id": "…", "status": "success",
+                "execution_time_ms": 4.1,
+                "result": { "return": "{\"success\":true}" } }] } }</pre>
+      </div>
+    </section>
+
+    <!-- Planning -->
+    <section class="cs-section" id="planning">
+      <div class="cs-section-head">
+        <span class="cs-index">04 / Planning</span>
+        <div>
+          <h2>Prompts written as an API contract.</h2>
+          <p>The planner is given exactly what the bridge supports, how pins are named, and what to do instead when a feature is out of scope.</p>
+        </div>
+      </div>
+      <div class="cs-two">
+        <div class="cs-prose">
+          <p>Phase 1 works from a closed vocabulary: a fixed list of variable types, eighteen component classes, and three parent classes. Phase 2 receives the structure the editor actually created and a reference of around 150 engine functions with their pin names, plus a pin-naming contract for branches, sequences, casts, variable getters and setters, and function entry and result nodes.</p>
+          <p>Features that cannot be built reliably through the bridge are not left to chance. The prompt names each one and gives the workaround: interpolate on Tick instead of a Timeline, chain equality branches instead of a Switch, check distance on Tick instead of overlap events.</p>
+          <p>Before anything executes, a <strong>static validator</strong> checks the plan: node classes against a whitelist, unique node names, no Delay inside functions, no clashing function and event names, and that every node whose pins depend on a property change is followed by a pin refresh. A failed check feeds the error back for up to three regenerations. Truncated responses are salvaged step by step and continued from the last complete step.</p>
+        </div>
+        <pre class="cs-code"><span class="c">// Phase 2 plan excerpt: set a Character to Flying</span>
+{ "step": "Get CharacterMovement",
+  "cmd": { "m": "AddNode", "p": { "NodeClass": "K2Node_VariableGet",
+           "NodeName": "GetCharMove", "PosX": 200, "PosY": 100 } } },
+{ "step": "Bind variable",
+  "cmd": { "m": "SetNodeProperty", "p": { "NodeGuid": "{GetCharMove.nodeGuid}",
+           "PropertyName": "VariableName",
+           "ValueJson": "{\"value\": \"CharacterMovement\"}" } } },
+{ "step": "Refresh pins",
+  "cmd": { "m": "GetNodePins", "p": { "NodeGuid": "{GetCharMove.nodeGuid}" } } },
+{ "step": "SetMovementMode node",
+  "cmd": { "m": "AddNode", "p": { "NodeClass": "K2Node_CallFunction",
+           "NodeName": "SetMoveMode", "PosX": 450, "PosY": 0 } } },
+{ "step": "Bind function",
+  "cmd": { "m": "SetNodeProperty", "p": { "NodeGuid": "{SetMoveMode.nodeGuid}",
+           "PropertyName": "FunctionName",
+           "ValueJson": "{\"value\": \"SetMovementMode\"}" } } },
+{ "step": "Wire component into self",
+  "cmd": { "m": "ConnectPins", "p": {
+           "SourceNodeGuid": "{GetCharMove.nodeGuid}", "SourcePinName": "CharacterMovement",
+           "TargetNodeGuid": "{SetMoveMode.nodeGuid}", "TargetPinName": "self" } } },
+{ "step": "Mode = Flying",
+  "cmd": { "m": "SetPinDefaultValue", "p": { "NodeGuid": "{SetMoveMode.nodeGuid}",
+           "PinName": "NewMovementMode", "ValueJson": "{\"value\": \"Flying\"}" } } }</pre>
+      </div>
+    </section>
+
+    <!-- Editor-side build -->
+    <section class="cs-section" id="build">
+      <div class="cs-section-head">
+        <span class="cs-index">05 / Inside the editor</span>
+        <div>
+          <h2>Where the plan meets the Kismet API.</h2>
+          <p>Most of the engineering lives here: taking loose, human-style names from the planner and turning them into correctly typed, correctly reconstructed graph nodes.</p>
+        </div>
+      </div>
+      <div class="cs-cards">
+        <article class="cs-card"><small>Assets and structure</small><h3>Blueprints, variables, components, functions</h3><p>Assets are created through the Blueprint factory with the resolved parent class. Variables map from friendly type names to full pin types, including UE5 doubles, structs, object references and arrays. Components go into the construction script hierarchy. Functions are real graphs with user-defined entry and result pins, pure when asked.</p></article>
+        <article class="cs-card"><small>Node registry</small><h3>Natural names to K2 node classes</h3><p>A registry maps class names and aliases such as “branch”, “do once” or “cast to” onto the right K2Node type and creation path. An unknown name returns the full list of supported types, so the planner can self-correct on the next attempt.</p></article>
+        <article class="cs-card"><small>Function lookup</small><h3>Tolerant reflection search</h3><p>Around 250 aliases translate display and UE4-era names to real UFunctions, such as GetActorLocation to its K2 counterpart. Lookup then tries script paths across engine modules, class-by-name, a static class list and finally a global class scan. Blueprint-local functions win over library functions, and float names are rewritten to double for UE5.</p></article>
+        <article class="cs-card"><small>Stable handles</small><h3>GUIDs survive node swaps</h3><p>When a bound function turns out to be an array library call, the node is replaced with a CallArrayFunction node. The original GUID is copied onto the replacement so every later step that references it still resolves.</p></article>
+        <article class="cs-card"><small>Pin types</small><h3>Types restored after reconstruction</h3><p>Reconstructing a variable node can drop the double subcategory or the array container. The bridge checks the pin type afterwards and restores every field. Wildcard array pins get their element type propagated manually using the schema’s change notifications, without a reconstruct that would reset them.</p></article>
+        <article class="cs-card"><small>Pin wiring</small><h3>A forgiving pin finder</h3><p>Pins are found by exact name, then by semantic groups like ReturnValue and Result, self and Target, then by space-stripped, camel-split and b-prefixed variants, then by partial match. Object outputs are routed into the first matching self or object input. Sequence outputs are renamed to a fixed Then_N contract.</p></article>
+      </div>
+    </section>
+
+    <!-- Editor UI -->
+    <section class="cs-section" id="ui">
+      <div class="cs-section-head">
+        <span class="cs-index">06 / Editor integration</span>
+        <div>
+          <h2>A Slate tab, a toolbar button, a log.</h2>
+        </div>
+      </div>
+      <div class="cs-two">
+        <ul class="cs-spec">
+          <li><b>Entry points</b><span>A nomad tab registered with the global tab manager, reachable from the Window menu and a button on the level editor toolbar, with its own Slate style set and SVG icon.</span></li>
+          <li><b>Panel</b><span>Connect and disconnect with live status, a multi-line goal field, attach or paste an image, execute, and a scrolling execution log.</span></li>
+          <li><b>Clipboard images</b><span>Paste reads a device-independent bitmap from the Windows clipboard, converts it to RGBA, flips it, and encodes PNG through the image wrapper module for UI-oriented requests.</span></li>
+          <li><b>Resilience</b><span>Automatic reconnect on dropped sockets with exponential backoff, and a clean shutdown path that unregisters menus, tabs and styles.</span></li>
+        </ul>
+        <div class="cs-prose">
+          <p>The same socket, protocol, executor and registry also serve a sibling feature that builds UMG widget hierarchies from a reference image. Only the target name in each command differs, which is what the bridge design was meant to allow.</p>
+          <p>Requests that need both a widget and the logic behind it are handled in order: the widget service runs first, then the same goal is dispatched to the Blueprint service with orchestrator status messages in between.</p>
         </div>
       </div>
     </section>
 
-    <section class="workflow section">
-      <div class="shell">
-        <div class="section-heading reveal"><div><span class="section-index">03 / Generation workflow</span><h2>Plan first. Execute with context.</h2></div><p>A two-phase approach ensures graph logic is generated against the structure that now exists in the Blueprint.</p></div>
-        <div class="workflow-list reveal">
-          <article class="workflow-step"><span>01</span><h3>Request</h3><p>Interpret the user's goal and identify the asset type, components, data, functions, and behavior required.</p></article>
-          <article class="workflow-step"><span>02</span><h3>Build structure</h3><p>Create the Blueprint, add components and variables, configure defaults, and establish function signatures.</p></article>
-          <article class="workflow-step"><span>03</span><h3>Build logic</h3><p>Inspect the current graph state, add nodes, set pins or properties, and connect valid execution and data paths.</p></article>
-          <article class="workflow-step"><span>04</span><h3>Validate</h3><p>Compile and refresh the asset, return structured results, and preserve generated node GUIDs for undo.</p></article>
+    <!-- Engineering -->
+    <section class="cs-section" id="engineering">
+      <div class="cs-section-head">
+        <span class="cs-index">07 / Engineering notes</span>
+        <div>
+          <h2>Choices that keep generated graphs trustworthy.</h2>
         </div>
+      </div>
+      <div class="cs-cards">
+        <article class="cs-card"><small>Grounding</small><h3>Phase 2 sees engine truth</h3><p>Phase 1 ends by asking the editor for its variables and components. Those real results, not the model’s memory of what it asked for, are the input to the logic phase.</p></article>
+        <article class="cs-card"><small>Retrieval</small><h3>Real signatures over recall</h3><p>An index of about 3,300 engine function signatures across fifteen core classes is searched lexically for each request, and the top matches are appended to the prompt to cut down on invented function names.</p></article>
+        <article class="cs-card"><small>Robust parsing</small><h3>Models write messy JSON</h3><p>Fences, comment headers and raw arrays are all handled. Finish-reason truncation is detected, complete steps are salvaged by regex, and continuation calls resume from the last good step with a compile step guaranteed at the end.</p></article>
+        <article class="cs-card"><small>Generic executor</small><h3>One UFUNCTION equals one capability</h3><p>Because invocation is reflection-driven, the Blueprint bridge grew from a handful of operations to the full node and pin vocabulary without a single protocol change on the service side.</p></article>
       </div>
     </section>
 
-    <section class="section" id="engineering">
-      <div class="shell">
-        <div class="section-heading reveal"><div><span class="section-index">04 / Engineering</span><h2>An AI layer with explicit engine controls.</h2></div><p>The generation model plans the work; reflected C++ editor APIs remain responsible for changing Unreal assets.</p></div>
-        <div class="engineering-grid">
-          <article class="engineering-card reveal"><span class="card-label">Planning</span><h3>Blueprint-grounded prompting</h3><p>Gemini receives supported API context, Unreal type information, and node aliases so plans align with executable editor operations.</p></article>
-          <article class="engineering-card reveal"><span class="card-label">Transport</span><h3>Python WebSocket server</h3><p>A structured command channel coordinates requests, phase execution, responses, and error reporting between the AI workflow and Unreal.</p></article>
-          <article class="engineering-card reveal"><span class="card-label">Editor bridge</span><h3>Reflected C++ APIs</h3><p>Blueprint libraries expose asset creation, graph discovery, component and variable operations, node configuration, wiring, and compilation.</p></article>
-          <article class="engineering-card reveal"><span class="card-label">Recovery</span><h3>Inspectable and undoable output</h3><p>Commands return structured success or error data, generated nodes retain GUIDs, and the latest generated batch can be removed safely.</p></article>
+    <!-- Stack -->
+    <section class="cs-section" id="stack">
+      <div class="cs-section-head">
+        <span class="cs-index">08 / Stack</span>
+        <div class="cs-chips">
+          <span>Unreal Engine 5.7</span><span>C++</span><span>Slate</span><span>Kismet / BlueprintGraph</span><span>UE Reflection</span><span>WebSockets</span><span>Python</span><span>Gemini</span><span>JSON</span><span>ToolMenus</span>
         </div>
       </div>
     </section>
-
-    <section class="result" id="result"><div class="shell result-content"><span class="section-index reveal">05 / Result</span><h2 class="reveal">From a sentence<br><span>to an editable system.</span></h2><p class="reveal">The plugin shortens repetitive Blueprint setup while preserving the core strengths of Unreal's visual scripting workflow: native assets, visible logic, compiler feedback, and full developer control.</p></div></section>
-
-    <section class="section"><div class="shell stack-grid"><div><span class="section-index reveal">06 / Technology</span><h2 class="reveal">A native Unreal generation stack.</h2></div><div class="stack-list reveal"><span>Unreal Engine 5.7</span><span>C++</span><span>Blueprint Graph</span><span>Kismet compiler</span><span>Simple Construction Script</span><span>Gemini</span><span>Python</span><span>WebSockets</span><span>JSON commands</span><span>Reflection</span><span>Node GUID tracking</span></div></div></section>
-    <section class="next-project"><div class="shell"><a class="next-link" href="../lighting-sequences/"><span><small>Next project</small><strong>Advanced Lighting Sequences</strong></span><b>↗</b></a></div></section>
   </main>
 
-  <footer class="footer"><div class="shell footer-grid"><div><a class="brand" href="#top"><span class="brand-mark">HA</span><span>Hassan Ahmad</span></a><p>Unreal Engine developer and systems programmer.</p></div><div class="footer-role"><span>Project</span><strong>AI Blueprint Generator</strong><span>Editor tooling</span></div><div class="footer-links"><a href="../">Portfolio ↗</a><a href="mailto:hassanahmadofficial1@gmail.com">Email ↗</a></div></div><div class="shell footer-bottom"><span>© <span data-year></span> Hassan Ahmad</span><a href="#top">Back to top ↑</a></div></footer>
+  <nav class="dock" aria-label="Primary navigation">
+    <a class="dock-brand" href="../"><span class="dock-mark">H</span><span>Hassan Ahmad</span></a>
+    <div class="dock-links">
+      <a href="../">Home</a>
+      <a href="../work/" class="is-active">Work</a>
+      <a href="../about/">About</a>
+      <a href="../about/#contact">Contact</a>
+    </div>
+    <div class="dock-icons">
+      <a href="https://github.com/HassanAhmad7" target="_blank" rel="noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></a>
+      <a href="mailto:hassanahmadofficial1@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20v14H2z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m2 6 10 7 10-7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+      <a href="../assets/hassan-ahmad-resume.pdf" target="_blank" rel="noopener" aria-label="Resume"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M14 2v5h5M9 12h7M9 16h7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+    </div>
+  </nav>
 </body>
 </html>
