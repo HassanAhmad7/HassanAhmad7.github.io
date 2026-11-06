@@ -17,7 +17,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css?v=20261106-case">
-  <link rel="stylesheet" href="../case.css?v=20261106-case">
+  <link rel="stylesheet" href="../case.css?v=20261106-case2">
 </head>
 <body class="is-ready page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -30,20 +30,20 @@
           <p class="eyebrow">02 / AI Powered · Unreal Engine 5.7 editor plugin</p>
           <h1>Cinematic<br>AI</h1>
           <p class="cs-lede">Pick a reference subject in the level, describe the moment, and get back real Level Sequences: CineCamera actors, keyframes, lens tracks, look-at tracking, shake, and a master edit. Everything lands in Sequencer, ready to tweak.</p>
-        </div>
-        <dl class="cs-meta">
+          <dl class="cs-meta">
           <div><dt>Role</dt><dd>Design and development, solo</dd></div>
           <div><dt>Engine</dt><dd>Unreal Engine 5.7, editor module</dd></div>
           <div><dt>Stack</dt><dd>C++ · Editor Python · Blueprint · Gemini · EQS</dd></div>
           <div><dt>Output</dt><dd>Native Level Sequences and a master sequence</dd></div>
         </dl>
+        </div>
+        <figure class="cs-figure cs-hero-figure">
+          <img src="../assets/cinematic-ai/sequence-editor.webp" alt="Unreal Engine editor showing a cine camera framing a character in the viewport, with the generated Level Sequence open in Sequencer below">
+          <figcaption><span>Generated shot “Wide_Establishing_Square”</span><span>Viewport · Sequencer</span></figcaption>
+        </figure>
       </div>
     </header>
 
-    <figure class="cs-figure">
-      <img src="../assets/cinematic-ai/sequence-editor.webp" alt="Unreal Engine editor showing a cine camera framing a character in the viewport, with the generated Level Sequence open in Sequencer below">
-      <figcaption><span>Generated shot “Wide_Establishing_Square”</span><span>CineCameraActor · aperture, focal length and focus tracks · transform keys</span></figcaption>
-    </figure>
 
     <!-- Overview -->
     <section class="cs-section" id="overview">
@@ -108,7 +108,7 @@
           <li><b>Master sequence</b><span>A toggle that asks for a second plan describing how the individual shots cut together, then builds it.</span></li>
           <li><b>Status log</b><span>Every stage reports back into a searchable log, including which Python module handled each step.</span></li>
         </ul>
-        <figure class="cs-figure">
+        <figure class="cs-figure cs-figure-panel">
           <img src="../assets/cinematic-ai/director-widget.webp" alt="The CinematicAI Director panel in the Unreal editor: primary subject, tracking, trigger box, EQS preview, static and skeletal mesh lists with bone names, audio selection, prompt, number of sequences, mode buttons, generate button, and status log">
           <figcaption><span>Director panel</span><span>Editor Utility Widget</span></figcaption>
         </figure>
@@ -234,9 +234,6 @@
       </div>
     </section>
 
-    <div class="cs-next">
-      <a href="../ai-blueprint/"><span><small>Next project</small><strong>AI Blueprint Generator</strong></span><b>↗</b></a>
-    </div>
   </main>
 
   <nav class="dock" aria-label="Primary navigation">
