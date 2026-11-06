@@ -31,7 +31,7 @@
           <h1>Cinematic<br>AI</h1>
           <p class="cs-lede">Pick a reference subject in the level, describe the moment, and get back real Level Sequences: CineCamera actors, keyframes, lens tracks, look-at tracking, shake, and a master edit. Everything lands in Sequencer, ready to tweak.</p>
           <dl class="cs-meta">
-          <div><dt>Role</dt><dd>Design and development, solo</dd></div>
+          <div><dt>Role</dt><dd>Lead development</dd></div>
           <div><dt>Engine</dt><dd>Unreal Engine 5.7, editor module</dd></div>
           <div><dt>Stack</dt><dd>C++ · Editor Python · Blueprint · Gemini · EQS</dd></div>
           <div><dt>Output</dt><dd>Native Level Sequences and a master sequence</dd></div>
@@ -101,10 +101,10 @@
           <li><b>Primary subject</b><span>Any listed character or mesh can be flagged primary. The scene JSON serialises it separately so the planner always knows what to frame.</span></li>
           <li><b>Characters</b><span>Each row binds a skeletal mesh and a list of bone names. The widget reads live bone transforms, derives height from head to foot, and computes a flattened facing vector from the most horizontal bone axis.</span></li>
           <li><b>Static meshes</b><span>Props, furniture, and architecture join as secondary subjects with their world transforms, or take the primary slot for product and environment work.</span></li>
-          <li><b>Trigger box</b><span>One or more boxes define where cameras are allowed to be. Their extents and transforms are sent with the scene and enforced in the plan.</span></li>
+          <li><b>Trigger box</b><span>One or more boxes define where cameras are allowed to be. Their extents and transforms are sent with the scene, and the planner’s rules keep cameras inside them.</span></li>
           <li><b>Preview EQS points</b><span>Draws the valid and blocked camera positions found by the Environment Query System in the viewport before anything is generated.</span></li>
           <li><b>Audio</b><span>An optional track is sent alongside the prompt. The planner maps its beats and energy to shot count, duration, and shake.</span></li>
-          <li><b>Prompt and modes</b><span>Free-text direction plus Character, Interior, Exterior, and Product presets that bias the planner’s framing rules.</span></li>
+          <li><b>Prompt and modes</b><span>Free-text direction plus Character, Interior, Exterior, and Product mode buttons.</span></li>
           <li><b>Master sequence</b><span>A toggle that asks for a second plan describing how the individual shots cut together, then builds it.</span></li>
           <li><b>Status log</b><span>Every stage reports back into a searchable log, including which Python module handled each step.</span></li>
         </ul>
@@ -128,7 +128,7 @@
         <div class="cs-prose">
           <p>For each character the plugin records the world transform of every named bone, the subject’s height, and a facing point projected forward from the most horizontal bone axis. For meshes it records the full transform. Boundary boxes are sent as extents plus transform so the planner can clamp positions in box-local space.</p>
           <p>The planner never sees the navmesh or collision directly. Instead, a <strong>custom EQS generator</strong> builds a projected 3D lattice of candidate points around the subject, with per-axis extents and an override origin bound to query parameters. Trace tests check line of sight to the subject and overlap tests separate free space from geometry, giving Go and NoGo point sets.</p>
-          <p>Proposed keyframe positions are checked against those points, so a camera that would sit inside a wall or lose sight of the subject is corrected before any sequence is written.</p>
+          <p>The Director panel runs a keyframe filter against those points to screen proposed camera positions that sit inside geometry or lose sight of the subject.</p>
         </div>
         <pre class="cs-code"><span class="c">// Scene description sent to the planner (abridged)</span>
 {

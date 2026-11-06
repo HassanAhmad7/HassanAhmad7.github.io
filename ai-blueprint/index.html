@@ -31,15 +31,15 @@
           <h1>AI Blueprint<br>Generator</h1>
           <p class="cs-lede">Type what the actor should do. The plugin plans the Blueprint, then builds it inside the editor one real operation at a time: variables, components, functions, event graph nodes, pin connections, defaults, and a compile at the end.</p>
           <dl class="cs-meta">
-            <div><dt>Role</dt><dd>Design and development, solo</dd></div>
+            <div><dt>Role</dt><dd>Plugin developer</dd></div>
             <div><dt>Engine</dt><dd>Unreal Engine 5.7, editor module</dd></div>
             <div><dt>Stack</dt><dd>C++ · Slate · WebSockets · Python · Gemini</dd></div>
             <div><dt>Output</dt><dd>Native, compiled Blueprint assets</dd></div>
           </dl>
         </div>
         <figure class="cs-figure cs-hero-figure">
-          <img src="../assets/ai-blueprint/graph-overview.webp" alt="A generated Unreal Engine Blueprint event graph, zoomed out, with several colour-coded comment groups of connected nodes">
-          <figcaption><span>Generated event graph</span><span>Blueprint editor</span></figcaption>
+          <img src="../assets/ai-blueprint/graph-overview.webp" alt="An Unreal Engine Blueprint event graph, zoomed out, with several colour-coded comment groups of connected nodes">
+          <figcaption><span>Blueprint event graph</span><span>Blueprint editor</span></figcaption>
         </figure>
       </div>
     </header>
@@ -56,8 +56,8 @@
       <div class="cs-two">
         <div class="cs-prose">
           <p>Most AI tools for Unreal hand you a snippet and leave the wiring to you. This one produces the thing itself: a Blueprint in the Content Browser with the right parent class, typed variables with defaults, a component hierarchy, functions with inputs and outputs, and an event graph whose pins are actually connected.</p>
-          <p>The split is deliberate. A <strong>planner</strong> running outside the editor decides what to build. A <strong>bridge</strong> inside the editor exposes a small vocabulary of operations and knows how to carry each one out correctly using the Kismet and Blueprint editor APIs. Every step is a round trip, so the plan can react to what the engine actually created.</p>
-          <p>The result compiles, shows up in Ctrl+Z-free but inspectable form in the Blueprint editor, and can be extended by hand like any other asset.</p>
+          <p>The split is deliberate. A <strong>planner</strong> running outside the editor decides what to build. A <strong>bridge</strong> inside the editor exposes a small vocabulary of operations and knows how to carry each one out correctly using the Kismet and Blueprint editor APIs. Every step is a round trip, so later steps use the GUIDs and pins the engine actually created.</p>
+          <p>The result is an ordinary Blueprint asset that opens in the Blueprint editor and can be extended by hand.</p>
         </div>
         <ul class="cs-spec">
           <li><b>Input</b><span>A plain-English goal typed into an editor tab. Optional reference image for UI-flavoured requests.</span></li>
@@ -186,7 +186,7 @@
       </div>
       <div class="cs-cards">
         <article class="cs-card"><small>Assets and structure</small><h3>Blueprints, variables, components, functions</h3><p>Assets are created through the Blueprint factory with the resolved parent class. Variables map from friendly type names to full pin types, including UE5 doubles, structs, object references and arrays. Components go into the construction script hierarchy. Functions are real graphs with user-defined entry and result pins, pure when asked.</p></article>
-        <article class="cs-card"><small>Node registry</small><h3>Natural names to K2 node classes</h3><p>A registry maps class names and aliases such as “branch”, “do once” or “cast to” onto the right K2Node type and creation path. An unknown name returns the full list of supported types, so the planner can self-correct on the next attempt.</p></article>
+        <article class="cs-card"><small>Node registry</small><h3>Natural names to K2 node classes</h3><p>A registry maps class names and aliases such as “branch”, “do once” or “cast to” onto the right K2Node type and creation path. An unknown name returns an error listing every supported type and alias.</p></article>
         <article class="cs-card"><small>Function lookup</small><h3>Tolerant reflection search</h3><p>Around 250 aliases translate display and UE4-era names to real UFunctions, such as GetActorLocation to its K2 counterpart. Lookup then tries script paths across engine modules, class-by-name, a static class list and finally a global class scan. Blueprint-local functions win over library functions, and float names are rewritten to double for UE5.</p></article>
         <article class="cs-card"><small>Stable handles</small><h3>GUIDs survive node swaps</h3><p>When a bound function turns out to be an array library call, the node is replaced with a CallArrayFunction node. The original GUID is copied onto the replacement so every later step that references it still resolves.</p></article>
         <article class="cs-card"><small>Pin types</small><h3>Types restored after reconstruction</h3><p>Reconstructing a variable node can drop the double subcategory or the array container. The bridge checks the pin type afterwards and restores every field. Wildcard array pins get their element type propagated manually using the schema’s change notifications, without a reconstruct that would reset them.</p></article>
@@ -207,7 +207,7 @@
           <li><b>Entry points</b><span>A nomad tab registered with the global tab manager, reachable from the Window menu and a button on the level editor toolbar, with its own Slate style set and SVG icon.</span></li>
           <li><b>Panel</b><span>Connect and disconnect with live status, a multi-line goal field, attach or paste an image, execute, and a scrolling execution log.</span></li>
           <li><b>Clipboard images</b><span>Paste reads a device-independent bitmap from the Windows clipboard, converts it to RGBA, flips it, and encodes PNG through the image wrapper module for UI-oriented requests.</span></li>
-          <li><b>Resilience</b><span>Automatic reconnect on dropped sockets with exponential backoff, and a clean shutdown path that unregisters menus, tabs and styles.</span></li>
+          <li><b>Resilience</b><span>Automatic reconnect on dropped sockets with exponential backoff.</span></li>
         </ul>
         <div class="cs-prose">
           <p>The same socket, protocol, executor and registry also serve a sibling feature that builds UMG widget hierarchies from a reference image. Only the target name in each command differs, which is what the bridge design was meant to allow.</p>
@@ -228,7 +228,7 @@
         <article class="cs-card"><small>Grounding</small><h3>Phase 2 sees engine truth</h3><p>Phase 1 ends by asking the editor for its variables and components. Those real results, not the model’s memory of what it asked for, are the input to the logic phase.</p></article>
         <article class="cs-card"><small>Retrieval</small><h3>Real signatures over recall</h3><p>An index of about 3,300 engine function signatures across fifteen core classes is searched lexically for each request, and the top matches are appended to the prompt to cut down on invented function names.</p></article>
         <article class="cs-card"><small>Robust parsing</small><h3>Models write messy JSON</h3><p>Fences, comment headers and raw arrays are all handled. Finish-reason truncation is detected, complete steps are salvaged by regex, and continuation calls resume from the last good step with a compile step guaranteed at the end.</p></article>
-        <article class="cs-card"><small>Generic executor</small><h3>One UFUNCTION equals one capability</h3><p>Because invocation is reflection-driven, the Blueprint bridge grew from a handful of operations to the full node and pin vocabulary without a single protocol change on the service side.</p></article>
+        <article class="cs-card"><small>Generic executor</small><h3>One UFUNCTION equals one capability</h3><p>Because invocation is reflection-driven, adding an operation to the bridge needs no change to the message protocol.</p></article>
       </div>
     </section>
 
