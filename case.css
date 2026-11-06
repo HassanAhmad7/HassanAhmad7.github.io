@@ -55,7 +55,7 @@
 .cs-card p { color: var(--muted); font-size: 14px; line-height: 1.6; }
 
 /* Compact standalone figure */
-.cs-figure-compact { max-width: 880px; }
+.cs-figure-compact { max-width: 880px; margin: 0 auto; }
 .cs-figure-compact img { max-height: 300px; object-fit: cover; object-position: left top; }
 
 /* Tagline under the back link */
