@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="Firework System is a stage pyrotechnics system for virtual concerts in Unreal Engine 5.7: tag-addressed sequences, four effect families, and shows performed live, driven by music, or rendered offline.">
+  <meta property="og:title" content="Firework System — Hassan Ahmad">
+  <meta property="og:description" content="Sparks, smoke, confetti, flame and aerial shells, sequenced as data and fired from one concert timeline.">
+  <meta property="og:image" content="../assets/firework-system/stage-demo-poster.webp">
+  <meta property="og:type" content="website">
+  <title>Firework System — Hassan Ahmad</title>
+  <link rel="icon" href="../assets/portfolio-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=20261106-case7">
+  <link rel="stylesheet" href="../case.css?v=20261106-case7">
+</head>
+<body class="is-ready page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <main id="main" class="cs-main">
+    <header class="cs-head">
+      <a class="back" href="../work/#live">← Work</a>
+      <div class="cs-hero">
+        <div>
+          <p class="cs-tagline"><span class="cs-tag">03</span><span class="cs-tag">Concert Systems</span><span>Unreal Engine 5.7</span></p>
+          <h1>Firework<br>System</h1>
+          <p class="cs-lede">Stage pyrotechnics for virtual concerts. Sparks, smoke, confetti, flame and aerial shells are sequenced as data, then fired from one timeline by an operator, by the music, or by an offline render.</p>
+          <dl class="cs-meta">
+            <div><dt>Role</dt><dd>Systems development</dd></div>
+            <div><dt>Engine</dt><dd>Unreal Engine 5.7</dd></div>
+            <div><dt>Stack</dt><dd>C++ · Blueprint · Niagara · Cascade</dd></div>
+            <div><dt>Use</dt><dd>Virtual concert production</dd></div>
+          </dl>
+        </div>
+        <figure class="cs-figure cs-hero-figure">
+          <video src="../assets/firework-system/stage-demo.mp4" poster="../assets/firework-system/stage-demo-poster.webp" controls muted loop playsinline autoplay preload="metadata" aria-label="Stage demo showing spark fountains, falling sparks, flame jets and confetti"></video>
+          <figcaption><span>Stage demo</span><span>Sparks · flame · confetti</span></figcaption>
+        </figure>
+      </div>
+    </header>
+
+    <!-- Overview -->
+    <section class="cs-section" id="overview">
+      <div class="cs-section-head">
+        <span class="cs-index">01 / Overview</span>
+        <div>
+          <h2>A pyrotechnics rig that plays like an instrument.</h2>
+          <p>A concert stage can hold hundreds of emitters. Firing them one at a time is not a show, so this system groups them into named sequences that fire with one action.</p>
+        </div>
+      </div>
+      <div class="cs-two">
+        <div class="cs-prose">
+          <p>The Firework System is one of the managers inside a larger concert platform. A small C++ class plugs fireworks into the platform’s shared timeline framework, and a Blueprint manager holds the sequencing, venue, and audio logic.</p>
+          <p>That split gives the system a clear shape. The <strong>timeline</strong> only records which action fires and when. The <strong>sequence</strong> decides which emitters respond, with what delay and which settings. The <strong>emitter</strong> applies those settings to its own effect.</p>
+          <p>Because the rig is addressed by tag, a sequence names the emitters it needs rather than positions in the level.</p>
+        </div>
+        <ul class="cs-spec">
+          <li><b>Authored shows</b><span>13 tiers holding 117 sequences and 328 steps across two venue setups.</span></li>
+          <li><b>Rig</b><span>445 placed emitters across those two venues, each with one unique tag.</span></li>
+          <li><b>Effects</b><span>Four emitter families covering bursts, continuous streams, aerial shells and flame.</span></li>
+          <li><b>Drivers</b><span>Manual performance, audio automation, and offline render.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Structure -->
+    <section class="cs-section" id="structure">
+      <div class="cs-section-head">
+        <span class="cs-index">02 / Show structure</span>
+        <div>
+          <h2>Sequences as data, addressed by tag.</h2>
+          <p>Every look is a nested list: a tier of sequences, sub-sequences with a start delay, and steps that name their targets and settings.</p>
+        </div>
+      </div>
+      <div class="cs-two">
+        <ul class="cs-spec">
+          <li><b>Tier</b><span>A themed group of sequences for a venue, such as large spark bursts, smoke, or confetti.</span></li>
+          <li><b>Sub-sequence</b><span>A named part of a look with its own start delay.</span></li>
+          <li><b>Step</b><span>The tags to fire, an accumulative delay, an aim on each axis, and the settings for that effect type.</span></li>
+          <li><b>Draft overrides</b><span>Concert-wide colour, density, velocity, height, spread and burst life can be adjusted without editing a sequence.</span></li>
+        </ul>
+        <pre class="cs-code"><span class="c">// User sequences saved with the concert draft</span>
+<span class="k">struct</span> FFireWorks2stParent {
+  TArray&lt;FName&gt;      CustomFireWorksTag;
+  TArray&lt;FTransform&gt; CustomFireworksLocation;
+  TArray&lt;FFireworks1stParent&gt; fireworksproperties;
+};
+
+<span class="k">struct</span> FFireworks1stParent {
+  FString sequenceName;
+  float   startDelay;
+  TArray&lt;FFireWorksProperties&gt; FwProperties;
+};</pre>
+      </div>
+    </section>
+
+    <!-- Effects -->
+    <section class="cs-section" id="effects">
+      <div class="cs-section-head">
+        <span class="cs-index">03 / Effect families</span>
+        <div>
+          <h2>Four emitters, one parent class.</h2>
+          <p>Each family derives from a shared base, so a sequence can fire a mixed rig through one call.</p>
+        </div>
+      </div>
+      <div class="cs-cards">
+        <article class="cs-card"><small>Single burst</small><h3>Sparks, smoke, steam, confetti</h3><p>Short Niagara bursts with control over height, speed, colour, cone angle, vertical acceleration and life. Sequence values are passed in as Niagara user parameters.</p></article>
+        <article class="cs-card"><small>Continuous</small><h3>Spark and smoke streams</h3><p>Fountains that run for as long as they are held. On the timeline, the length of the press is written back into the key, so a held effect replays for the same duration.</p></article>
+        <article class="cs-card"><small>Explosives</small><h3>Aerial shells</h3><p>Eight shell and burst types, including peony, chrysanthemum, crossette, ring and palm. A trail actor launches with its own movement and rotation, then explodes on a timer. Bursts can also take the shape of a skeletal mesh.</p></article>
+        <article class="cs-card"><small>Flame</small><h3>Cached flame jets</h3><p>Flame effects play from Niagara simulation caches, with a cache picked at random so repeated jets do not look identical.</p></article>
+      </div>
+    </section>
+
+    <!-- Authoring -->
+    <section class="cs-section" id="authoring">
+      <div class="cs-section-head">
+        <span class="cs-index">04 / Authoring</span>
+        <div>
+          <h2>Three ways to build a show.</h2>
+          <p>Venue sequences are built in the editor, users can create their own inside the application, and an operator turns either into a timeline.</p>
+        </div>
+      </div>
+      <div class="cs-steps cs-steps-3">
+        <article class="cs-step"><span>01</span><h3>In the editor</h3><p>Venue tiers are authored as nested structured data. Each venue gets its own named categories and sub-actions, loaded with the level.</p></article>
+        <article class="cs-step"><span>02</span><h3>In the application</h3><p>A custom firework panel places emitters by cursor trace, adjusts them with transform gizmos, assigns tags, previews a sequence, and saves it all to the concert draft.</p></article>
+        <article class="cs-step"><span>03</span><h3>By performing</h3><p>An operator triggers categories during playback and each action is recorded as a key. Favourites and exclusions shape which sub-action a category picks.</p></article>
+      </div>
+    </section>
+
+    <!-- Playback -->
+    <section class="cs-section" id="playback">
+      <div class="cs-section-head">
+        <span class="cs-index">05 / Playback</span>
+        <div>
+          <h2>One action, three drivers.</h2>
+          <p>A key stores an action rather than burst settings, so a live press, an automated cue and a render event all reach the same firing path.</p>
+        </div>
+      </div>
+      <div class="cs-two">
+        <pre class="cs-code"><span class="c">// A recorded key</span>
+<span class="k">FKeyFrame</span> { bIsLongPress, Timestamp, Action, Speed,
+            Duration, KeyFrameType, CustomDataBytes }
+
+<span class="c">// Category and sub-action packed into one integer</span>
+Action = 10000 + Main * 100 + Sub
+
+<span class="c">// Each wait is measured from the media clock</span>
+NextTimer = Next.Timestamp - Media.GetPlaybackTime()</pre>
+        <ul class="cs-spec">
+          <li><b>Manual</b><span>Actions are built from each venue’s category assets, then played and recorded while the show runs.</span></li>
+          <li><b>Audio</b><span>Automation listens to the audio analysis engine and uses bass and mid levels with range and responsiveness settings. It can also record the keys it fires.</span></li>
+          <li><b>Replay</b><span>Each wait is recomputed from the video’s playback time, and late keys catch up immediately.</span></li>
+          <li><b>Offline render</b><span>Keys become event track keys in a Level Sequence generated at runtime, which call the same play action.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Engineering -->
+    <section class="cs-section" id="engineering">
+      <div class="cs-section-head">
+        <span class="cs-index">06 / Engineering notes</span>
+        <div>
+          <h2>What made it hold together.</h2>
+        </div>
+      </div>
+      <div class="cs-cards">
+        <article class="cs-card"><small>Architecture</small><h3>Built on a shared timeline</h3><p>Recording, layers, replay and draft saving come from the same manager framework used by other concert systems. The fireworks class adds only what is specific to it.</p></article>
+        <article class="cs-card"><small>Addressing</small><h3>Tags over hard references</h3><p>Steps target tags rather than transforms, which keeps authored data separate from the level. Emitters are found by tag when a step fires.</p></article>
+        <article class="cs-card"><small>VFX mix</small><h3>The right tool per effect</h3><p>Niagara handles sparks and smoke, Cascade handles shell bursts, and simulation caches handle flame. Sequences use all of them through one vocabulary.</p></article>
+        <article class="cs-card"><small>Built on</small><h3>Standing on good parts</h3><p>The cold spark and shell effects and stage hardware come from Epic’s DMX Fixtures content, and the shell trail builds on an existing fireworks asset. The sequencing, control and timeline layer is what ties them together.</p></article>
+      </div>
+    </section>
+
+    <!-- Stack -->
+    <section class="cs-section" id="stack">
+      <div class="cs-section-head">
+        <span class="cs-index">07 / Stack</span>
+        <div class="cs-chips">
+          <span>Unreal Engine 5.7</span><span>C++</span><span>Blueprint</span><span>Niagara</span><span>Niagara Sim Cache</span><span>Cascade</span><span>UMG</span><span>Audio Analysis</span><span>Level Sequence</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="dock" aria-label="Primary navigation">
+    <a class="dock-brand" href="../"><span class="dock-mark">H</span><span>Hassan Ahmad</span></a>
+    <div class="dock-links">
+      <a href="../">Home</a>
+      <a href="../work/" class="is-active">Work</a>
+      <a href="../about/">About</a>
+      <a href="../about/#contact">Contact</a>
+    </div>
+    <div class="dock-icons">
+      <a href="https://github.com/HassanAhmad7" target="_blank" rel="noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></a>
+      <a href="mailto:hassanahmadofficial1@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20v14H2z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m2 6 10 7 10-7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+      <a href="../assets/hassan-ahmad-resume.pdf" target="_blank" rel="noopener" aria-label="Resume"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M14 2v5h5M9 12h7M9 16h7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+    </div>
+  </nav>
+</body>
+</html>
