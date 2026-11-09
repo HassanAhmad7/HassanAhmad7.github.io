@@ -3,357 +3,134 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#070a0d">
-  <meta name="description" content="DirectSplat is a one-click Unreal Engine pipeline that captures complete 3D environments and delivers optimized Gaussian splat experiences to the web.">
-  <meta property="og:title" content="DirectSplat | Unreal Engine to Web">
-  <meta property="og:description" content="A complete automated Gaussian splat pipeline designed and built by Lead Programmer Hassan Ahmad.">
-  <meta property="og:image" content="assets/hero-unreal-to-web.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="DirectSplat is an Unreal Engine plugin by Hassan Ahmad that turns an Unreal scene into a web-ready 3D experience. It is live as UnrealTwin, where scenes become shareable links that open in a browser on any device.">
+  <meta property="og:title" content="DirectSplat — Hassan Ahmad">
+  <meta property="og:description" content="An Unreal Engine plugin that turns Unreal scenes into interactive web links. Live as UnrealTwin.">
+  <meta property="og:image" content="../assets/directsplat/hero.webp">
   <meta property="og:type" content="website">
-  <title>DirectSplat | Unreal Engine to Web</title>
-  <link rel="icon" href="assets/directsplat-mark.svg" type="image/svg+xml">
+  <title>DirectSplat — Hassan Ahmad</title>
+  <link rel="icon" href="../assets/portfolio-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260922-dark1">
-  <script src="script.js" defer></script>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=20261109-case8">
+  <link rel="stylesheet" href="../case.css?v=20261109-case8">
 </head>
-<body>
+<body class="is-ready page">
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header" data-header>
-    <a class="brand" href="#top" aria-label="DirectSplat home">
-      <svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true">
-        <circle cx="18" cy="18" r="4"></circle>
-        <circle cx="8" cy="14" r="2.5"></circle>
-        <circle cx="28" cy="12" r="2"></circle>
-        <circle cx="26" cy="25" r="3"></circle>
-        <circle cx="10" cy="26" r="1.8"></circle>
-        <path d="M10 14 18 18l10-6M18 18l8 7M18 18l-8 8"></path>
-      </svg>
-      <span>DirectSplat</span>
-    </a>
-
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="#overview">Overview</a>
-      <a href="#system">System</a>
-      <a href="#engineering">Engineering</a>
-      <a href="#result">Result</a>
-    </nav>
-
-    <a class="header-cta" href="../">
-      Hassan Ahmad · Portfolio
-      <span aria-hidden="true">↖</span>
-    </a>
-  </header>
-
-  <main id="main">
-    <section class="hero" id="top">
-      <canvas class="hero-particles" data-particles aria-hidden="true"></canvas>
-      <div class="hero-media" aria-hidden="true">
-        <img src="assets/hero-unreal-to-web.png" alt="" fetchpriority="high">
-      </div>
-      <div class="hero-scrim" aria-hidden="true"></div>
-
-      <div class="hero-content shell">
-        <div class="eyebrow reveal">
-          <span class="status-dot"></span>
-          Unreal Engine plugin · Lead programming
-        </div>
-        <h1 class="reveal">From complete Unreal environments<br><span>to the open web.</span></h1>
-        <p class="hero-lede reveal">
-          DirectSplat turns a complex, fragmented production workflow into one automated action that understands the level, plans the capture, produces an optimized 3D Gaussian splat, and prepares it for interactive web delivery.
-        </p>
-        <div class="hero-actions reveal">
-          <a class="button button-primary" href="#system">Explore the system <span aria-hidden="true">↓</span></a>
-          <a class="button button-secondary" href="#ownership">My role</a>
-        </div>
-      </div>
-
-      <div class="hero-meta shell reveal" aria-label="Project summary">
+  <main id="main" class="cs-main">
+    <header class="cs-head">
+      <a class="back" href="../work/#tools">← Work</a>
+      <div class="cs-hero">
         <div>
-          <span class="meta-label">Role</span>
-          <strong>Lead Programmer</strong>
+          <p class="cs-tagline"><span class="cs-tag">01</span><span class="cs-tag">Tools &amp; Plugins</span><span>Unreal Engine editor plugin</span></p>
+          <h1>Direct<br>Splat</h1>
+          <p class="cs-lede">An Unreal Engine plugin that turns an Unreal scene into a web-ready 3D experience. It is live as UnrealTwin, where a scene becomes a link anyone can open in a browser, on any device.</p>
+          <div class="cs-actions">
+            <a class="pill pill-solid" href="https://www.unrealtwin.com/" target="_blank" rel="noopener">Visit UnrealTwin ↗</a>
+          </div>
+          <dl class="cs-meta">
+            <div><dt>Role</dt><dd>Plugin developer, end to end</dd></div>
+            <div><dt>Engine</dt><dd>Unreal Engine editor plugin</dd></div>
+            <div><dt>Output</dt><dd>Interactive 3D scenes on the web</dd></div>
+            <div><dt>Status</dt><dd>Live as UnrealTwin</dd></div>
+          </dl>
         </div>
+        <figure class="cs-figure cs-hero-figure">
+          <img src="../assets/directsplat/hero.webp" alt="Abstract network of white lines and points on a black background">
+          <figcaption><span>Illustrative image</span><span>Photo: Resource Database on Unsplash</span></figcaption>
+        </figure>
+      </div>
+    </header>
+
+    <!-- Note -->
+    <section class="cs-section" id="note">
+      <div class="cs-section-head">
+        <span class="cs-index">About this page</span>
         <div>
-          <span class="meta-label">Platform</span>
-          <strong>Unreal Engine → Web</strong>
+          <h2>Built for an organisation, shown by outcome.</h2>
+          <p>DirectSplat is proprietary work for the company behind UnrealTwin. This page covers what the plugin does and what I was responsible for. It does not describe how it is built, and the image above is illustrative.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- What it is -->
+    <section class="cs-section" id="overview">
+      <div class="cs-section-head">
+        <span class="cs-index">01 / What it is</span>
         <div>
-          <span class="meta-label">Scope</span>
-          <strong>End-to-end system</strong>
+          <h2>From an Unreal scene to a link.</h2>
+          <p>Sharing an Unreal environment usually means a heavy build, a video, or a streaming server. DirectSplat gives creators a lighter path: the scene itself, interactive, in a web page.</p>
         </div>
+      </div>
+      <div class="cs-steps cs-steps-3">
+        <article class="cs-step"><span>01</span><h3>Build in Unreal</h3><p>Creators work in Unreal Engine as they normally would, with their own lighting, materials, and environments.</p></article>
+        <article class="cs-step"><span>02</span><h3>Convert in the editor</h3><p>The plugin turns the scene into a web-ready 3D experience from inside the Unreal editor.</p></article>
+        <article class="cs-step"><span>03</span><h3>Share a link</h3><p>The result opens as an interactive scene in the browser, so clients, teams, and audiences can explore it on any device.</p></article>
+      </div>
+    </section>
+
+    <!-- Why it matters -->
+    <section class="cs-section" id="value">
+      <div class="cs-section-head">
+        <span class="cs-index">02 / Why it matters</span>
         <div>
-          <span class="meta-label">Workflow</span>
-          <strong>One click</strong>
+          <h2>The look of Unreal, the reach of the web.</h2>
+          <p>UnrealTwin presents the product around three promises, all of which the plugin has to deliver on.</p>
         </div>
+      </div>
+      <div class="cs-cards cs-cards-3">
+        <article class="cs-card"><small>Photo realism</small><h3>The scene as designed</h3><p>Lighting, reflections, and shadows carry over through Gaussian Splatting, so the web version keeps the character of the original.</p></article>
+        <article class="cs-card"><small>Instant view</small><h3>Open and explore</h3><p>Scenes load in the browser on demand, without installing anything or waiting for a build.</p></article>
+        <article class="cs-card"><small>Any device</small><h3>Lightweight to share</h3><p>Complex scenes become lightweight, interactive experiences that run on phones, tablets, and desktops alike.</p></article>
       </div>
     </section>
 
-    <section class="statement section" id="overview">
-      <div class="shell statement-grid">
-        <div class="section-index reveal">01 / Overview</div>
+    <!-- Role -->
+    <section class="cs-section" id="role">
+      <div class="cs-section-head">
+        <span class="cs-index">03 / My role</span>
         <div>
-          <p class="display-copy reveal">A production system that treats an Unreal level as a world to understand instead of a sequence of screenshots to capture manually.</p>
-          <div class="statement-detail reveal">
-            <p>Traditional environment-to-splat workflows require hand-placed cameras, repeated exports, disconnected tools, and constant supervision. DirectSplat moves that logic into Unreal Engine and automates the complete journey from level analysis to a browser-ready spatial experience.</p>
-            <p>The result is repeatable, scalable capture behavior that can adapt to interiors, exteriors, layered geometry, curved spaces, and environments of different sizes.</p>
-          </div>
+          <h2>I built the plugin.</h2>
+          <p>I was responsible for the Unreal Engine plugin from start to finish.</p>
         </div>
+      </div>
+      <div class="cs-cards">
+        <article class="cs-card"><small>Plugin</small><h3>Architecture and editor tooling</h3><p>The plugin’s structure, its C++ and Blueprint systems, and the experience creators use inside the Unreal editor.</p></article>
+        <article class="cs-card"><small>Workflow</small><h3>Scene to web conversion</h3><p>The full conversion workflow, from a scene in the editor to a result ready for the web.</p></article>
+        <article class="cs-card"><small>Platform</small><h3>Connection to UnrealTwin</h3><p>The link between the plugin and the UnrealTwin web platform, so creators can go from the editor to a shareable experience.</p></article>
+        <article class="cs-card"><small>Release</small><h3>Packaging and shipping</h3><p>Packaging the plugin as a distributable product and taking it to a live release.</p></article>
       </div>
     </section>
 
-    <section class="ownership section" id="ownership">
-      <div class="shell">
-        <div class="section-heading reveal">
-          <div>
-            <span class="section-index">02 / My contribution</span>
-            <h2>I designed and wrote the complete pipeline.</h2>
-          </div>
-          <p>My work covered the system architecture, engine integration, automation, packaging, and the path that connects an authenticated web experience to the Unreal Engine plugin.</p>
-        </div>
-
-        <div class="role-grid">
-          <article class="role-card reveal">
-            <span class="role-number">01</span>
-            <div class="role-icon" aria-hidden="true">⌁</div>
-            <h3>Authorization inside Unreal</h3>
-            <p>Built the complete web authorization setup and connected account access directly to the plugin experience, so the workflow stays inside the editor.</p>
-            <ul>
-              <li>Web-to-plugin authentication flow</li>
-              <li>Account-aware editor experience</li>
-              <li>Native authorization integration</li>
-            </ul>
-          </article>
-
-          <article class="role-card reveal">
-            <span class="role-number">02</span>
-            <div class="role-icon" aria-hidden="true">◇</div>
-            <h3>Plugin development & packaging</h3>
-            <p>Developed the Unreal Engine plugin as a complete product, from its C++ and Blueprint systems to editor integration and distributable packaging.</p>
-            <ul>
-              <li>Plugin architecture and editor tooling</li>
-              <li>C++ / Blueprint integration</li>
-              <li>Production packaging workflow</li>
-            </ul>
-          </article>
-
-          <article class="role-card reveal">
-            <span class="role-number">03</span>
-            <div class="role-icon" aria-hidden="true">✦</div>
-            <h3>One-click environment conversion</h3>
-            <p>Designed every stage of the automated capture pipeline. One action analyzes the level, builds the camera plan, captures the environment, optimizes the result, and prepares it for the web.</p>
-            <ul>
-              <li>Automatic camera generation</li>
-              <li>Capture, optimization, and export</li>
-              <li>End-to-end web delivery path</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="system section" id="system">
-      <div class="shell">
-        <div class="section-heading reveal">
-          <div>
-            <span class="section-index">03 / The system</span>
-            <h2>One action. A complete spatial pipeline.</h2>
-          </div>
-          <p>The system coordinates geometry analysis, camera planning, capture, optimization, and delivery as one continuous process.</p>
-        </div>
-
-        <div class="pipeline" data-pipeline>
-          <div class="pipeline-rail" role="tablist" aria-label="DirectSplat pipeline stages">
-            <button class="stage is-active" role="tab" aria-selected="true" data-stage="0">
-              <span>01</span><strong>Define</strong>
-            </button>
-            <button class="stage" role="tab" aria-selected="false" data-stage="1">
-              <span>02</span><strong>Analyze</strong>
-            </button>
-            <button class="stage" role="tab" aria-selected="false" data-stage="2">
-              <span>03</span><strong>Plan</strong>
-            </button>
-            <button class="stage" role="tab" aria-selected="false" data-stage="3">
-              <span>04</span><strong>Validate</strong>
-            </button>
-            <button class="stage" role="tab" aria-selected="false" data-stage="4">
-              <span>05</span><strong>Capture</strong>
-            </button>
-            <button class="stage" role="tab" aria-selected="false" data-stage="5">
-              <span>06</span><strong>Optimize</strong>
-            </button>
-            <button class="stage" role="tab" aria-selected="false" data-stage="6">
-              <span>07</span><strong>Deliver</strong>
-            </button>
-          </div>
-
-          <div class="pipeline-panel reveal" role="tabpanel" aria-live="polite">
-            <div class="pipeline-visual" aria-hidden="true">
-              <div class="volume-cube">
-                <i></i><i></i><i></i><i></i>
-              </div>
-              <div class="scan-line"></div>
-            </div>
-            <div>
-              <span class="panel-kicker" data-stage-kicker>Capture volume</span>
-              <h3 data-stage-title>Define the world to convert.</h3>
-              <p data-stage-copy>A configurable spatial bound identifies the level region that belongs in the final experience. Multiple regions can be combined while preserving world transforms and orientation.</p>
-              <div class="panel-tags" data-stage-tags>
-                <span>Volume aware</span><span>Transform safe</span><span>Multi-region</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="feature feature-camera section">
-      <div class="shell feature-grid">
-        <div class="feature-media reveal">
-          <img src="assets/camera-intelligence.png" alt="Technical visualization of automated cameras evaluating a multi-level environment" loading="lazy">
-          <span class="media-caption">Automated capture planning / concept visualization</span>
-        </div>
-        <div class="feature-copy reveal">
-          <span class="section-index">04 / Spatial intelligence</span>
-          <h2>The level chooses the cameras.</h2>
-          <p>DirectSplat converts the selected volume into a structured capture grid. It generates layered, boundary, inner, and ring-based camera candidates, then evaluates the environment around each position.</p>
-          <div class="feature-list">
-            <div><span>01</span><p><strong>Adaptive camera placement</strong> distributes viewpoints across bottom, middle, top, boundary, and internal regions.</p></div>
-            <div><span>02</span><p><strong>Geometry-aware framing</strong> adjusts viewing direction and focal behavior using nearby depth and surface information.</p></div>
-            <div><span>03</span><p><strong>Invalid-view rejection</strong> removes blocked, empty, back-facing, or visually unhelpful camera positions.</p></div>
-            <div><span>04</span><p><strong>Complexity-aware coverage</strong> increases capture density where the environment contains more layers or visual clutter.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="engineering section" id="engineering">
-      <div class="shell">
-        <div class="section-heading reveal">
-          <div>
-            <span class="section-index">05 / Engineering</span>
-            <h2>Built for production, not a single demo.</h2>
-          </div>
-          <p>The plugin is designed to process large environments predictably, protect long-running work, and produce practical assets for real-time delivery.</p>
-        </div>
-
-        <div class="engineering-grid">
-          <article class="engineering-card wide reveal">
-            <div class="card-signal">
-              <span></span><span></span><span></span><span></span><span></span><span></span>
-            </div>
-            <span class="card-label">GPU pipeline</span>
-            <h3>Capture and simplification close to the renderer.</h3>
-            <p>Renderer integration, compute passes, GPU readback, and coverage-preserving simplification keep the heavy spatial work inside Unreal’s rendering ecosystem.</p>
-          </article>
-
-          <article class="engineering-card reveal">
-            <span class="card-label">Spatial proxy</span>
-            <h3>Fast geometry understanding</h3>
-            <p>Selected level geometry is gathered asynchronously and converted into a compact collision proxy used for camera queries and spatial validation.</p>
-          </article>
-
-          <article class="engineering-card reveal">
-            <span class="card-label">Adaptive detail</span>
-            <h3>Preserve edges, simplify flats</h3>
-            <p>Hierarchical merging treats uniform surfaces differently from fine geometry, reducing redundant splats while retaining structural detail.</p>
-          </article>
-
-          <article class="engineering-card reveal">
-            <span class="card-label">Reliability</span>
-            <h3>Resume without starting over</h3>
-            <p>Progress state, completed regions, capture counts, and frozen plans allow long jobs to continue safely after interruption.</p>
-          </article>
-
-          <article class="engineering-card reveal">
-            <span class="card-label">Resource awareness</span>
-            <h3>Scale work to the GPU</h3>
-            <p>Chunk planning and resource telemetry help divide larger environments into manageable workloads instead of relying on one fragile monolithic pass.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="auth section">
-      <div class="shell auth-panel reveal">
-        <div class="auth-visual" aria-hidden="true">
-          <div class="browser-node"><span></span><span></span><span></span><b>WEB</b></div>
-          <div class="auth-path"><i></i><i></i><i></i></div>
-          <div class="engine-node"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="4"></circle><circle cx="8" cy="14" r="2.5"></circle><circle cx="28" cy="12" r="2"></circle><path d="M10 14 18 18l10-6M18 18l7 8"></path></svg><b>PLUGIN</b></div>
-        </div>
-        <div class="auth-copy">
-          <span class="section-index">06 / Connected product</span>
-          <h2>Authorization that belongs inside the plugin.</h2>
-          <p>I implemented the complete authorization bridge between the web account experience and Unreal Engine. Users can access the connected workflow without breaking context or leaving the editor-driven product journey.</p>
-          <div class="auth-points">
-            <span>Native Unreal integration</span>
-            <span>Connected web identity</span>
-            <span>Product-ready packaging</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="result section" id="result">
-      <div class="result-backdrop" aria-hidden="true">
-        <img src="assets/web-delivery.png" alt="" loading="lazy">
-      </div>
-      <div class="result-scrim" aria-hidden="true"></div>
-      <div class="shell result-content">
-        <span class="section-index reveal">07 / The result</span>
-        <h2 class="reveal">Any Unreal environment.<br><span>One path to the web.</span></h2>
-        <p class="reveal">DirectSplat turns interiors, exterior spaces, architectural scenes, and large layered environments into optimized spatial experiences ready to run in a browser.</p>
-        <div class="result-flow reveal" aria-label="DirectSplat result flow">
-          <span>Unreal level</span><i>→</i><span>Automated capture</span><i>→</i><span>Optimized splat</span><i>→</i><span>Interactive web</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="stack section">
-      <div class="shell stack-grid">
-        <div>
-          <span class="section-index reveal">08 / Technology</span>
-          <h2 class="reveal">The systems behind the experience.</h2>
-        </div>
-        <div class="stack-list reveal">
-          <span>Unreal Engine</span>
-          <span>C++</span>
-          <span>Blueprints</span>
-          <span>Render Dependency Graph</span>
-          <span>RHI compute</span>
-          <span>GPU readback</span>
-          <span>Environment Query System</span>
-          <span>glTF / GLB</span>
-          <span>Gaussian PLY</span>
-          <span>Web runtime delivery</span>
+    <!-- Stack -->
+    <section class="cs-section" id="stack">
+      <div class="cs-section-head">
+        <span class="cs-index">04 / Stack</span>
+        <div class="cs-chips">
+          <span>Unreal Engine</span><span>C++</span><span>Blueprint</span><span>Editor tooling</span><span>Gaussian Splatting</span><span>Web delivery</span>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="shell footer-grid">
-      <div>
-        <a class="brand" href="#top">
-          <svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="4"></circle><circle cx="8" cy="14" r="2.5"></circle><circle cx="28" cy="12" r="2"></circle><circle cx="26" cy="25" r="3"></circle><path d="M10 14 18 18l10-6M18 18l8 7"></path></svg>
-          <span>DirectSplat</span>
-        </a>
-        <p>Unreal Engine environments, automated for the web.</p>
-      </div>
-      <div class="footer-role">
-        <span>Designed & developed by</span>
-        <strong>Hassan Ahmad</strong>
-        <span>Lead Programmer</span>
-      </div>
-      <div class="footer-links">
-        <a href="https://github.com/HassanAhmad7" target="_blank" rel="noreferrer">GitHub ↗</a>
-        <a href="#top">Back to top ↑</a>
-      </div>
+  <nav class="dock" aria-label="Primary navigation">
+    <a class="dock-brand" href="../"><span class="dock-mark">H</span><span>Hassan Ahmad</span></a>
+    <div class="dock-links">
+      <a href="../">Home</a>
+      <a href="../work/" class="is-active">Work</a>
+      <a href="../about/">About</a>
+      <a href="../about/#contact">Contact</a>
     </div>
-    <div class="shell footer-bottom">
-      <span>© <span data-year></span> Hassan Ahmad</span>
-      <span>DirectSplat · Technical portfolio case study</span>
+    <div class="dock-icons">
+      <a href="https://github.com/HassanAhmad7" target="_blank" rel="noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></a>
+      <a href="mailto:hassanahmadofficial1@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20v14H2z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m2 6 10 7 10-7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+      <a href="../assets/hassan-ahmad-resume.pdf" target="_blank" rel="noopener" aria-label="Resume"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M14 2v5h5M9 12h7M9 16h7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
     </div>
-  </footer>
+  </nav>
 </body>
 </html>

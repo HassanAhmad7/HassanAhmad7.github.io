@@ -38,6 +38,7 @@
 /* Steps */
 .cs-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
 .cs-steps-3 { grid-template-columns: repeat(3, 1fr); }
+.cs-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
 .cs-step { padding: 20px; border: 1px solid var(--line); border-radius: 10px; min-height: 190px; display: grid; align-content: start; gap: 10px; }
 .cs-step span { font: 500 clamp(28px, 3vw, 40px)/.9 var(--display); color: rgba(255,255,255,.18); }
 .cs-step h3 { font-size: 15px; letter-spacing: .02em; }
@@ -51,6 +52,7 @@
 
 /* Cards */
 .cs-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.cs-cards-3 { grid-template-columns: repeat(3, 1fr); }
 .cs-card { padding: 24px; border: 1px solid var(--line); border-radius: 10px; }
 .cs-card small { display: block; font: 500 9px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--faint); margin-bottom: 14px; }
 .cs-card h3 { font-size: 20px; margin-bottom: 10px; }
@@ -84,7 +86,7 @@
 @media (max-width: 720px) {
   .cs-section { padding-top: 64px; }
   .cs-section-head { grid-template-columns: 1fr; gap: 10px; }
-  .cs-two, .cs-two.is-wide-left, .cs-cards { grid-template-columns: 1fr; }
+  .cs-two, .cs-two.is-wide-left, .cs-cards, .cs-cards-3 { grid-template-columns: 1fr; }
   .cs-steps { grid-template-columns: 1fr; }
   .cs-spec li { grid-template-columns: 1fr; gap: 4px; }
   .cs-meta div { grid-template-columns: 80px 1fr; }
